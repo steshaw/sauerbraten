@@ -1,0 +1,82 @@
+Title    : Caves
+Author   : Marc A. Pullen (aka Fanatic)
+Website  : fanaticalproductions.net
+Released : July 8, 2007
+Engine   : Sauerbraten
+Version  : Public Spring release with the update patch
+
+           http://cubeengine.com/forum.php4?action=display_thread&thread_id=1347
+
+           sauerbraten.exe file created date is April 13th 2007
+
+           Update patch is located here:
+           http://sauerbraten.org/patch/physics_patch_2007_04_15_win32_linux.tar.gz 
+
+---------------------------
+Important!
+---------------------------
+
+Fix the blocking on curvey chains before running the game, and read more below for details on the map itself.
+
+Modify your local file for the curve chain models to make them non-blocking:
+
+[Sauerbraten install]\packages\models\tentus\chains\md2.cfg
+
+...from:
+
+mdlspec 100
+
+...to:
+
+mdlspec 100
+mdlcollide 0
+
+That will make the curve chain non-blocking. This is currently fixed in the CVS version, but not the current public release.
+
+If you don't change it, you will have to jump over the bounding box of the curve chain in several areas, and won't be able to get past a few other areas.
+
+---------------------------
+Description
+---------------------------
+
+I started this map about a month or two ago after watching the Blade movies back to back one weekend.
+
+The general idea is you wake up in a small town, everything looks like it was recently in use, but no one can be found.
+
+You wander around and find deep down in the caves an underground vampire "castle", and they must have just fed and are back in their coffins.
+
+This map was not intended to run fast or with high FPS. It was designed to look "pretty". As such, I didn't add any weapons or ammo, no health or pickups.
+
+Think of it as a demo map to see what the engine can do and how well (or poorly) your system can run it.
+
+I added some custom sounds for wind and water effects, nothing fancy, and a custom song I wrote for the map that plays in a loop.
+
+Load it up, wander around, and enjoy.
+
+If you get stuck on any stairs or a non-flat surface, press E twice and you will bounce out of it. It looks like the engine doesn't handle some weird angles well and the player gets stuck.
+
+---------------------------
+Loading This Map (Windows)
+---------------------------
+
+Unzip all the files in this zip file in your Sauerbraten/packages/ folder with directory structure.
+
+It will unzip the main map files in packages/base and the sound files in packages/sounds/fanatic/
+
+To load this map, open a DOS prompt, change to your Sauerbraten directory (where your sauerbraten.bat file is located) and type:
+
+sauerbraten.bat -lfanatic_caves -w[width] -h[height]
+
+I have a descent system, so I use this:
+
+sauerbraten.bat -lfanatic_caves -w1600 -h1200
+
+You can use a lower resolution to get better framerates, for example:
+
+sauerbraten.bat -lfanatic_caves -w1024 -h768
+sauerbraten.bat -lfanatic_caves -w800 -h600
+sauerbraten.bat -lfanatic_caves -w640 -h480
+
+Try different resolutions to find what works best with your system.
+
+[END OF FILE]
