@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>cube &raquo; Script Demo - Keyboard Switch</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+in autoexec.cfg (create in base game dir if it doesn't exist):<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">bind e []</pre>
+
+to disable edittoggle at game engine start.<br />
+then modify data/menus.cfg:<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">newgui keyswitcher [
+guibutton &quot;normal&quot; [exec gamekeys.cfg]
+guibutton &quot;editor&quot; [exec editkeys.cfg]
+]</pre>
+
+Do not forget to add a &quot;showgui&quot;-line for your new menu too (in data/menus.cfg, e.g. in the main menu).<br />
+Then all you have to do is copy data/defaults.cfg to gamekeys.cfg and editkeys.cfg (in base folder), remove all non-keybind lines<br />
+and then edit them to match your needs.<br />
+Remember to keep the edittoggle bind for editkeys.cfg and in gamekeys.cfg to bind to an empty string (like in autoexec.cfg above).
+    </div>
+  </body>
+</html>

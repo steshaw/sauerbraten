@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>cube &raquo; Blender Animated Md3 Export</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+Hello and welcome to the blender animated md3 character export tutorial. It is assumed you have viewed and understand the static md3 tutorial, understand basic blender commands, and have an animated character ready for export to Sauerbraten. Also, this <a class="wiki_link_ext" href="http://johnny3d.promail.ca/wikitut/blendermd3_updated.zip" rel="nofollow">exporter</a> is current and should be used for proper tag alignment for CVS Sauerbraten as of May 14, 2007.<br />
+<br />
+Lets open up blender and load the character with ctrl-O.<br />
+<br />
+<img src="http://johnny3d.promail.ca/wikitut/tut.png" alt="external image tut.png" title="external image tut.png" /><br />
+<br />
+The mesh objects are represented by arrows to show the orientation of each throughout the tutorial.<br />
+<br />
+<br />
+Select the armature and [tab] to edit mode. select the tip of the bone where you want the tag_torso to be and [ctrl-s] snap the cursor to selection.<br />
+<br />
+<em>--NOTE: the following image has the legs and torso text switched. Use your imagination. :P</em><br />
+<br />
+<img src="http://johnny3d.promail.ca/wikitut/tut3.jpg" alt="external image tut3.jpg" title="external image tut3.jpg" /><br />
+<br />
+Parent the tag to a bone [ctrl-p] that is the meeting point between the legs and torso. For graphical purposes the tag is represented in the picture by the text 'Tag_T'. Do not mistaken its position for the actual tag, which should remain at the tip of the selected bone.<br />
+<br />
+Do the same for tag_head. Again, tag_head is represented graphicaly by the text 'Tag_H' in the picture. Keep the actual tags parented to the tips of the respective bones.<br />
+<br />
+<img src="http://johnny3d.promail.ca/wikitut/tut3.png" alt="external image tut3.png" title="external image tut3.png" /><br />
+<br />
+We will add tag_weapon in a moment. But first, snap the cursor to the center of the 3d space [shift-c]. Set the rotation/pivot point to 'cursor' by typing a period [.]. This will align all rotations to the exact center of the 3d space. Now, select everything [a] and rotate everything on the z-axis counter clockwise with [r] [z] [90] [-]. To the exporter this is facing forward and will export properly.<br />
+<br />
+<img src="http://johnny3d.promail.ca/wikitut/tut8.png" alt="external image tut8.png" title="external image tut8.png" /><br />
+<br />
+In the image you can see the tag_weapon representation [Tag_W]. Alignment of this tag can be touchy. Here is a good trick to use for tag alignment. Go to the frame in your animations where the character is shooting and the arm with which you will assign the weapon is level to the x axis. Ensure you are in pose mode. Align the cursor as best you can to the tip of the bone where you want the tag to be. Go to side view [keypad 3] and add the empty tag_weapon. Parent the empty [ctrl-p] to the appropriate bone.<br />
+<br />
+Now go to the last frame of the animations. Select only the legs and tag_torso. Open the text editor, select the exporter 'md3_export_test2.py' and execute the script [right click over the text editor window and select 'execute script']. Name the file something appropriate like 'legs.md3' and export.<br />
+<br />
+Now for the torso. Ensure you are in object mode. Center the cursor [shift-c].<br />
+<br />
+<em>Note-- At this point it is a good idea to save the file as nametorso.blend--</em><br />
+<br />
+Select all [a] and align tag_torso with the centered cursor. Make sure the pivot point is set at 3D cursor [.] so that any rotations of objects and armature will occur at the cursor. Select everything except tag_torso. Rotate on the z axis 90 degrees. Now rotate selected on the x axis 90 degrees. Commands are [r] [z] [90], then [r] [x] [90]. Once complete the orientation should appear so;<br />
+<br />
+<img src="http://johnny3d.promail.ca/wikitut/tut10.png" alt="external image tut10.png" title="external image tut10.png" /><br />
+<br />
+Select the torso mesh and all tags. Export to torso.md3 or something similiar.<br />
+<br />
+Orientation for the head mesh and tag_head are the same for the head mesh.<br />
+<br />
+<img src="http://johnny3d.promail.ca/wikitut/tut11.png" alt="external image tut11.png" title="external image tut11.png" /><br />
+<br />
+One difference between exporting the head mesh with all others is that you only need one frame to export with no animations. The torso md3 will take care of the head animations.<br />
+<br />
+In the buttons window go to Scene Mode [F10] and in the Anim tab ensure Sta: is at 1 and End: is at 1.<br />
+<br />
+<img src="http://johnny3d.promail.ca/wikitut/tut13.png" alt="external image tut13.png" title="external image tut13.png" /><br />
+<br />
+Select the head mesh, tag_head, and export to head.md3 or something appropriate.<br />
+<br />
+Take a moment and congratulate yourself. If all went accordingly the hard part is over. Good job!<br />
+<br />
+Write the md3.cfg. For a comprehensive guide view /sauerbraten/docs/models.html to perform this step.<br />
+<br />
+Test, tweak, and enjoy.<br />
+<br />
+-geartrooper
+    </div>
+  </body>
+</html>

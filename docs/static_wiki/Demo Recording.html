@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>cube &raquo; Demo Recording</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+ To record a demo you need to be <strong>admin</strong>, so - even on a locally run server - you will need to set a master-password and authenticate yourself with this to gain admin status.<br />
+If you're running a linux-machine you could start a (private (=non-public)) server something like this<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">bin_unix/linux_server -mlocalhost -pMY_SECRET_PASSWORD</pre>
+
+and then in your client execute<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">/setmaster MY_SECRET_PASSWORD</pre>
+
+<br />
+It is not possible to do this on the mini-server running for your regular client, you will need to run a dedicated server and then <tt>connect localhost</tt> to it!<br />
+<br />
+This page is just a stub - please feel free to elaborate more on this subject :-)
+    </div>
+  </body>
+</html>

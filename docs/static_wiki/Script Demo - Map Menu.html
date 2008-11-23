@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <title>cube &raquo; Script Demo - Map Menu</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+When using the <tt>complete</tt> function of the <br />
+
+<ul>
+    <li><tt>map</tt>,</li>
+    <li><tt>sp</tt>,</li>
+    <li><tt>dmsp</tt>,</li>
+    <li><tt>ffa</tt>,</li>
+    <li><tt>insta</tt> and</li>
+    <li><tt>capture</tt></li>
+</ul>
+
+aliases you always use an up-to-date list of maps (=*.ogz files).<br />
+This means they will auto-complete even your <em>just saved</em> mapname.<br />
+The console uses TAB-completion for all commands and aliases, the <tt>complete</tt> command gives you TAB-completion on the first argument as files of the configured extension - ogz's in packages/base for the aforementioned aliases.<br />
+<br />
+The menus <em>do not auto-update</em> themselves;<br />
+these lists are editorial only - meaning they are a selection made by a human.<br />
+You can easily add your favourite creations, downloads and coop-edit maps by adding them to the map name lists in <tt>data/menus.cfg</tt>.<br />
+<br />
+Look for the line reading<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">newgui maps</pre>
+
+<br />
+insert after the line with <tt>rpgmaps = &quot;</tt> (line 49 in 2006-12-04 release)<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">personalmaps = &quot;my_personal_favourite_map_nr_1 my_personal_favourite_map_nr_2 my_personal_favourite_map_nr_3&quot;</pre>
+
+and inside the <tt>newgui maps</tt> block<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">guitab personal
+  guilist [
+    guilist [ genmapitems $personalmaps ]
+    showmapshot
+  ]</pre>
+
+<br />
+The whole block should look (something) like this<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">newgui maps [
+    guilist [
+      guilist [
+        genmapitems $mainmaps
+        guibutton &quot;thor&quot; &quot;map thor&quot; &quot;map&quot;
+      ]
+      showmapshot
+    ]
+    guitab more
+    guilist [
+      guilist [ genmapitems $moremaps1 ]
+      guilist [ genmapitems $moremaps2 ]
+      showmapshot
+    ]
+// my personal maps here ::
+    guitab personal
+      guilist [
+      guilist [ genmapitems $personalmaps ]
+      showmapshot
+    ]
+// :: my personal maps here
+    guitab old
+    guilist [
+      guilist [ genmapitems $oldmaps ]
+      showmapshot
+    ]
+    guitab capture
+    guilist [
+      guilist [ genmapitems $capturemaps ]
+      showmapshot
+    ]
+    guitab rpg_test
+    guilist [
+      guilist [ genmapitems $rpgmaps ]
+      showmapshot
+    ]
+]</pre>
+
+<br />
+Assuming the maps you entered truely exist in packages/base your menu modification will work.
+    </div>
+  </body>
+</html>

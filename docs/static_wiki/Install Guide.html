@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>cube &raquo; Install Guide</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 2em;"><a href="#toc0"> Windows </a></div>
+<div style="margin-left: 2em;"><a href="#toc1"> Linux/BSD </a></div>
+<div style="margin-left: 2em;"><a href="#toc2"> MacOS </a></div>
+</div>
+<br />
+The first thing you need to do is <a class="wiki_link_ext" href="http://sourceforge.net/project/showfiles.php?group_id=102911" rel="nofollow">download the game</a> and any patches provided in the current edition (available from the same <a class="wiki_link_ext" href="http://sourceforge.net/projects/sauerbraten" rel="nofollow">Sourceforge Project</a>. The packages are usually labeled in the format &quot;<tt>sauerbraten_<em>YYYY_MM_DD_CODENAME_PLATFORM</em></tt>&quot; and patches &quot;<tt>patch_<em>YYYY-MM-DD_PLATFORM</em></tt>&quot;, where YYYY is the year, MM is the month, DD is the date, CODENAME is the edition name, and PLATFORM is the system the release is made for. Should you run into any problems after following these instructions, try consulting the <a class="wiki_link" href="Beginners%20Guide.html">Beginners Guide</a>, the <a class="wiki_link" href="FAQ.html">Frequently Asked Questions</a>, and the <a class="wiki_link" href="Performance%20Guide.html">Performance Guide</a>.<br />
+<br />
+<h2 id="toc0"> Windows </h2>
+
+<ul>
+    <li>Run the provided installation executable.</li>
+    <li>Follow the instructions in the installer, take note of the installation directory as you do (usually &quot;<tt>C:\Program Files\Sauerbraten\</tt>&quot;).</li>
+    <li>If there is a patch for this release, download it and follow the same method above to install it, making sure you use <em>the same</em> installation directory.</li>
+    <li>Go to your Desktop/Start Menu and run the &quot;Sauerbraten&quot; link.</li>
+    <li><em>Advanced Note</em>: If you want to play Eisenstern (the WiP RPG), copy this link to another location, naming it &quot;Eisenstern&quot;, right click on it and select &quot;Properties&quot;. In the &quot;Target&quot; box on the &quot;Shortcut&quot; tab, add &quot;-grpg&quot; to the end. It should look something like: <tt>&quot;C:\Program Files\Sauerbraten\sauerbraten.bat&quot; -grpg</tt></li>
+</ul>
+
+<br />
+<h2 id="toc1"> Linux/BSD </h2>
+Getting the game running on a Linux or BSD based system requires a little knowledge of the command line, if this intimidates you, consider getting a copy of Windows for dual booting (install instructions above). Please note these instructions are for a single user install, in most cases you may want to use the packaging system provided by your distribution (which is beyond the scope of this document).<br />
+<br />
+
+<ul>
+    <li>Move the installation files to your home directory, if they aren't already.</li>
+    <li>Open up a console/terminal, you should be at a prompt that looks something like, <tt>[username@hostname:~]$</tt> or <tt>hostname:~$</tt> (in most cases, &quot;<tt>~</tt>&quot; is interchangable with &quot;<tt>/home/username</tt>&quot;).</li>
+    <li>Type these commands (remembering to adjust for the release and platform):</li>
+</ul>
+
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">tar -jxvf sauerbraten_YYYY_MM_DD_CODENAME_PLATFORM.tar.bz
+cd sauerbraten
+chmod +x sauerbraten_unix bin_unix/linux_client bin_unix/linux_server</pre>
+
+
+<ul>
+    <li>To run the game, type: <tt>./sauerbraten_unix</tt></li>
+</ul>
+
+<br />
+If the previous step(s) fail, take note of the error:<br />
+<br />
+
+<ul>
+    <li><em>&quot;Cannot find shared object XXXXX&quot;</em>: You don't have the necessary libraries installed, refer to your distribution's help/support for further information on how to install these.</li>
+    <li><em>&quot;Segmentation fault&quot;</em>: This could happen for a few reasons, one might be your platform doesn't support the precompiled binaries, try making some yourself (you will need the development libraries provided by your distribution).</li>
+</ul>
+
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">cd src
+make clean all install
+cd ..</pre>
+
+<br />
+<h2 id="toc2"> MacOS </h2>
+<em>TODO: Mac user please fill in this section</em>
+    </div>
+  </body>
+</html>

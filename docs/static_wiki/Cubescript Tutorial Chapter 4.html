@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <title>cube &raquo; Cubescript Tutorial Chapter 4</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<h1 id="toc0">Cubescript Tutorial</h1>
+ <br />
+<h2 id="toc1">CHAPTER 4: MORE VALUE-ABLE INFORMATION</h2>
+ <br />
+<h3 id="toc2">4.1 arg1!!</h3>
+ <br />
+Each value after a command is called an argument, “arg” for short. Many commands in Cube have only one argument; but some have several. How can you give this power to your own commands (ie zoom)? Try this out for size:<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">emergency = [
+    say We have $arg1 enemy attacking $arg2.
+    say Send $arg3 men immediately!
+]</pre>
+
+“arg1”, “arg2”, and “arg3” are three (that’s more than one) arguments following the new command “emergency”. If you type<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">/emergency many “base 1” 5</pre>
+
+The following message will be sent out to all players:<br />
+<br />
+We have many enemy attacking base 1.<br />
+Send 5 men immediately!<br />
+<br />
+Cool, huh? (Yes, there is a script you can write to check and correct your grammar/spelling. No, it will never be written.)<br />
+<br />
+A note about “arg” before we move on. “$arg” can only be used directly inside its parent script, as show. If you place it within [ ] inside of the script, use “@arg” instead. If you need a further [ ] inside the [ ], use “@@arg”, etc..:<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">example = [ $arg1 [ @arg2 [ @@arg3 [ @@@arg4 ] ] ] ]</pre>
+
+<br />
+<h3 id="toc3">4.2 if (= $continuing 1) [proceed] [return_to 2.1]</h3>
+ <br />
+For the past few sections, you’ve been using “if” statements that only do something if a value equals X. “if” statements are a lot more flexible, though. What if you wanted to do D if “zoomvar” equals one, but N if it doesn’t? Simply place the second part after the first:<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">if (= $zoomvar 1) [echo zoomvar is 1] [echo zoomvar is not 1]</pre>
+
+This will echo<br />
+<br />
+zoomvar is one<br />
+<br />
+if &quot;zoomvar&quot; is one, and<br />
+<br />
+zoomvar is not 1<br />
+<br />
+otherwise. Another neat thing to do with “if” statements is non-equals comparisions (ie greater or less than):<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">if (&gt; $zoomvar 1) [echo zoomvar is too big!]
+if (&lt; $zoomvar 1) [echo zoomvar is too small!]
+if (= $zoomvar 1) [echo zoomvar is just right!] //jff...</pre>
+
+To figure out which direction to place the compare symbols, just think (X &gt; Y), then just move the symbol to the front. Or just use<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">($zoomvar &gt; 1)</pre>
+
+Wait, there’s more! The two math equations 3-1 and 1+1 both equal 2, but they’re not the same. Cube can tell the difference between the contents of two scripts with “strcmp” (string compare):<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">if (strcmp $zoom $rootzoom) [echo you copied rootnis’ zoom] [echo you did not copy rootnis’ zoom]</pre>
+
+Then there are the “existence” comparisons.<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">if ($zoom) [echo the script zoom exists]
+&nbsp;
+if (! $zoom) [echo zoom does not exist]
+&nbsp;
+if (&amp;&amp; $zoom $rootzoom) [echo both zoom and rootzoom exist]
+&nbsp;
+if (|| $zoom $rootzoom) [echo either zoom or rootzoom exists]
+&nbsp;
+if (^ $zoom $rootzoom) [echo either zoom or rootzoom does not exist]</pre>
+
+Those should be pretty self-explanitory.<br />
+<br />
+Now, this has only a little to do with “if” statements, but see the part in parenthese ()? Those are all the equations you can perform with “if”, but you can also add, subtract, etc.:<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">(+ 2 2) //add
+&nbsp;
+(- 2 1) //subtract
+&nbsp;
+(* 2 2) //multiply
+&nbsp;
+(div 4 2) //divide
+&nbsp;
+(mod 17 5) //finds the remainder after the two numbers are divided</pre>
+
+Very similar to “if” is “while”, which is very useful. We’ll get to that later.<br />
+<br />
+<h3 id="toc4">4.3 Your fourth zoom script</h3>
+ <br />
+(still debugging the example script)
+    </div>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title>cube &raquo; Scripting Menus</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<h2 id="toc0">Menu configuration and personalization</h2>
+The games menus are completely organized in data/menus.cfg.<br />
+Providing yourself with a backup of a working copy - you can edit it to fit your needs.<br />
+<br />
+If you think that is too much of a hassle, <br />
+then there are several menu translations and ScriptPAKs that further modify your menu on <a class="wiki_link_ext" href="http://www.quadropolis.us/flexinode/list/2" rel="nofollow">quadropolis scripts</a>.<br />
+<br />
+Caution : The water-edition (2006-09-12) is the last to use the <em>2D style menus</em>,<br />
+the gui-edition (2006-12-04) is the first to use the <em>3D style menus</em>.<br />
+Be sure to check your local documentation ... code here is for the new GUI-style only!<br />
+<br />
+<hr />
+<br />
+The respective commands for menu construction are:<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">newgui S</pre>
+
+Creates a new menu with name N. All following menuitem/gui* commands will apply to this menu<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">// for 3D style check documentation - multiple types available : radio, button, slider, image, text, ...
+// as an example of a simple menu :
+newgui about [
+    guitext &quot;Sauerbraten engine&quot;
+    guitext &quot;by Wouter van Oortmerssen&quot;
+    guitext &quot;with contributions from Eihrul, Gilt and others&quot;
+    guitext &quot;(for a full list of contributors see the readme)&quot;
+    guitext &quot;http://sauerbraten.org/&quot;
+]</pre>
+
+See data/menus.cfg for further examples. If the block starts with the special character &quot;^&quot;, then this will be evaluated as a command when being displayed. This allows you to create menu items that depend on changing gamestate. Also usable for dynamic stuff (as seen in menus.cfg) is the <tt>getalias</tt> command. For a really dynamic usage of the GUI menus check-out <a class="wiki_link_ext" href="http://www.quadropolis.us/node/435" rel="nofollow">QCSP - the 'Q' CubeScript PAK</a>.<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">// 3D style
+showgui N
+// error in documentation :
+showgui servers
+// not &quot;showservermenu&quot; as the docs still say from 2D times :-P</pre>
+
+Displays the menu with name N previously defined, and allows the user to pick an item with the mouse cursor. Upon clicking the highlighted item, the associated action will be executed. Pressing ESC will cancel the menu.<br />
+<br />
+<hr />
+<br />
+To show you how easy things can be done : some examples<br />
+<br />
+
+<ul>
+    <li><a class="wiki_link" href="Script%20Demo%20-%20Map%20Menu.html">how-to add my own favourite maps to the menu</a></li>
+</ul>
+
+<br />
+
+<ul>
+    <li>sure you can switch your team by menu,</li>
+</ul>
+
+  but what about more options? What about switching between complete identities?<br />
+  <a class="wiki_link" href="Script%20Demo%20-%20Persona%20Menu.html">a persona switcher via menu</a><br />
+<br />
+
+<ul>
+    <li>An even less elaborate example,</li>
+</ul>
+
+  If you're annoyed at &quot;e&quot; toggling editmode just about every time you get hectic during a game ...<br />
+  ... then try out something like this :<br />
+  <a class="wiki_link" href="Script%20Demo%20-%20Keyboard%20Switch.html">keyboard layout switcher</a>
+    </div>
+  </body>
+</html>

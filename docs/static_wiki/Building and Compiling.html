@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>cube &raquo; Building and Compiling</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+
+
+<table class="wiki_table">
+    <tr>
+        <td><strong><em>This page is a stub, please help the Sauerbraten Wiki by <a href="http://cube.wikispaces.com/page/edit/PageName" rel="nofollow">expanding it</a>.</em></strong><br />
+</td>
+    </tr>
+</table>
+
+The following are methods to compile Sauerbraten for the three main target OSes (Windows, Linux and Mac OS X) without any commercial software.<br />
+<br />
+<hr />
+<br />
+<h2 id="toc0">Windows</h2>
+ To compile Sauerbraten under Windows, download <a class="wiki_link_ext" href="http://www.codeblocks.org" rel="nofollow">Code::Blocks</a> and install it. After installation has completed, load up Code::Blocks, go to File &gt; Open. Navigate to &quot;sauerbraten/src/mingw&quot; and select &quot;sauerbraten.cbp&quot;. Once the project has loaded, go to Build &gt; Build, and wait patiently for sauerbraten to compile. Once it has finished compiling, you will find the EXE in &quot;sauerbraten/bin&quot; under the name &quot;sauerbraten-mingw.exe&quot;. Simply edit your .bat launcher to use this executable instead, and enjoy.<br />
+<strong>MeatROme</strong> says: I've not tried CodeBlocks on Windows myself, but I used to handle it via MinGW/msys manually .. as far as I know the MinGW that ships with CodeBlocks has serious issues (especially when compiling sauerbraten).<br />
+<strong>Ultran00b</strong> says: Check <a class="wiki_link_ext" href="http://www.develer.com/oss/GccWinBinaries" rel="nofollow">here</a> for a more up to date version of MinGW that should be much less buggy.<br />
+<br />
+<br />
+An alternative method for compiling under Windows is by using Microsoft's Visual C++ 2008 Express Edition. This method is slightly more painful than compiling with Code::Blocks and MinGW, but if you are more familiar with the VC++ line of IDE's, than it can be worth it. To start, navigate to sauerbraten\src\vcpp, double click on sauerbraten.sln, and click through the process of converting the solution to the latest format. Now, you should have the solution open in front of you. Minimize it, (you should still have sauerbraten\src\vcpp open) and open sauerbraten.rc in notepad or your preferred text editor. The top line should say &quot;#include &quot;afxres.h&quot;. Now, this header file is deprecated, so change it to the more recent &quot;winresrc.h&quot;. (Note that you should have the Platform SDK installed, which you probably do if you're developing with VC++; you should have the include directories set up, because that's where the header is.) Save and close. One more thing to go: Right click on sauerbraten in the solution explorer, go to properties, expand Linker, go to General, and change ..\..\bin\sauerbraten.exe to something like ..\..\bin\sauerbraten-vcpp.exe, since we don't want to replace the vanilla Sauerbraten executable. Hit OK. Now you're ready! Hit Build-&gt;Build Solution, and wait patiently for it to compile. Like above, edit your .bat launcher (or create a new one) to use the executable you compiled. Have fun!<br />
+<br />
+<hr />
+<br />
+<h2 id="toc1">Linux</h2>
+ Provided they have GCC installed (package 'build-essential' on a lot of distributions) the users of linux need only perform the <em>usual</em> make-dance.<br />
+Change into the directory &quot;sauerbraten/src&quot; (in a terminal) and then run<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">make clean
+make
+make install</pre>
+
+<br />
+Of course - after this - they need to make sure the run the <tt>bin_unix/native_*</tt> binaries - not the <tt>bin_unix/linux_*</tt>!<br />
+<br />
+<hr />
+<br />
+<h2 id="toc2">Mac OS X</h2>
+ Todo..
+    </div>
+  </body>
+</html>

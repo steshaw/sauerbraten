@@ -1,0 +1,151 @@
+<html>
+  <head>
+    <title>cube &raquo; Hudguns with Hands III</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<img src="files/Screenshoti.png" alt="Screenshoti.png" title="Screenshoti.png" style="height: 675px; width: 888px;" align="left" /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+The reason for this is Blender's axis orientation is different from that of Sauerbraten and most graphic applications, for that matter.<br />
+<br />
+Now align the empty for the duplicate weapon in the same fashion with this orientation; X axis on X, Y axis on Y, Z axis on Z. I am unsure as to the reasoning behind this. But it works. :P<br />
+<img src="files/Screenshotj.png" alt="Screenshotj.png" title="Screenshotj.png" style="height: 669px; width: 880px;" align="left" /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+Now you are ready to export. Rename the hands' empty to tag_weapon. Select the armature to ensure the proper action is represented in the action editor. Open the export script obtained <a class="wiki_link" href="Blender%20Animated%20Md3%20Export.html">here</a> in another window;<br />
+<br />
+<img src="files/Screenshotk.png" alt="Screenshotk.png" title="Screenshotk.png" style="height: 669px; width: 879px;" align="left" /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+Ensure you are on the final frame of the animation. Right click on the text window and Execute Script! Name the file something appropriate like Gl_hands.md3. Now rename the empty to its original, tag_hands. Select the empty for the duplicate weapon and name it tag_weapon. Ensure the proper action appears in the action editor. Select the empty and the weapon. Right click on the text window and Execute Script. Name the file appropriately with the .md3 extension. Now for a quick trial of your newly created hands and weapon write a quick md3.cfg like so;<br />
+<br />
+md3load Glhands.md3<br />
+md3skin Hands ./handtexture.jpg<br />
+md3anim &quot;gun idle&quot; 0 1<br />
+md3anim &quot;gun shoot&quot; 1 18<br />
+<br />
+md3load gl.md3<br />
+md3skin gl ./gltexture.jpg<br />
+md3anim &quot;gun idle&quot; 0 1<br />
+md3anim &quot;gun shoot&quot; 1 18<br />
+<br />
+md3link 0 1 tag_weapon<br />
+<br />
+and save it. place all of the necessary files into :Sauerbraten/packages/models/hudguns/gl/ after moving its current contents. Fire up Sauerbraten to test the location of the hands and weapon and the linkage/orientation. If all went well proceed to the next step. Otherwise readjust your animations and/or models as necessary until you are satisfied. If all goes well it should look something like this;<br />
+<img src="files/Screenshotm.png" alt="Screenshotm.png" title="Screenshotm.png" style="height: 660px; width: 881px;" align="left" /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+Repeat the same process for as many weapons as you wish to have. If you want to use one single set of hands for all the weapons use a separate action for the hands for each weapon. Align all of the hand animations in the nla editor and inform Sauerbraten where to find the hands.md3 file which will logically be placed in Sauerbraten/packages/models/hudguns/.<br />
+<br />
+I hope you find success with this tutorial.<br />
+<br />
+-geartrooper
+    </div>
+  </body>
+</html>

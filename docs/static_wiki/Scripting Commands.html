@@ -1,0 +1,282 @@
+<html>
+  <head>
+    <title>cube &raquo; Scripting Commands</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<h1 id="toc0">Command Reference</h1>
+<br />
+The following is an excerpt of commands available to you for scripting,<br />
+refer to your local documentation to find out all commands available.<br />
+On this page you will find commands and examples of usage to help get you into CubeScript.<br />
+Almost all commands can be used in scripting, although a map-cfg cannot override persitent values - including among others <tt>watersubdiv</tt>, <tt>waterlod</tt>, <tt>maxparticledistance</tt> and <tt>fov</tt> among others.<br />
+You can't override them in a map-cfg - a message will be output to your console in such cases - <br />
+you can only set them manually. It counts as a manual setting if used via the menu!<br />
+<br />
+<hr />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">exec C</pre>
+
+Executes all commands in config file C.<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">history N</pre>
+
+Executes the Nth command in the command line history. For example, binding &quot;history 0&quot; to a key allows you to quickly repeat the last command typed in (useful for placing many identical entities etc.)<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">saycommand P...</pre>
+
+This puts a prompt on screen where you can type stuff into, which will capture all keystrokes until you press return (or esc to cancel). You may press tab to autocomplete commands/aliases/variables, and up/down keys to browse the command history. If what you typed started with a &quot;/&quot;, the rest of it will be executed as a command, otherwise its something you &quot;say&quot; to all players. default key = T for talk, ` for commands. If P is prefix to insert to the buffer, (default key ` inserts a /).<br />
+<br />
+The following example will prepare one of three messages to be output via <tt>say</tt>, but don't be fooled, you can execute anything else besides <tt>say</tt> with this too.<br />
+It binds the key <strong>K</strong> to prepare the command onto the console upon release of the key.<br />
+You will only see a beautified display - for example : <em>GREET #2</em><br />
+But if you confirm the command, it will execute the prepared <strong>saycommand</strong>.<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">// ----------------
+// greetings :
+// ----------------
+&nbsp;
+GMSG0   = &quot;Hi! Let's Get It On!&quot;
+GMSG1   = &quot;Hello! Get Ready To Be Cubed&quot;
+GMSG2   = &quot;Hi There! Let's Fight Some...&quot;
+&nbsp;
+// change MAXC if you add/remove greetings above
+GMSG_MAXC = 2
+// the first index to use (default : 0)
+GMSGCOUNT = 0
+&nbsp;
+// ----------------
+// beautification :
+// ----------------
+&nbsp;
+CCOL = &quot;:^L0&quot;
+// JAT : sic! ::
+JAT = &quot;                                                                                                                                         &quot;
+// :: JAT : sic!
+J4U = (concatword $JAT &quot;;&quot;)
+&nbsp;
+// ----------------
+// functionality :
+// ----------------
+&nbsp;
+// bogus alias, to allow for pretty command call
+GREET = []
+&nbsp;
+greeting = [
+    GMSGCOUNT = (+ $GMSGCOUNT 1)
+    if (&gt; $GMSGCOUNT $GMSG_MAXC) [GMSGCOUNT = 0]
+    CIN = (concatword &quot;#&quot; $GMSGCOUNT)
+    CVN = (concatword &quot;$&quot; GMSG $GMSGCOUNT)
+    // this is what to output - it will look pretty
+    // and even ignores any surplus hitting of keys by the user ;)
+    CSC = (concat GREET $CCOL $CIN $J4U say @$CVN &quot;;foo = bar&quot;)
+    onrelease [saycommand [/@@CSC]]
+]
+&nbsp;
+bind K [greeting]</pre>
+
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">weapon a b c</pre>
+
+Tries to select weapons a, b &amp; c, in that order, if they have ammo ( 0 = fist, 1 = sg, 2 = cg, 3 = rl, 4 = rifle, 5 = gl ). If none of the 3 indicated have any ammo, it will try the remaining weapons for one with ammo (in order 3/2/1/4/0) (the fist needs no ammo). You can use the weapon command with 0 to 3 arguments. examples:<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">// close up selection :
+weapon 2 1 0
+&nbsp;
+// far away selection :
+weapon 4 3 2
+&nbsp;
+// medium distance selection :
+weapon 3 2 1
+&nbsp;
+// humiliate selection :)
+weapon 0
+&nbsp;
+// just switch to anything with ammo :
+weapon</pre>
+
+<br />
+In any selection, it will skip whichever weapon you have currently selected, so executing a weapon command repeatedly toggles between the two best weapons with ammo within a given selection. default keys 0 to 4 select the corresponding weapons, with sensible default alternatives, middle mouse button is a simple weapon switch.<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">alias N A
+N = A</pre>
+
+Binds name N to commands A, after which you can use N as a shortcut for A. You may re-bind N as often as you like, call it recursively etc. You may use N = A as a shortcut for alias.<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">forward
+backward
+left
+right</pre>
+
+Move you in said direction (defaults to cursor keys).<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">attack</pre>
+
+Fires the current weapon. default = left mouse<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">jump</pre>
+
+Triggers a jump. default key space &amp; right mouse.<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">fov N</pre>
+
+Sets your FOV to 10..150.<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">setfullscreenshader Name</pre>
+
+Sets your favourite fullscreen shader. Active permanently once set. Use without name argument to turn it off. Current example shaders: invert, gbr, sobel, bloom<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">screenshot</pre>
+
+Writes out &quot;screenshotN.bmp&quot;, where N is the number of milliseconds since cube was launched (default key = F12).<br />
+A little modified example :<br />
+<a name="prettyscreenshot"></a><br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">// do a pretty screenshot (hiding HUD and all)
+MPscreenshot = [
+    phh = $hidehud
+    phs = $hidestats
+    phg = $hudgun
+    hudgun 0
+    hidestats 1
+    hidehud 1
+    sleep 2 screenshot
+    sleep 3 [hudgun $phg; hidestats $phs; hidehud $phh;echo SCREENSHOT made]
+]</pre>
+
+<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">hidehud b</pre>
+
+Turns on/off the entire hud display, which includes rendering stats, ammo, and echoed text. (default = 0)<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">crosshairsize n</pre>
+
+Sets the size of your crosshair, 0 being off (default = 3)<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">keymap K N A
+&nbsp;
+// for players using a german keyboard the following keymappings can be added to data/keymap.cfg
+keymap 223 SZ
+keymap 252 UE
+keymap 246 OE
+keymap 228 AE</pre>
+
+<br />
+Sets up the keymap for key code K with name N and default action A. You should never have to use this command manually, use &quot;bind&quot; instead.<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">// for people uncomfortable with using &quot;BACKQUOTE&quot;:
+bind CARET [saycommand /]</pre>
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>cube &raquo; Masks on Models</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<h1 id="toc0">specular and glow</h1>
+<br />
+A masks.jpg is an image that combines a glowmap and a specular map. To fit both into one image, they are essentially greyscale images in the red (specular) and green (glow) channel. The blue channel is unused, but might be used in the future for another type of map.<br />
+<br />
+Easiest way to grasp the concept would be to open an exsisting mask (for example /packages/models/boost/masks.jpg).<br />
+Open your &quot;channels&quot; window in either Photoshop or The Gimp, and have a look at the individual channels. Blue is black (unused) and the red and green channels will hold the specular and glow information. The brighter the values, the stonger the effect will be. With the specular map, you can control the shininess of the materials (and for example make the metal more reflective than the wood parts of a model) and the glow map will allow you to have certain parts of the model appear as if they emit light (for example lamps, leds, lava, flames). Note that the colour, since the green channel only holds brightness values, will have to be controlled via the colour map (usually referred to as the &quot;skin&quot;).<br />
+If your model doesn´t need any glow, just keep the green channel empty (i.e. black).<br />
+<br />
+To use your mask, you have basically two options. On an md2, you simply drop a file called &quot;masks.jpg&quot; into your model´s directory, and it will be used on the model. On an md3, you either use it without configuration, and add a &quot;masks.jpg&quot; like for an md2, or you can assign diffrent mask textures to the parts of your model, wich then can have individual names. (see &quot;md3 how-to&quot; below for further info).<br />
+<br />
+You can also control the overall strenght of the specular part with the &quot;mdlspec&quot; command in your model´s cfg-file. Be sure to keep the blue channel empty, for one day it might be used for a third type of map, and you don´t want any unwanted results to appear on your model that day.
+    </div>
+  </body>
+</html>

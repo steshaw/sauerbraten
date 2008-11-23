@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>cube &raquo; Script Demo - Persona Menu</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+open menus.cfg and look for a line reading<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">newgui main</pre>
+
+<br />
+this is where it all begins!<br />
+<br />
+Then locate the line defining the quit menuitem<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">guibutton &quot;quit&quot;</pre>
+
+and place a new line above it :<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">guibutton &quot;Persona&quot; &quot;showmgui mypersona&quot;</pre>
+
+<br />
+then move to the end of the file and enter some lines to define this menu to be shown :<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">bteam = &quot;GWAR&quot;
+pnlist = &quot;Mutilator _ Anihalator _ InH4L3 BRTH ExH4L3 BRTH Frodo RING Mithrandir RING Batou PP#9 Ichikawa PP#9 Morgoth _ Spawn634 _&quot;
+&nbsp;
+genpersonas = [
+loop i (div (listlen $arg1) 2) [
+    j = (* $i 2)
+    k = (+ $j 1)
+    pn = (at $arg1 $j)
+    pt = (at $arg1 $k)
+    ct = $bteam
+    if (strcmp $pt &quot;_&quot;) [] [ct = $pt]
+    mi = (concat &quot;name&quot; (concatword $pn &quot;;team&quot;) $ct)
+    guibutton $pn $mi
+]
+&nbsp;
+newgui mypersona [
+  genpersonas $pnlist
+]</pre>
+
+<br />
+The whole thing works by taking always two elements from the list, the second being interpreted as team, if it isn't an underscore. The first will be your new name, this is displayed in the menu. The team will default (in case of an underscore) to what bteam is set to.
+    </div>
+  </body>
+</html>

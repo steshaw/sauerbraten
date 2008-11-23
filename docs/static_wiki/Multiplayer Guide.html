@@ -1,0 +1,429 @@
+<html>
+  <head>
+    <title>cube &raquo; Multiplayer Guide</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 1em;"><a href="#toc0">Introduction</a></div>
+<div style="margin-left: 2em;"><a href="#toc1">Settings</a></div>
+<div style="margin-left: 2em;"><a href="#toc2">Ogro's Etiquette Reference</a></div>
+<div style="margin-left: 2em;"><a href="#toc3">Finding a Game</a></div>
+<div style="margin-left: 1em;"><a href="#toc4">Game Modes</a></div>
+<div style="margin-left: 2em;"><a href="#toc5">Changing Modes and Maps</a></div>
+<div style="margin-left: 2em;"><a href="#toc6">Master Mode</a></div>
+<div style="margin-left: 2em;"><a href="#toc7">Team Modes</a></div>
+<div style="margin-left: 1em;"><a href="#toc8">Server Hosting</a></div>
+<div style="margin-left: 2em;"><a href="#toc9">Setup</a></div>
+<div style="margin-left: 2em;"><a href="#toc10">Player VS. Speed</a></div>
+<div style="margin-left: 2em;"><a href="#toc11">Configuration</a></div>
+<div style="margin-left: 2em;"><a href="#toc12">Public or Private?</a></div>
+<div style="margin-left: 2em;"><a href="#toc13">Router and Ping Response</a></div>
+<div style="margin-left: 2em;"><a href="#toc14">LAN Play</a></div>
+<div style="margin-left: 2em;"><a href="#toc15">Internet Play</a></div>
+</div>
+<h1 id="toc0">Introduction</h1>
+Before you start to play online you should have taken some time to setup your game.<br />
+<br />
+<h2 id="toc1">Settings</h2>
+Apart from <em>having an appropriate graphics setup</em> -<br />
+for maximum fps to keep the game fluid while online -<br />
+refer to the <a class="wiki_link" href="Performance%20Guide.html">Performance Guide</a> for this;<br />
+you should also have <em>changed your name and team</em> -<br />
+so other players can recognize you -<br />
+for which you should refer to the <a class="wiki_link" href="Beginners%20Guide.html">Beginners Guide</a>.<br />
+<br />
+<a name="OER"></a><a name="etiquette"></a><br />
+<h2 id="toc2">Ogro's Etiquette Reference</h2>
+The Ogros have an evolutionary history, a society - hence some etiquette:<br />
+
+<ul>
+    <li><em>End-Of-Match</em> : traditional shorthand : &quot;gg&quot; ... for anything from &quot;good game&quot;, &quot;great game&quot; to &quot;gross gore&quot;. Say it, it's tradition! ;)</li>
+    <li><em>TeamKill</em> : When joined up into teams it's considered polite to mumble an excuse when having TK'd, even with some &quot;lag&quot; - as soon as the situation permits, actually.</li>
+    <li><em>Voting</em> : if a vote was called, but you prefer playing as is, say so too! No use to get people vote-flooding, because they're feeling ignored, eh?! If you are master talk to players about which maps they'd like to play!</li>
+    <li><em>KickBan/Locked/MasterMode</em> : masters shouldn't abuse their powers, players shouldn't nag masters - <u>just accept it</u> if a match allows you as <strong>SPECTATOR</strong> only!</li>
+    <li><em>Join/Disconnect</em> : it would be polite to annouce yourself on join with at least saying &quot;hi&quot;, and &quot;bye&quot; before leaving.</li>
+</ul>
+
+<br />
+<h2 id="toc3">Finding a Game</h2>
+When running the game you can go to the multiplayer menu, and <em>update from the master server</em>, this will then see the currently running games available to join to.<br />
+<br />
+The <em>server browser</em> displays enough basic information about a respective game to help you choose the right server for yourself. Take note of indicators for <em>private</em> and <em>locked</em> mastermodes (where it shows &quot;<em>P</em>&quot; or &quot;<em>L</em>&quot; next to number of players).<br />
+<br />
+<h1 id="toc4">Game Modes</h1>
+The game runs in a range of different modes. Internally they are mapped to the indexes [-2 .. 0 .. 13], with modes less than zero being the <a class="wiki_link" href="Singleplayer%20Guide.html">Singleplayer</a> modes. The modes all have their own little special flavour, so you have - in theory - 16 different games instead of just one. Well, okay, 15 games and a cooperative editing mode :)<br />
+<br />
+The current multiplayer modes are 0-13, with the special <tt>mode 1</tt> - for coop-edit.<br />
+Singleplayer modes all have a negative index - also don't forget your aliases (like <tt>sp</tt>, <tt>ffa</tt>, <tt>insta</tt>, ...)<br />
+<br />
+<br />
+For completeness we'll list the SinglePlayer modes here too, which of course aren't available during a multiplayer game.<br />
+
+
+<table class="wiki_table">
+    <tr>
+        <td><strong>»n«</strong><br />
+</td>
+        <td><strong>name</strong><br />
+</td>
+        <td><strong>description</strong><br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>-5</strong><br />
+</td>
+        <td><strong>SlowMo-SP</strong><br />
+</td>
+        <td>slow-motion singleplayer - speed changes according to your health<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>-4</strong><br />
+</td>
+        <td><strong>SlowMo-DMSP</strong><br />
+</td>
+        <td>slow-motion singleplayer deathmatch - speed changes according to your health<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>-3</strong><br />
+</td>
+        <td><strong>DemoPlayback</strong><br />
+</td>
+        <td>this mode is used to playback demos - see <a class="wiki_link" href="Demo%20Recording.html">Demo Recording</a><br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>-2</strong><br />
+</td>
+        <td><strong>SP</strong><br />
+</td>
+        <td>basic singleplayer<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>-1</strong><br />
+</td>
+        <td><strong>DMSP</strong><br />
+</td>
+        <td>singleplayer deathmatch<br />
+</td>
+    </tr>
+</table>
+
+<br />
+Of course all (legal) modes are available via the voting menu.<br />
+<br />
+
+
+<table class="wiki_table">
+    <tr>
+        <td><strong>»n«</strong><br />
+</td>
+        <td><strong>name</strong><br />
+</td>
+        <td><strong>description</strong><br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>0</strong><br />
+</td>
+        <td><em>ffa/default</em><br />
+</td>
+        <td>Your basic fps-game mode. With items spawning, respawning, and players just fragging away. Actually <em>ffa/default</em> and <em>ffa/duel</em> aren't really different modes, rather they may be used to indicate a server either looking for players or already set up and fragging away. But this doesn't seem to be used much yet.<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>1</strong><br />
+</td>
+        <td><em>coopedit</em><br />
+</td>
+        <td>Cooperative editing in-game, for more information on this mode, refer to the <a class="wiki_link" href="Cooperative%20Editing.html">Cooperative Editing</a><br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>2</strong><br />
+</td>
+        <td><em>ffa/duel</em><br />
+</td>
+        <td>same as <em>ffa/default</em><br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>3</strong><br />
+</td>
+        <td><em>teamplay</em><br />
+</td>
+        <td>basic <em>teamplay</em> mode<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>4</strong><br />
+</td>
+        <td><em>instagib</em><br />
+</td>
+        <td>Your classic 1-shot-1-kill type of game, no items spawn in this mode - it's just movement and aiming that can keep you alive longer than your enemy. Players respawn right away after being fragged. Your only weapons are a rifle with 100 shots, and your fist - which does for quick frags when up close to your enemy, since it's &quot;rate of fire&quot; is more rapid.<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>5</strong><br />
+</td>
+        <td><em>instagib-team</em><br />
+</td>
+        <td>teamplay <em>instagib</em>.<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>6</strong><br />
+</td>
+        <td><em>efficiency</em><br />
+</td>
+        <td>You spawn with a random subset of ammunition, thus giving you a temporary assignment (especially in team mode) or simply forcing a certain tactical approach on you. Players respawn right away after being fragged.<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>7</strong><br />
+</td>
+        <td><em>efficiency-team</em><br />
+</td>
+        <td>teamplay <em>efficiency</em>.<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>8</strong><br />
+</td>
+        <td><em>insta arena</em><br />
+</td>
+        <td>Last-Man-Standing in <em>instagib</em> - see <a class="wiki_link" href="Multiplayer%20Guide.html#arena">below</a><br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>9</strong><br />
+</td>
+        <td><em>insta-clan-arena</em><br />
+</td>
+        <td>teamplay <em>instagib</em>/Last-Man-Standing - see <a class="wiki_link" href="Multiplayer%20Guide.html#arena">below</a><br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>10</strong><br />
+</td>
+        <td><em>tactics arena</em><br />
+</td>
+        <td><em>efficency</em> Based Last-Man-Standing - see <a class="wiki_link" href="Multiplayer%20Guide.html#arena">below</a><br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>11</strong><br />
+</td>
+        <td><em>tactics-clan-arena</em><br />
+</td>
+        <td>teamplay <em>efficency</em>/Last-Man-Standing - see <a class="wiki_link" href="Multiplayer%20Guide.html#arena">below</a><br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>12</strong><br />
+</td>
+        <td><em>capture</em><br />
+</td>
+        <td>This is a completely different approach to your regular capture: For starters, frags are not counted at all. The goal is to keep certain bases under your control for as long as possible. Your team is continously awarded points for each base it has currently captured - the more bases you hold for a longer time the more your teams score will increase. If your team manages to capture all bases on the map the match is ended, otherwise it ends after the 15 minute timelimit. When you have been fragged you will stay in <em>limbo</em> for 10 seconds before attempting to spawn next to one of your teams bases, preferrably the one closest to your enemies. This mode is akin to the Domination mode found in <em>Unreal Tournament</em>.<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>13</strong><br />
+</td>
+        <td><em>instacapture</em><br />
+</td>
+        <td>capture with instagib<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>14</strong><br />
+</td>
+        <td><em>regencapture</em><br />
+</td>
+        <td>like capture but without a respawn timer and the bases you own regenerate your health, armour and ammo when you stand close<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>15</strong><br />
+</td>
+        <td><em>assassin</em><br />
+</td>
+        <td>your assigned target (red skin) is worth a point, friendlies cost you a point and all others count for nothing<br />
+</td>
+    </tr>
+    <tr>
+        <td><strong>16</strong><br />
+</td>
+        <td><em>insta assassin</em><br />
+</td>
+        <td>the assassin mode as instagib<br />
+</td>
+    </tr>
+</table>
+
+<br />
+<a name="arena"></a><br />
+The <em>arena</em> modes differ from their respective basic modes (tactics is based on efficiency) by players not respawning directly after being fragged. Rather each round will only end when a <em>last-man-standing</em> has beaten all other players, then a new round starts. Currently you are completely motionless when fragged and waiting for a new round to start.<br />
+<br />
+Do not worry, there a some nice aliases defined to keep you from remembering these numbers off by heart (see the <a class="wiki_link" href="Multiplayer%20Guide.html#vote">voting aliases</a>). There are far more modes available than in most FPS games, so there should be a type of game for any player preference.<br />
+<br />
+With exception of the Capture mode - which requires the map to contain bases to capture - you can play any mode on any of the maps available, although some may be better suited to one mode more than another.<br />
+<br />
+Team mode matches have a timelimit of <em>15 minutes</em>, all other matches end after <em>10 minutes</em>.<br />
+<br />
+<a name="vote"></a><br />
+<h2 id="toc5">Changing Modes and Maps</h2>
+When playing online you can change the current mode and current map being played by voting for a new game. This is done either via the menu or by simply typing the command to the console (which is easier to show here).<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">/insta curvedm</pre>
+
+Or in full..<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">/mode 4; map curvedm</pre>
+
+<br />
+This will vote for an <em>instagib</em> match on the map <em>curvedm</em> (&quot;Curves That Kill&quot;).<br />
+<br />
+The predefined aliases of release 2006-12-04 are:<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">sp      = [ mode -2; map $arg1 ]
+dmsp    = [ mode -1; map $arg1 ]
+ffa     = [ mode  0; map $arg1 ]
+coop    = [ mode  1; map $arg1 ]
+insta   = [ mode  4; map $arg1 ]
+capture = [ mode 12; map $arg1 ]</pre>
+
+<br />
+<a name="master"></a><br />
+<h2 id="toc6">Master Mode</h2>
+The MASTER is in control of the game.<br />
+<br />
+MasterMode can be set to :<br />
+
+<ul>
+    <li>0 : OPEN - no special features</li>
+    <li>1 : VETO - if the MASTER votes, the vote is automatically accepted</li>
+    <li>2 : LOCKED - future connects go into SPECTATOR</li>
+    <li>3 : PRIVATE - future connects are disabled</li>
+</ul>
+
+<br />
+Only the MASTER is able to move SPECTATORS back into the game or KICK people.<br />
+A kicked player will not be allowed to reconnect until the server goes empty thus emptying the ban-list or until the master issues the command <tt>clearbans</tt> manually.<br />
+<br />
+The master has a range of commands at his disposal :<br />
+
+<ul>
+    <li><tt>setmaster 1|0</tt> : claim or relinquish MASTER</li>
+    <li><tt>mastermode 0|1|2|3</tt> : set the mastermode (see above)</li>
+    <li><tt>spectator B N</tt> : with 1 for on, 0 for off will set/unset SPECTATOR for player N.</li>
+    <li><tt>setteam N T</tt> : forcibly sets player N on team T</li>
+    <li><tt>kick N</tt> : kick a player by name or client-id (visible for MASTER on score-table)</li>
+</ul>
+
+<br />
+If you are MASTER you will see the clients ID behind their names on the scoreboard,<br />
+other players will see your name in green so they know who is MASTER.<br />
+<br />
+The MASTER should use his powers wisely.<br />
+Don't kick people randomly and don't switch map/mode without a good reason - especially if the other players are busy enjoying the current game. Even though you can use your VETO power to overrule everybody else. If you abuse your powers, chances are the players will change to another server to free themselves from your oppressive rule.<br />
+<br />
+<h2 id="toc7">Team Modes</h2>
+All multiplayer ogros/ironsnouts are either enemies or teammates.<br />
+The red ones are enemies,<br />
+the blue ones are on your team.<br />
+In <em>capture</em> mode this is also true for the radar blips. <br />
+Team names are just that, even if you are on <em>team red</em> your team-mates show up in blue!<br />
+<br />
+Currently the two default teams are <em>good</em> and <em>evil</em>.<br />
+<br />
+<img src="files/ogros.jpg" alt="ogros.jpg" title="ogros.jpg" /><br />
+<br />
+In certain cases you will be auto-assigned to a team,<br />
+so be sure not to be too fixed on certain playernames ... shoot the red guys!<br />
+<br />
+<tt>SP:SinglePlayer .. you'll never <strong>fight</strong> one of these in a multiplayer match</tt><br />
+<br />
+Note : the ogro will be replaced by ironsnout in the release after 2007-05-13 (&quot;spring&quot;).<br />
+<br />
+<a name="hosting"></a><br />
+<h1 id="toc8">Server Hosting</h1>
+<br />
+<h2 id="toc9">Setup</h2>
+If you want to host your own server you should be sure to have setup your network accordingly.<br />
+To enable access from a WAN (read internet) your routing needs to forward the games ports (see below); for LAN gaming see the following section about <a class="wiki_link" href="Multiplayer%20Guide.html#LAN">local network gaming</a>.<br />
+<br />
+<h2 id="toc10">Player VS. Speed</h2>
+A home DSL connection upstream is rumoured to be sufficient to host a 6-player-server, this is currently standard for a server without stating another number in the passed parameters (&quot;-cX&quot; for X players), it used to be 4 before we got a good overhaul on the network code, which slimmed down the packets nicely. Another feat brought to you by the dilligent team of developers behind your favourite multiplayer fps game!<br />
+<br />
+<a name="config"></a><br />
+<h2 id="toc11">Configuration</h2>
+For a complete list of parameters always check the documentation: <a class="wiki_link_ext" href="http://sauerbraten.org/docs/config.html" rel="nofollow">docs/config.html</a> under section <em>command line options</em>,<br />
+also read up on stuff you can do in <a class="wiki_link_ext" href="http://sauerbraten.org/docs/game.html" rel="nofollow">docs/game.html</a> (bottom).<br />
+<br />
+Take note of the possibility to set a master-password, which will give you MASTER even though somebody else already is. Because you know the servers master-password. Use comand line param <em>-pS</em> for this, where &quot;<em>S</em>&quot; is your password, this is never sent to any clients.<br />
+<br />
+If you are unsure as how to setup your network &amp;amp; firewall correctly, there are some useful hints in the following paragraphs. We can't explain every little detail about this complex subject and encourage you to use the rest of the documentation for additional help!<br />
+<br />
+<a name="registration"></a><br />
+<h2 id="toc12">Public or Private?</h2>
+If you do not want your server to be registered on the masterserver then simply point it to a non-working masterserver, most common would be <em>-mlocalhost</em>. By default the official masterserver is contacted and will, if traffic is found possible, then add your server for everbody updating their serverbrowser menu.<br />
+<br />
+<a name="router"></a><br />
+<h2 id="toc13">Router and Ping Response</h2>
+If you get a message like &quot;<em>server did not respond to ping</em>&quot; your ports aren't being forwarded correctly yet. On the forum a lot of router issues were resolved by pointing to portforward.com. Unfortunately a number of ISPs seem to hand out routers that are incapable of forwarding ports, if you have been given such a device you will, sadly, not be able to host a server.<br />
+<br />
+The UDP ports you need to forward (or DNAT) to your local box (running the server) are <em>28785</em> and <em>28786</em>.<br />
+<br />
+<a name="LAN"></a><br />
+<h2 id="toc14">LAN Play</h2>
+On your LAN the limit of players will probably only depend on the processing power of the hosting server. Use the &quot;-cX&quot; parameter to enable a maximum of X players, the default assumes a WAN setup, so is far lower than you'd like. The clients can use:<br />
+<br />
+
+<style type="text/css"><!--
+/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+.text .imp {font-weight: bold; color: red;}
+
+-->
+</style><pre class="text">/lanconnect</pre>
+
+<br />
+To connect to this server easily.<br />
+<br />
+If you are preparing for a LAN-party you might want to take some time to distribute common keybindings and/or integrate this into the menu for all players.<br />
+<br />
+<a name="WAN"></a><br />
+<h2 id="toc15">Internet Play</h2>
+If you are playing on the internet you should be aware that sometimes players might be cheating.<br />
+This is a problem that arises with every game to some degree, open source makes this issue maybe even more relevant.<br />
+<br />
+The way to protect from cheaters, or simply keeping &quot;your&quot; game under control - is using a MASTER.<br />
+The MASTER player will be colourized in the SCORE table, so you can contact this player in case you have any issues with the current game.<br />
+<br />
+Voting can be forced by the MASTER (requires mastermode 1 (VETO)), the MASTER can also set the game to be LOCKED (future connects go directly into SPECTATOR) or even set the game to PRIVATE mode, which bans all future connects. See the <a class="wiki_link" href="Multiplayer%20Guide.html#master">MASTER description</a> for details.<br />
+Regular voting works by somebody calling a mode and map - which will be output on every players console.<br />
+<br />
+If you agree you should simply call the same mode/map combination (e.g. via the multiplayer menu or by typing in manually). As soon as more than 50% of the players have agreed the game will switch to the desired mode/map combination.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>cube &raquo; Performance Guide</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+The key to a good gaming experience is the performance you get out of it, it can improve the speed, and quality of your time with it.<br />
+<br />
+<h1 id="toc0">Steps to Increasing Performance</h1>
+ Things you can change that either affect your performance or your visual quality, in order of importance:<br />
+<br />
+<h2 id="toc1">Resolution</h2>
+ Your resolution has the largest effect on performance. Change it in the <em>sauerbraten.bat</em> (Windows) or <em>sauerbraten_unix</em> (Linux/BSD/etc) in the base game folder (the <em>-w</em> and <em>-h</em> options, try <em>-w640 -h480</em> for example). If you have an extremely low framerate, lowering the resolution will have immediate effects.<br />
+<br />
+<h2 id="toc2">Video RAM</h2>
+ If you are using an older video card with 64 MB or less of video RAM (skip this section if you have more), then before you do anything else, first try enabling S3 texture compression (if your 3D card supports it) with the console command <em>/texcompress 128</em>. However, if your card does not support S3 texture compression, then add the following lines to your <em>autoexec.cfg</em> file (create the file if necessary):<br />
+<em>maxtexsize 128</em><br />
+<br />
+Texture compression should be tried first. However, if that fails, the <em>maxtexsize</em> var will limit the size of textures to be no larger than 128x128, scaling them down if necessary. Either one will use much less video RAM. If a map uses more textures space than you have available video RAM, then you will notice huge slowdowns.<br />
+<br />
+<h2 id="toc3">Shaders</h2>
+ Unless you have the latest and greatest card, shaders will hurt your framerate. Turn them off by adding the flag <em>-f0</em> to your command line, or if you want to keep them on, use <em>-f1</em> to use the fastest shader support that your driver offers.<br />
+<br />
+Note that if your card doesn't support them, they will be turned off automatically already. You can also selectively turn off some shaders by setting the <em>shaderdetail</em> console variable with values 0 through 3 (i.e. <em>/shaderdetail 1</em>), with lower values meaning fewer fancy visual effects. Using the <em>-f1</em> command-line option and a low <em>shaderdetail</em> value together can make shaders perform quite well on low end cards.<br />
+<br />
+<h2 id="toc4">Antialiasing</h2>
+ While <em>-a4</em> (on the command line, may also be modified by graphics drivers) will look fantastic, especially at the lower resolutions, but for max performance should be left at the default (or <em>-a0</em>).<br />
+<br />
+<h2 id="toc5">Fullscreen Shaders</h2>
+ Do not turn full screen shaders like bloom on (in the menu) unless you have one of the latest cards.<br />
+<br />
+<h2 id="toc6">VSync</h2>
+ Turn off vertical sync (in your graphics driver options) for slightly less hiccup in framerate (at the cost of potential visual tearing).<br />
+<br />
+<h2 id="toc7">Colour Depth</h2>
+ Changing to <em>-b16</em> (16 bits per pixel) can give you quite a performance boost (but mainly only on older hardware). If you use <em>-b16</em>, be sure to use <em>-z24</em> too (a 24 bit depth buffer won't hurt your performance, but setting it to 16 will lead to bad visuals, flickering lines, sparks, and possibly even compromised depth perception which is noticable when trying to shoot). Most graphics card automatically change to 16 bit depth buffering when using 16 bit colour depth, so make sure you use <em>-z24</em> to prevent this.<br />
+<br />
+<h2 id="toc8">Water</h2>
+ If water shaders are slowing you down, at least turn off refraction (blurring of stuff under the water) with <em>/waterrefract 0</em>. If that's still not enough, turn off reflections with <em>/waterreflect 0</em> as well (which results in a plain textured water surface).
+    </div>
+  </body>
+</html>
