@@ -460,6 +460,47 @@
 </ul>
 </li>
 <li>
+<a href="#texture_blending"><b>Texture Blending</b></a>
+<ul class="contents2">
+<li>
+<a href="#defining_blended_textures">Defining Blended Textures</a>
+</li>
+<li>
+<a href="#texlayer"><tt>texlayer</tt></a>
+</li>
+<li>
+<a href="#blend_brushes">Blend Brushes</a>
+</li>
+<li>
+<a href="#addblendbrush"><tt>addblendbrush</tt></a>
+</li>
+<li>
+<a href="#setblendbrush"><tt>setblendbrush</tt></a>
+</li>
+<li>
+<a href="#painting">Painting</a>
+</li>
+<li>
+<a href="#blendpaintmode"><tt>blendpaintmode</tt></a>
+</li>
+<li>
+<a href="#paintblendmap"><tt>paintblendmap</tt></a>
+</li>
+<li>
+<a href="#reverting_paints">Reverting Paints</a>
+</li>
+<li>
+<a href="#clearblendmap"><tt>clearblendmap</tt></a>
+</li>
+<li>
+<a href="#clearblendmapsel"><tt>clearblendmapsel</tt></a>
+</li>
+<li>
+<a href="#blending_hints_and_tips">Blending Hints and Tips</a>
+</li>
+</ul>
+</li>
+<li>
 <a href="#entity_types"><b>Entity Types</b></a>
 <ul class="contents2">
 <li>
@@ -1932,6 +1973,110 @@ For N=1, a 3x3 blur filter is used. For N=2, a 5x5 blur filter is used.
 <p>
 Dumps all lightmaps to a set of .bmps. Mostly interesting for developers, but
 mappers may find it interesting too.
+</p>
+
+<h2 id="texture_blending">Texture Blending</h2>
+
+<p>
+Texture blending in maps is accomplished by smoothly blending two textures together to create variations on architecture and terrain.
+</p>
+
+<h3 id="defining_blended_textures">Defining Blended Textures</h3>
+<p>
+Texture blending can use any two textures that are already set in your map.cfg, but you need to define the textures normally first. Texture thumbnails that have an additional texture layer to blend will have the texture they are set to blend with in one of the corners in the texture browser (f2).
+</p>
+
+<p>
+To set up textures to blend, in your map cfg, under the texture that you want to have a second texture layer, you would add:
+</p>
+
+<pre id="texlayer">texlayer N</pre>
+
+<p>
+Where N is the slot taken by the second texture you want to add. So, if you have defined 50 new textures, and the 51st texture is something that you want to paint with, then under any texture you want to blend it with, you would enter: <tt>texlayer 58</tt>
+</p>
+
+<h3 id="blend_brushes">Blend Brushes</h3>
+<p>
+There will be a number of brushes already included and set up in the default Blood Frontier package.cfg. If you want to set up your own brush, simple create a gray scale PNG file to use as a pattern. Keep in mind that the size of the brushes are relatively large, and not meant for super detailed work. So a 16 x 16 size image will make a brush that covers a very large patch of architecture.
+</p>
+
+<h4>Adding a New Brush</h4>
+
+<pre id="addblendbrush">addblendbrush N F</pre>
+
+<p>
+Where N is the name of your brush, that you will use later to load the brush, and F is the file name, relative to the data directory. So if you have a directory in data called "mydir", you have put yuor brushes into a sub-directory called "brushes", and the brush you want to add is called "crack.png", then you would add the following line to your map.cfg file: <tt>addblendbrush crack "mydir/brushes/crack.png"</tt>
+</p>
+
+<h4>Loading a Brush</h4>
+
+<p>
+Enter editing mode by pressing f1. If you see hands in front of you, press f1 again. Open the console with the tilde key and type:
+</p>
+
+<pre id="setblendbrush">setblendbrush N</pre>
+
+<p>
+Where N is the name of your brush that you defined in the cfg, or the name of an existing brush. So to set the brush to the one that was defined above, you would open the console with the tilde key and type: <tt>/setblendbrush crack</tt>
+</p>
+
+<h3 id="painting">Painting</h3>
+<p>
+First, select a texture that you have defined a secondary texture for. Second, you will need to be in editing mode, on a NEW map. Keep in mind that the texture blending is not set up in older map.cfg files, because the capability did not exist yet.
+</p>
+
+<p>
+Third, texture the surfaces that you will want to paint with the textures that have had an extra texture layer defined for them in your map.cfg. You can only paint on textures that have had a second layer defined in the cfg. Now, you need to turn on painting mode. Press tilde to enter the console and type
+</p>
+
+<pre id="blendpaintmode">blendpaintmode N</pre>
+
+<p>
+Where N is a number from 0 to 5, which defines how the painting will be done. Setting it to 0 turns paint mode off.
+</p>
+
+<ul>
+<li>0 - off</li>
+<li>1 - set</li>
+<li>2 - min(destination, source)</li>
+<li>3 - max(destination, source)</li>
+<li>4 - destination - source</li>
+<li>5 - destination + source </li>
+</ul>
+
+<p>
+Experiment with the numbers to understand what they do. Finally, in order to paint on to the surface, you would open the console and type
+</p>
+
+<pre id="paintblendmap">paintblendmap</pre>
+
+<p>
+If you've done everything right, you should see your first blended textures. If not, check out the IRC forum. Most of the community members there are willing to offer help.
+</p>
+
+<h3 id="reverting_paints">Reverting Paints</h3>
+<p>
+There is NO UNDO for texture blending. If you've screwed something up, you can do one of two things. Open the console with the tilde key and type
+</p>
+
+<pre id="clearblendmap">clearblendmap</pre>
+
+<p>
+This will delete ALL of the texture blending for the ENTIRE level.
+</p>
+
+<pre id="clearblendmapsel">clearblendmapsel</pre>
+
+<p>
+This will clear the texture blending on the selected geometry.
+</p>
+
+<h3 id="blending_hints_and_tips">Blending Hints and Tips</h3>
+<ul>
+<li>The amount of rendering passes the engine is required to make doubles on areas where the textures have been blended.</li>
+<li>DON'T start working with blended textures until you are happy with the architecture in the level. They are still new and may cause unforeseen Issues.</li>
+<li>SAVE OFTEN. You are working with a new feature, after all.</li>
 </p>
 
 <h2 id="entity_types">Entity Types</h2>
