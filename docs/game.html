@@ -117,6 +117,14 @@
 <a href="#capture"><b>Capture</b></a>
 </li>
 <li>
+<a href="#singleplayer_modes"><b>Singleplayer Modes</b></a>
+<ul class="contents2">
+<li>
+<a href="#sp_respawning">SP Respawning</a>
+</li>
+</ul>
+</li>
+<li>
 <a href="#network_code"><b>Network Code</b></a>
 </li>
 <li>
@@ -288,22 +296,26 @@ Set gameplay mode to N for the next game played (next map load). N can be:
 <ul>
 <li>0: "ffa" / "default" mode. This is the default normal ffa game, and can also be used as "prewar" while setting up teams / voting for the next game.</li>
 <li>1: coop edit mode. This simply enables map editing in multiplayer, otherwise identical to mode 0.</li>
-<li>2: a standard non teamplay game, meant for FFA and duel games.</li>
-<li>3: a standard teamplay game. will work with any number of teams with any number of players: you are allied with all players whose "team" setting is the same as yours. In general, all odd numbered modes (3/5/7/9) are the teamplay variant of the even mode preceding it.</li>
-<li>4/5: instagib mode. No items will spawn, but everyone will have 100 rifle rounds and 1 health.</li>
-<li>6/7: efficiency mode. No items will spawn, but everyone will get all weapons with full ammo, and green armour.</li>
-<li>8/9: insta arena. as instagib mode, but now when you die you stay dead until one player/team remains.</li>
-<li>10/11: tactics arena mode. as arena mode, but now everyone will spawn with only base ammo for 2 random weapons and green armour.</li>
-<li>12: capture mode, see capture mode section below.</li> 
-<li>13: insta capture mode, capture mode but with weapons, health, and items as in instagib mode.</li>
-<li>14: regen capture mode, like capture mode but with no respawn timer, and you regenerate health, armour, and ammo by standing on bases you own.</li>
-<li>17: ctf mode. Capture the flag where you must retrieve the enemy flag and return it to your own flag for points.</li>
-<li>18: insta ctf mode. Capture the flag as above, but with weapons, health, and items as in instagib mode.</li>
+<li>2: a standard teamplay game. will work with any number of teams with any number of players: you are allied with all players whose "team" setting is the same as yours.</li>
+<li>3/4: instagib [team] mode. No items will spawn, but everyone will have 100 rifle rounds and 1 health.</li>
+<li>5/6: efficiency [team] mode. No items will spawn, but everyone will get all weapons with full ammo, and green armour.</li>
+<li>7/8: tactics [team] mode. as arena mode, but now everyone will spawn with only base ammo for 2 random weapons and green armour.</li>
+<li>9: capture mode, see capture mode section below.</li> 
+<li>10: regen capture mode, like capture mode but with no respawn timer, and you regenerate health, armour, and ammo by standing on bases you own.</li>
+<li>11: ctf mode. Capture the flag where you must retrieve the enemy flag and return it to your own flag for points.</li>
+<li>12: insta ctf mode. Capture the flag as above, but with weapons, health, and items as in instagib mode.</li>
 <li>-1: demo playback mode, see demo recording section below.</li>
+<li>-2, -3: single player, see single player mode section below.</li>
+<li>-4, -5: slow-motion singleplayer, like single player modes but gamespeed slows down depending on how much health you have.</li>
 </ul>
 
 <p>
 Frag counting is the same for all modes: 1 for a frag, -1 for a suicide or a teamkill. Timelimit for all games is 10 minutes, or 15 minutes for teamplay, and no timelimit for mode 1 (and mode 0 in a local game).
+</p>
+
+<pre id="skill">skill N</pre>
+<p>
+Sets the skill level (1-10) for single player modes. Default = 3. Affects number of monsters in DMSP mode, and general monster AI in all SP modes.
 </p>
 
 <pre id="showgui">showgui servers</pre>
@@ -577,6 +589,248 @@ There may be additional powerups needed, to emulate the functionality of vehicle
 but maybe without its already good enough.
 </p>
 
+<h2 id="singleplayer_modes">Singleplayer Modes</h2>
+
+<p>
+There are four single player modes:
+</p>
+
+<ul>
+<li>
+(mode -3, command "/sp &lt;map&gt;"): a classical progress-based monsters-wake-up-when-they-see-you mode which is very similar to Doom &amp; Quake, and is played on maps specifically designed for SP. Items don't respawn.
+</li>
+<li>
+(mode -2, command "/dmsp &lt;map&gt;"): an arena style SP mode (akin to my "DMSP" mod for quake) which you play on DM maps: 10 seconds after the game starts monsters start spawning in (currently about 1 per second), which will immediately be angry at you. The map ends when they all have spawned and they are all killed (either by you or by their buddies ;). The number of monsters depends on the "skill" variable. Items respawn as in DM.
+</li>
+    <li>(mode -4 and -5, commands /slowdmsp and /slowsp respectively): Two experimental
+        modes that work the same as regular SP, except that the gamespeed is directly derived
+        from your health, so the more damage you take, the more in slow motion the game
+        plays. Slow motion, while in one way a punishment for your failures, also makes
+        it easy to escape enemy fire and land perfect hits, therefore allowing you to recover.
+        Besided that, it just looks/feels plain cool. These modes do not support the concept of
+        death, you are simply going "infinitely" slow at health = 1. To compensate, there
+        is health regeneration, which is faster the less health you have. Your score (see
+        SP respawning below) will be measured in real time, so any slow motion time negatively
+        affects your score ("simulation time" shown is the time you would have taken with
+        no slowdown at all).</li>
+</ul>
+
+<p>
+The mode numbers can most conveniently be set over the singleplayer menu. In both cases, the map ends when all monsters are killed, or an end of level trigger is hit if one is available. Coop play is not supported yet.
+</p>
+
+<p>
+There are currently 8 monsters, with the following properties (sorted roughly in order of "threat" they pose):
+</p>
+
+<table>
+<tr>
+<td>gun used</td>
+<td>model</td>
+<td>damage</td>
+<td>stamina</td>
+<td>speed</td>
+<td>freq</td>
+<td>lag</td>
+<td>rate</td>
+<td>loyalty</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fireball</td>
+<td>ogro</td>
+<td>5</td>
+<td>100</td>
+<td>14</td>
+<td>3</td>
+<td>0</td>
+<td>10</td>
+<td>1</td>
+</tr>
+<tr>
+<td>chaingun</td>
+<td>rhino</td>
+<td>7</td>
+<td>70</td>
+<td>18</td>
+<td>2</td>
+<td>70</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>shotgun</td>
+<td>ratamahatta</td>
+<td>50</td>
+<td>120</td>
+<td>12</td>
+<td>1</td>
+<td>100</td>
+<td>30</td>
+<td>4</td>
+</tr>
+<tr>
+<td>rifle</td>
+<td>slith</td>
+<td>25</td>
+<td>200</td>
+<td>12</td>
+<td>1</td>
+<td>80</td>
+<td>40</td>
+<td>4</td>
+</tr>
+<tr>
+<td>rocket launcher</td>
+<td>bauul</td>
+<td>30</td>
+<td>500</td>
+<td>10</td>
+<td>1</td>
+<td>0</td>
+<td>20</td>
+<td>6</td>
+</tr>
+<tr>
+<td>bite</td>
+<td>hellpig</td>
+<td>12</td>
+<td>50</td>
+<td>22</td>
+<td>3</td>
+<td>0</td>
+<td>10</td>
+<td>1</td>
+</tr>
+<tr>
+<td>iceball</td>
+<td>knight</td>
+<td>10</td>
+<td>250</td>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>6</td>
+</tr>
+<tr>
+<td>slimeball</td>
+<td>goblin</td>
+<td>7</td>
+<td>100</td>
+<td>12</td>
+<td>1</td>
+<td>0</td>
+<td>20</td>
+<td>2</td>
+</tr>
+</table>
+
+<p>
+The models are just temp until I find some real monster models.
+</p>
+
+<p>
+The damage given is for a single shot, where damage is simply a quarter of the equivalent player gun. For the shotgun this is if he hits you at point blank range, but is a lot less at distance. RL guy of course deals out splash damage too.
+</p>
+
+<p>
+Stamina is the amount of damage taken before dying, speed is their movement speed in sauerbratens/sec (player = 24), and freq is their relative frequency of spawning in DMSP mode.
+</p>
+
+<p>
+"lag" is how long it takes them to press fire after they have decided they will shoot in a particular direction, which means you can out-strafe their bullets (but still get hit when standing still or moving towards them). The number is in msec on skill 0, and half as big on skill 10.
+</p>
+
+<p>
+"rate" indicates how often they will attempt to shoot you while they have you in their sights. It is not an absolute fire rate measure, as fire rate is lower with distance and has some absolute minimum. Again, it is also dependant on skill (skill 10 fires twice as often as skill 0). "loyalty" indicates how often they have to be hit by another monster in a row before they fight back.
+</p>
+
+<p>
+Other important parameters: monsters will at most jump down 4 sauerbratens in height, unless their health is 100 or less, in which case they allways jump down.
+</p>
+
+<p>
+As you can summise from the above, the keys to surviving in sauerbraten SP are: keep moving, preferably perpendicular to the monster line of sight, frequently move behind walls and back (this makes monsters search for you again, which delays them), and use monster infighting to your advantage.
+</p>
+
+<h3 id="sp_respawning">SP Respawning</h3>
+
+<p>
+Classic SP works differently from most FPS games that employ a savegame based system
+(as did Sauerbraten's predecessor, Cube). The problem with savegames is that they
+take away any tension in gameplay, since you play without fear because you can make
+frequent saves, and when you do have to reload, its just an annoyance (or frustration,
+if you forgot to save for a while because it was going so well).
+</p>
+
+<p>
+Instead of savegames, sauerbraten employs a novel system based on respawnpoints
+(not to be confused with checkpoints, which are just an annoying version of savegames). The major annoyance in other games comes from having to repeat the same thing, in Sauerbraten, you can die, and
+still never have to repeat the same gameplay again, yet you still have strong motivation not to die. This brings back the tension in gameplay, without the frustration.</p>
+
+<p>
+The way it works that when you die, the world stays AS IS. Dead monsters stay dead, and alive ones just continue at their current location.
+You respawn, as if it were DM, at your last respawnpoint.
+</p>
+
+<p>
+Respawnpoints are entities placed by the level designers in various spots thruout the level, and the game remembers the last one you touched. You can touch these more than once.
+</p>
+
+<p>
+When you respawn, the evil monsters will have stolen your armour, and most of your ammo (currently they take 2/3rds, unless you have 5 or less, in which case they don't take anything).</p>
+
+<p>
+On the good side, you will have all your health back (and you have kept any healthboost
+powerups!), and your starting supply of pistol ammo (see, the monsters are evil, but fair).
+</p>
+
+<p>
+The good thing is that this way, even though you are punished for dying, you are never stuck, since even if a group of monsters is very hard to overcome, they will be easier every time you try, since the dead ones stay dead (and the hurt ones stay hurt!).
+You may have to work with your pistol more, but that is part of the tradeoff.
+</p>
+
+<p>
+An additional motivation to not die, is that deaths are the most important component in reaching a good score on a level. Every time you finish a level, you will see a printout like this:
+</p>
+
+<pre>--- single player time score: ---
+time taken: 155 seconds
+time penalty for 1 deaths (1 minute each): 60 seconds
+time penalty for 21 monsters remaining (10 seconds each): 210 seconds
+time penalty for lower skill level (20 seconds each): 140 seconds
+time penalty for missed shots (1 second each %): 25 seconds
+TOTAL SCORE (time + time penalties): 590 seconds (best so far: 423 seconds)
+</pre>
+
+<p>
+This gives you the stats of your game. The overal score is something that will be displayed in the menus next to the map name, so you can try and improve your best score, and compare to others. These score values are saved accross runs of the game
+(in bestscore_&lt;mapname&gt; aliases).
+</p>
+
+<p>
+The final formula has been tweaked such that:
+</p>
+
+<ul>
+<li>The number of deaths has the biggest impact on your score. You want to have 0 deaths for a good score.</li>
+<li>The second most important thing is frags, you want to make sure you have killed all monsters.</li>
+<li>The third most important thing is probably time... finish the map as quickly as you can</li>
+<li>another component is accuracy, which reflects shots fired compared to damage dealt (which is not the same as damage taken, i.e. it does not take into account if a rocket is mostly wasted because the monster only had 10 health).</li>
+<li>the last component is skill. If more agressive monsters don't phase you, then you can score more by playing on skill 10.</li>
+</ul>
+
 <h2 id="network_code">Network Code</h2>
 
 <p>
@@ -700,7 +954,7 @@ it already has the maximum number of demos (currently 5).
 </p>
 
 <p>
-Demos may be played back via the special local "demo" mode (mode -3), where the map name is the name of the demo to be played.
+Demos may be played back via the special local "demo" mode (mode -1), where the map name is the name of the demo to be played.
 </p>
 
 <pre id="recorddemo">recorddemo B</pre>
@@ -735,7 +989,7 @@ a file with the extension ".dmo". Any client may use this command.
 
 <pre id="demo">demo F</pre>
 <p>
-This alias sets the mode to -3 (the special demo playback game mode) and map to F, where F is the name of a demo file, but without 
+This alias sets the mode to -1 (the special demo playback game mode) and map to F, where F is the name of a demo file, but without 
 the ".dmo" file extension. The "stopdemo" command may be used to terminate playback early when in this game mode.
 </p>
 

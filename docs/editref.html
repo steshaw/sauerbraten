@@ -155,6 +155,12 @@
 <a href="#dropent"><tt>dropent</tt></a>
 </li>
 <li>
+<a href="#trigger"><tt>trigger</tt></a>
+</li>
+<li>
+<a href="#platform"><tt>platform</tt></a>
+</li>
+<li>
 <a href="#entselect"><tt>entselect</tt></a>
 </li>
 <li>
@@ -570,6 +576,24 @@
 <a href="#_mapmodel_"><tt>"mapmodel"</tt></a>
 </li>
 <li>
+<a href="#_box_"><tt>"box"</tt></a>
+</li>
+<li>
+<a href="#_barrel_"><tt>"barrel"</tt></a>
+</li>
+<li>
+<a href="#_platform_"><tt>"platform"</tt></a>
+</li>
+<li>
+<a href="#_elevator_"><tt>"elevator"</tt></a>
+</li>
+<li>
+<a href="#_monster_"><tt>"monster"</tt></a>
+</li>
+<li>
+<a href="#_respawnpoint_"><tt>"respawnpoint"</tt></a>
+</li>
+<li>
 <a href="#_particles_"><tt>"particles"</tt></a>
 </li>
 </ul>
@@ -931,6 +955,18 @@ floor, unlike for N=1.
 Positions the selected entity according to the entdrop variable.
 </p>
 
+<pre id="trigger">trigger T N</pre>
+<p>
+Sets the state of all locked triggers with tag T to N.
+</p>
+
+<pre id="platform">platform T N</pre>
+<p>
+If N = 0, stops all platforms or elevators with tag T.
+If N = 1, causes all platforms or elevators with tag T to move forwards or up, respectively.
+If N = -1, causes all platforms or elevators with tag T to move backwards or down, respectively.
+</p>
+
 <pre id="entselect">entselect X</pre>
 <p>
 Takes a boolean expression as argument. Selects all entities that evaluate to true for the given expression.
@@ -1129,7 +1165,8 @@ See also map in the gameplay docs.
 At every map load, "data/default_map_settings.cfg" is loaded which sets up all
 texture definitions etc. Everything defined in there can be overridden per
 package or per map by creating a "package.cfg" or "mapname.cfg" which contains
-whatever you want to do differently from the default.
+whatever you want to do differently from the default. It can also set up
+triggers scripts per map etc.
 </p>
 
 <p>
@@ -2180,12 +2217,175 @@ This entity does not render anything, so you are responsible for creating someth
 this entity.
 </p>
 
-<pre id="_mapmodel_">"mapmodel" [Y] N</pre>
+<pre id="_mapmodel_">"mapmodel" [Y] N T R</pre>
 <p>
 A map model, i.e. an object rendered as md2/md3 which you collide against, cast
 shadows etc. Y is the yaw of the model and is initially taken from the current camera yaw,
 it cannot be specified when creating the entity. N determines which mapmodel you want, this
-depends on "mapmodel" declarations in the maps cfg file.
+depends on "mapmodel" declarations in the maps cfg file. T specifies mapmodel behaviour such
+as triggers, see table below. R is the trigger number, 0 means no trigger. This number specifies
+what trigger to activate, and in addition, the alias
+"<tt>level_trigger_Trigger</tt>"
+will be executed, where Trigger is substituted accordingly (this allows you to script
+additional actions upon a trigger, i.e. put this into your map cfg file to print
+a message: <tt>alias level_trigger_1 "echo A door opened nearby"</tt>). The alias
+"<tt>triggerstate</tt>" will hold a value of -1, 0, or 1 indicating how the trigger was activated.
+</p>
+
+<table border="1" cellpadding="2" cellspacing="0" style="font-size: 8pt">
+<tr>
+<td>Type</td>
+<td>Trigger states</td>
+<td>Trigger how often</td>
+<td>Sound</td>
+<td></td>
+</tr>
+<tr>
+<td>0</td>
+<td></td>
+<td>0</td>
+<td></td>
+<td>loops mapmodel animation</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td>1</td>
+<td></td>
+<td>do trigger animation when touched for the first time only and return to starting position (best for switches, use switch/lever models)</td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td>1</td>
+<td>rumble</td>
+<td>same as above but with sound</td>
+</tr>
+<tr>
+<td>3</td>
+<td>toggle (0/1) </td>
+<td>1</td>
+<td></td>
+<td>do trigger animation when touched for the first time only and stay in toggled position (best for switches, use switch/lever models)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>toggle (0/1) </td>
+<td>1</td>
+<td>rumble</td>
+<td>same as above but with sound</td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td>N</td>
+<td></td>
+<td>do trigger animation when touched every time and return to starting position (best for switches, use switch/lever models)</td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td>N</td>
+<td>rumble</td>
+<td>same as above but with sound</td>
+</tr>
+<tr>
+<td>7</td>
+<td>toggle (0/1) </td>
+<td>N</td>
+<td></td>
+<td>do trigger animation when touched every time and toggle positions (best for reversible switches, use switch/lever models)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>toggle (0/1)</td>
+<td>N</td>
+<td>rumble</td>
+<td>same as above but with sound</td>
+</tr>
+<tr>
+<td>9</td>
+<td>closed/open (0/1)</td>
+<td>1</td>
+<td>door?</td>
+<td>opened by approach first time only, stays open afterwards. Collides while closed. (use door specific models)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>closed/open (0/1)</td>
+<td>N</td>
+<td>door?</td>
+<td>opened by approach every time, closes after 5 seconds. Collides while closed. (use door specific models)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>locked (-1) </td>
+<td>0/N</td>
+<td>door?</td>
+<td>opened/closed only by associated trigger. When approached while closed, collides and invokes level trigger with triggerstate -1. (use door specific models)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>disappear (0)</td>
+<td>1</td>
+<td></td>
+<td>do trigger animation once when touched, disappear after (good for triggers that look more like pickups, such as the carrot)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>disappear (0)</td>
+<td>1</td>
+<td>rumble</td>
+<td>same as above but with sound</td>
+</tr>
+<tr>
+<td>14</td>
+<td>disappear (-1)</td>
+<td>0</td>
+<td></td>
+<td>like 11, but disappears after opening. </td>
+</tr>
+<tr>
+<td>29</td>
+<td>disappear (0)</td>
+<td>1</td>
+<td>end?</td>
+<td>FPS specific. END LEVEL</td>
+</tr>
+</table>
+
+<p>
+Be careful when using "switch many" for thing that affect gameplay, such as opening
+doors, as it can be confusing. Best is to reserve a particular model to mean "many"
+and others "once". All types &gt;0 are snapped to 15 degree angles for orientation.
+</p>
+
+<pre id="_box_">"box" [Y] N W</pre>
+<pre id="_barrel_">"barrel" [Y] N W H</pre>
+<p>
+Like a mapmodel, except that damage done to it will push the entity around. Y is the yaw of the model and is initially taken from the current camera yaw, it cannot be specified when creating the entity. N determines which mapmodel you want, this depends on "mapmodel" declarations in the maps cfg file. W is the weight of the box or barrel where the heavier it is the less it moves; if W is not specified or 0, it defaults to 25. Barrels, unlike boxes, will explode if more than H damage is done to them; if H is not specified or 0, it defaults to 50.
+</p>
+
+<pre id="_platform_">"platform" [Y] N T S</pre>
+<pre id="_elevator_">"elevator" [Y] N T S</pre>
+<p>
+Like a mapmodel, except it moves around and carries players, monsters, or other dynamic entities. Y is the yaw of the model and is initially taken from the current camera yaw, it cannot be specified when creating the entity. N determines which mapmodel you want, this depends on "mapmodel" declarations in the maps cfg file. A platform will travel horizontally back and forth along the direction of its yaw, while an elevator will travel only up and down. When they hit an obstacle such as geometry, they will reverse their direction. T is a tag that may be used to start or stop the elevator with the "platform" command; if a non-zero tag is specified, then the platform or elevator will stop upon hitting an obstacle, rather than reversing direction. S is the speed at which the entity moves, in units per second; if S is not specified or 0, it defaults to to 8.
+</p>
+
+<pre id="_monster_">"monster" N [T]</pre>
+<p>
+A monster, currently N = 0..4 (see gameplay docs). Monster entities will be
+spawned when in classic single player mode, and will attack you when you come
+into view. yaw is taken from the current camera yaw. T is an optional tag number
+that is assigned to this monster. When the monster dies, the script alias "monster_dead_T"
+will be invoked.
+</p>
+
+<pre id="_respawnpoint_">"respawnpoint"</pre>
+<p>
+
+A respawnpoint for classic SP mode (see "SP Respawning"), when the player dies, they will repsawn at the last
+one of these they touched, otherwise they start at the <a href="#_playerstart_">playerstart</a> entity.
 </p>
 
 <pre id="_particles_">"particles" type value1 value2 value3 value4</pre>
