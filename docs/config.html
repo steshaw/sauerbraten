@@ -29,6 +29,9 @@
 <a href="#_minus_d"><tt>-d</tt></a>
 </li>
 <li>
+<a href="#_minus_dn"><tt>-dn</tt></a>
+</li>
+<li>
 <a href="#_minus_wn"><tt>-wN</tt></a>
 </li>
 <li>
@@ -487,10 +490,17 @@ refresh rates (otherwise, you may get excessive LOD/FPS variance).
 
 <pre id="_minus_d">-d</pre>
 <p>
-This starts Sauerbraten as a dedicatated server. The default is a non-dedicated server with only a single client in graphical
+This starts Sauerbraten as a dedicated server. The default is a non-dedicated server with only a single client in graphical
 mode. Dedicated servers run in the shell only (no graphics), with increased priority yet use very little cpu time and memory,
 so you can run one in the background, or at the same time with a client if you want to host a game (which is usually better 
 than using a listen server). Servers use the ports 28785 (UDP) and 28786 (UDP).
+</p>
+
+<pre id="_minus_dN">-dN</pre>
+<p>
+If N=1, starts a listen server which allows Sauerbraten to simultaneously function as both a client and server. Note that a listen
+server is limited by your in-game frame rate, so you should use a dedicated server if your graphics card is slow or you
+have enabled frame rate limiting options such as "vsync". If N=2, it starts a dedicated server as for the "-d" command-line option.
 </p>
 
 <pre id="_minus_wn">-wN</pre>
