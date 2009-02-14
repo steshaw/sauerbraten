@@ -35,7 +35,7 @@ Server ports are fixed at UDP 28785 and UDP 28786, currently.
 * Packaging Guide for Unix-like Operating System Developers/Maintainers
 
 If you are packaging Sauerbraten up for redistribution in a Linux distribution or other 
-similar operating, please avoid using the "sauerbraten_unix" script in its default/unmodified form.
+similar OS, please avoid using the "sauerbraten_unix" script in its default/unmodified form.
 You should at least set the SAUER_DATA variable to appropriately find the common Sauerbraten
 data files, or better yet replace it with a more appropriate way of starting Sauerbraten using
 the script as a basis. If the distribution happens to place program binaries in a specific
