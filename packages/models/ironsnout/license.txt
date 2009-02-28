@@ -1,6 +1,0 @@
-All files in this folder and subfolders are subject to the following license:
-
-Ironsnout is copyright (c) John Siar. It is for sole use of the official Sauerbraten game distribution and cannot be included in other projects without the artist's (John Siar's) explicit consent. 
-
-For Stacy
-
