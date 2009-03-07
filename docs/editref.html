@@ -428,6 +428,12 @@
 <a href="#skylight"><tt>skylight</tt></a>
 </li>
 <li>
+<a href="#lmshadows"><tt>lmshadows</tt></a>
+</li>
+<li>
+<a href="#lmaa"><tt>lmaa</tt></a>
+</li>
+<li>
 <a href="#calclight"><tt>calclight</tt></a>
 </li>
 <li>
@@ -1883,6 +1889,27 @@ the "ambient" value and the "skylight" value depending on how much of the skybox
 range 0..255 (default: 0). If only R is specified it is interpreted as a grayscale light value. Use "skylight 0" to disable.
 </p>
 
+<pre id="lmshadows">lmshadows N</pre>
+<p>
+This controls the level of shadowing used when "calclight" or "patchlight" are not given a quality setting, where N is:
+</p>
+<ul>
+<li>2 (default): world and mapmodel shadows</li>
+<li>1: world shadows only</li>
+<li>0: no shadows</li>
+</ul>
+
+<pre id="lmaa">lmaa N</pre>
+<p>
+This controls the level of anti-aliasing used when "calclight" or "patchlight" are not given a quality setting, where N is:
+</p>
+<ul>
+<li>3 (default): 8xAA</li>
+<li>2: 4xAA</li>
+<li>1: 2xAA</li>
+<li>0: no AA</li>
+</ul>
+
 <pre id="calclight">calclight Q</pre>
 <p>
 This calculates all lightmaps. Usually takes only a few seconds, depending on
@@ -1890,22 +1917,20 @@ map size and settings. If you "savemap", the lightmap will be stored along with
 it. Q is these predefined quality settings:
 </p>
 <ul>
-<li>3: 8x anti aliasing, shadows for mapmodels with alpha (maximum quality, extremely slow)</li>
-<li>2: 8x anti aliasing, shadows for mapmodels (high quality, very slow)</li>
-<li>1: 8x anti aliasing, world shadows only (better lighting quality for huge maps, slow)</li>
-<li>0: 4x anti aliasing, world shadows only (default, good enough for most maps)</li>
-<li>-1: no anti aliasing, but still shadowed (good for shadow previews)</li>
-<li>-2: no anti aliasing and no shadows (VERY fast, good for lighting previews)</li>
+<li>1: 8x anti aliasing, world and mapmodel shadows (maximum quality, slow)</li>
+<li>0 or not given: controlled by "lmshadows" and "lmaa" values</li>
+<li>-1: no anti aliasing, world shadows only (low quality, good for lighting previews)</li>
 </ul>
 
-<pre id="patchlight">patchlight</pre>
+<pre id="patchlight">patchlight Q</pre>
 <p>
 This will calculate lightmaps for any newly created cubes. This will generally
 be much quicker than doing a "calclight", and so is very useful when editing.
 However, it will make very inefficient use of lightmap textures, and any new
 cubes will not properly cast shadows on surfaces that are already lit. It is
 recommended you do a "calclight" on your map before you publish it with
-"savemap".
+"savemap". A quality setting Q may be supplied, which behaves the same as for
+"calclight".
 </p>
 
 <pre id="fullbright">fullbright B</pre>
