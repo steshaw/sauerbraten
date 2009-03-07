@@ -144,6 +144,9 @@
 <li>
 <a href="#md5link"><tt>md5link</tt></a>
 </li>
+<li>
+<a href="#md5adjust"><tt>md5adjust</tt></a>
+</li>
 </ul>
 </li>
 
@@ -252,8 +255,8 @@ N is the name of the animation to define. Any of the following names may be used
 	<li>backward</li>
 	<li>left</li>
 	<li>right</li>
-	<li>punch</li>
-	<li>shoot</li>
+    <li>hold 1 ... hold 7</li>
+    <li>attack 1 ... attack 7</li>
 	<li>jump</li>
     <li>sink</li>
 	<li>swim</li>
@@ -264,6 +267,8 @@ N is the name of the animation to define. Any of the following names may be used
     <li>lose</li>
 	<li>gun shoot</li>
 	<li>gun idle</li>
+    <li>vwep shoot</li>
+    <li>vwep idle</li>
 	<li>mapmodel</li>
 	<li>trigger</li>
 </ul>
@@ -412,8 +417,8 @@ to define. Any of the following names may be used:
 	<li>backward</li>
 	<li>left</li>
 	<li>right</li>
-	<li>punch</li>
-	<li>shoot</li>
+    <li>hold 1 ... hold 7</li>
+    <li>attack 1 ... attack 7</li>
 	<li>jump</li>
     <li>sink</li>
 	<li>swim</li>
@@ -424,6 +429,8 @@ to define. Any of the following names may be used:
     <li>lose</li>
 	<li>gun shoot</li>
 	<li>gun idle</li>
+    <li>vwep shoot</li>
+    <li>vwep idle</li>
 	<li>mapmodel</li>
 	<li>trigger</li>
 </ul>
@@ -443,8 +450,8 @@ otherwise the secondary will be used if it is available. Primary animations are:
 	<li>dying</li>
 	<li>dead</li>
 	<li>pain</li>
-	<li>punch</li>
-	<li>shoot</li>
+    <li>hold 1 ... hold 7</li>
+    <li>attack 1 ... attack 7</li>
 	<li>edit</li>
 	<li>lag</li>
     <li>taunt</li>
@@ -461,8 +468,6 @@ Secondary animations are:
 	<li>backward</li>
 	<li>left</li>
 	<li>right</li>
-	<li>punch</li>
-	<li>shoot</li>
 	<li>jump</li>
     <li>sink</li>
 	<li>swim</li>
@@ -518,7 +523,7 @@ md3skin u_torso ./default.png
 md3anim dying           0   30  20
 md3anim dead            30  1   25
 md3anim "lag|edit"      91  40  18
-md3anim "punch|shoot"   131 6   15
+md3anim "attack *"      131 6   15
 md3anim idle            152 1   15
 md3anim pain            152 1   15
 
@@ -666,8 +671,8 @@ to define. Any of the following names may be used:
     <li>backward</li>
     <li>left</li>
     <li>right</li>
-    <li>punch</li>
-    <li>shoot</li>
+    <li>hold 1 ... hold 7</li>
+    <li>attack 1 ... attack 7</li>
     <li>jump</li>
     <li>sink</li>
     <li>swim</li>
@@ -678,6 +683,8 @@ to define. Any of the following names may be used:
     <li>lose</li>
     <li>gun shoot</li>
     <li>gun idle</li>
+    <li>vwep shoot</li>
+    <li>vwep idle</li>
     <li>mapmodel</li>
     <li>trigger</li>
 </ul>
@@ -695,8 +702,8 @@ otherwise the secondary will be used if it is available. Primary animations are:
     <li>dying</li>
     <li>dead</li>
     <li>pain</li>
-    <li>punch</li>
-    <li>shoot</li>
+    <li>hold 1 ... hold 7</li>
+    <li>attack 1 ... attack 7</li>
     <li>edit</li>
     <li>lag</li>
     <li>taunt</li>
@@ -713,8 +720,6 @@ Secondary animations are:
     <li>backward</li>
     <li>left</li>
     <li>right</li>
-    <li>punch</li>
-    <li>shoot</li>
     <li>jump</li>
     <li>sink</li>
     <li>swim</li>
@@ -736,6 +741,11 @@ This links two models together. Every model you load with md5load has an ID. The
 you load has the ID 0, the second has the ID 1, and so on, those ID's are now used to identify
 the models and link them together. P the ID of the parent model. C to ID of the
 child model. T name of the tag that specifies at which vertex the models should be linked.
+</p>
+
+<pre id="md5adjust">md5adjust BONE YAW [PITCH] [ROLL]</pre>
+<p>
+Adjusts bone BONE with the specified rotations, in degrees, on any animations loaded after this command is specified.
 </p>
  
 <h2 id="common_commands">Common Commands</h2>
