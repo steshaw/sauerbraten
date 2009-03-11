@@ -6,17 +6,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-<title>Sauerbraten Map Editing</title>
+<title>Cube 2: Sauerbraten - Map Editing</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
 
-<h1>Sauerbraten Map Editing</h1>
+<h1>Cube 2: Sauerbraten - Map Editing</h1>
 
 <div class="contents">
 <ul class="contents">
 <li>
-<a href="#editing_in_sauerbraten"><b>Editing In Sauerbraten</b></a>
+<a href="#editing_in_cube2"><b>Editing In Cube 2</b></a>
 </li>
 <li>
 <a href="#the_basics"><b>The Basics</b></a>
@@ -36,10 +37,10 @@
 </ul>
 </div>
 
-<h2 id="editing_in_sauerbraten">Editing In Sauerbraten</h2>
+<h2 id="editing_in_cube2">Editing In Cube 2</h2>
 
 <p>
-Editing in Sauerbraten isn't like editing in any other game. Editing is done within the game itself, and the
+Editing isn't like editing in any other game/engine; it is done within the program itself, and the
 structure of the map is comprised of octrees. Octree may sound confusing but it's actually a pretty simple idea.
 Imagine a cube you can do two things to: push the corners at any angle inwards, or split the cube into 8 smaller cubes
 (4 cubes in the top half, 4 cubes in the bottom half) which you can do the same things to. That's all there is to it!
@@ -101,7 +102,7 @@ Backups of old saves will be made for you with a .BAK extension. You can later o
 <h2 id="entities">Entities</h2>
 
 <p>
-Entities in Sauerbraten all have a blue sparklie showing their position. Some entities such as ammo boxes and armor will also show
+Entities all have a blue particles sparkling to indicate their position. Some entities such as ammo boxes and armor will also show
 their standard in-game model, but these will only be rendered if the entites have existed since the map was loaded. Monsters will only
 render in single player mode. Make sure you're familiar with the different <a href="editref.html#entitytypes">types on entities</a>.
 To add an entity select it from the editing section of the built in menu or type <i>/newent entname arg1 arg2 arg3 arg4</i> such as

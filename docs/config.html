@@ -6,13 +6,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-<title>Sauerbraten Configuration</title>
+<title>Cube 2: Sauerbraten - Configuration</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="shortcut icon" href="favicon.ico" />
 </head>
 
 <body>
 
-<h1>Sauerbraten Configuration</h1>
+<h1>Cube 2: Sauerbraten - Configuration</h1>
 
 <div class="contents">
 <ul class="contents">
@@ -20,7 +21,7 @@
 <a href="#before_you_start"><b>Before You Start</b></a>
 </li>
 <li>
-<a href="#running_sauerbraten"><b>Running Sauerbraten</b></a>
+<a href="#running_cube2"><b>Running Cube 2</b></a>
 </li>
 <li>
 <a href="#command_line_options"><b>Command Line Options</b></a>
@@ -457,7 +458,7 @@
 
 <p>
 Take some time to read the rest of this document, as it describes options and commands that may be crucial to a successful
-experience with Sauerbraten.
+experience with <i>Cube 2: Sauerbraten</i>.
 </p>
 
 <p>
@@ -473,15 +474,15 @@ both the console and configuration scripts. In addition, you can also press "ESC
 you with an interface for navigating some (not all) of the commands.
 </p>
 
-<h2 id="running_sauerbraten">Running Sauerbraten</h2>
+<h2 id="running_cube2">Running Cube 2</h2>
 
 <ul>
-<li>For Windows: Install and then run sauerbraten.bat or select Sauerbraten from the Start menu.</li>
+<li>For Windows: Install and then run sauerbraten.bat or select the entry from the Start menu.</li>
 <li>For Linux: Extract and then run <i>./sauerbraten_unix</i> inside the <i>sauerbraten</i> directory. Needs a decent and compliant OpenGL implementation.</li>
 </ul>
 
 <p>
-Sauerbraten derives its simplicity from some rather brute force rendering methods, and as such it needs 
+The game and engine derives its simplicity from some rather brute force rendering methods, and as such it needs 
 a beefy machine to get good visual quality. It runs best with vertical sync (vsync) set to OFF and at high
 refresh rates (otherwise, you may get excessive LOD/FPS variance).
 </p>
@@ -490,7 +491,7 @@ refresh rates (otherwise, you may get excessive LOD/FPS variance).
 
 <pre id="_minus_d">-d</pre>
 <p>
-This starts Sauerbraten as a dedicated server. The default is a non-dedicated server with only a single client in graphical
+This starts as a dedicated server. The default is a non-dedicated server with only a single client in graphical
 mode. Dedicated servers run in the shell only (no graphics), with increased priority yet use very little cpu time and memory,
 so you can run one in the background, or at the same time with a client if you want to host a game (which is usually better 
 than using a listen server). Servers use the ports 28785 (UDP) and 28786 (UDP).
@@ -498,7 +499,7 @@ than using a listen server). Servers use the ports 28785 (UDP) and 28786 (UDP).
 
 <pre id="_minus_dN">-dN</pre>
 <p>
-If N=1, starts a listen server which allows Sauerbraten to simultaneously function as both a client and server. Note that a listen
+If N=1, starts a listen server which allows it to simultaneously function as both a client and server. Note that a listen
 server is limited by your in-game frame rate, so you should use a dedicated server if your graphics card is slow or you
 have enabled frame rate limiting options such as "vsync". If N=2, it starts a dedicated server as for the "-d" command-line option.
 </p>

@@ -6,13 +6,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-<title>Sauerbraten Models</title>
+<title>Cube 2: Sauerbraten - Model Reference</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="shortcut icon" href="favicon.ico" />
 </head>
 
 <body>
 
-<h1>Sauerbraten Models</h1>
+<h1>Cube 2: Sauerbraten - Model Reference</h1>
 
 <div class="contents">
 <ul class="contents">
@@ -226,15 +227,14 @@ in the G channel, and a chrome map in the B channel. The engine will apply it au
 </p>
 
 <p>
-If either of these files is not found, Sauerbraten will search the parent directory for them.
+If either of these files is not found, the engine will search the parent directory for them.
 For example, if for the <i>flags/red</i> model, the tris.md2 is not found in
 <i>packages/models/flags/red/</i>, then it will look for tris.md2 in <i>packages/models/flags/</i>.
 This allows the sharing of skins and geometry.
 </p>
 
 <p>
-Sauerbraten expects the md2 to use Quake-compatible scale and animations, unless you configure
-the model otherwise.
+It is expected that md2 format files use Quake-compatible scale and animations, unless you configure the model otherwise.
 </p>
 
 <p>
@@ -287,7 +287,7 @@ second would look like: <i>md2anim "pain" 50 6 30</i>
 
 <h2 id="md3_format">MD3 Format</h2>
 <p>
-MD3 file can be used for Sauerbraten in one of two ways.
+MD3 file can be used in one of two ways.
 </p>
 
 <h3 id="without_configuration">Without Configuration</h3>
@@ -301,7 +301,7 @@ chrome map in the B channel. The engine will apply it automatically.
 </p>
 
 <p>
-If either of these files is not found, Sauerbraten will search the parent directory for them.
+If either of these files is not found, the engine will search the parent directory for them.
 For example, if for the <i>flags/red model</i>, the <i>tris.md3</i> is not found in
 <i>packages/models/flags/red/</i>, then it will look for <i>tris.md3</i> in
 <i>packages/models/flags/</i>. This allows the sharing of skins and geometry.
@@ -542,24 +542,24 @@ mdltrans 0 0 -1.5   // lower the model a bit
 
 <h2 id="obj_format">OBJ Format</h2>
 <p>
-The Wavefront OBJ format is configured almost identically to how MD3s are used in Sauerbraten. The only differences are that OBJ specific commands are prefixed with "obj" instead of "md3" (i.e. "objskin" instead of "md3skin") which are specified in "obj.cfg" instead of "md3.cfg", it looks for "tris.obj" instead of "tris.md3" by default, and there is no support for animation ("objanim") or linking ("objlink"). Group names are used to identify meshes within the model.
+The Wavefront OBJ format is configured almost identically to how MD3s are used. The only differences are that OBJ specific commands are prefixed with "obj" instead of "md3" (i.e. "objskin" instead of "md3skin") which are specified in "obj.cfg" instead of "md3.cfg", it looks for "tris.obj" instead of "tris.md3" by default, and there is no support for animation ("objanim") or linking ("objlink"). Group names are used to identify meshes within the model.
 </p>
 
 <h2 id="md5_format">MD5 Format</h2>
 <p>
-MD5 models require a Sauerbraten configuration to function properly. Make sure your exporter properly exports mesh names in the MD5 file so that these can be referenced in the configuration file (the Blender exporter does not export these, but a fixed  Blender MD5 exporter can be gotten from the Cube wiki).
+MD5 models require a proper configuration to function; make sure your exporter properly exports mesh names in the MD5 file so that these can be referenced in the configuration file (the Blender exporter does not export these, but a fixed  Blender MD5 exporter can be gotten from the Cube wiki).
 </p>
 
 <p>
-Make sure no more than 4 blend weights are used per vertex, as Sauerbraten will silently drop any extra blend weights. The skeleton should use no more than 256 bones, and less than 70 or so bones should be used if you wish the model to be skeletally animated on the GPU. To optimize animation of the model on both CPU and GPU, keep the number of blend weights per vertex to a minimum. Also, Sauerbraten caches similar combinations of blend weights while animating, especially on the CPU, such that if two or more vertices use the same blend weights, blending calculations only have to be done once for all the vertices - so try and minimize the number of distinct combinations of blend weights if possible. 
+Make sure no more than 4 blend weights are used per vertex, any extra blend weights will be dropped silently. The skeleton should use no more than 256 bones, and less than 70 or so bones should be used if you wish the model to be skeletally animated on the GPU. To optimize animation of the model on both CPU and GPU, keep the number of blend weights per vertex to a minimum. Also, similar combinations of blend weights are cached while animating, especially on the CPU, such that if two or more vertices use the same blend weights, blending calculations only have to be done once for all the vertices - so try and minimize the number of distinct combinations of blend weights if possible. 
 </p>
 
 <p>
-When animating skeletal models for Sauerbraten, you should model the animations as a single piece for the entire body (unlike for MD3 which requires splitting the mesh). In the configuration file, you can choose a bone at which to split the model into an upper and lower part (via "md5animpart"), which allows, for example, the upper body movement of one animation to be combined with the lower body movement of another animation automatically. The bone at which you split the animation up should ideally be a root bone, of which the upper body and lower body are separate sub-trees. Rigging the model in this way also allows for pitch animation (which also requires selecting a bone to pitch at) to take place such as bending at the waist, which similarly requires the upper body to be a sub-tree of the bone at which the pitch animation will occur.
+When animating skeletal models, you should model the animations as a single piece for the entire body (unlike for MD3 which requires splitting the mesh). In the configuration file, you can choose a bone at which to split the model into an upper and lower part (via "md5animpart"), which allows, for example, the upper body movement of one animation to be combined with the lower body movement of another animation automatically. The bone at which you split the animation up should ideally be a root bone, of which the upper body and lower body are separate sub-trees. Rigging the model in this way also allows for pitch animation (which also requires selecting a bone to pitch at) to take place such as bending at the waist, which similarly requires the upper body to be a sub-tree of the bone at which the pitch animation will occur.
 </p>
 
 <p>
-Sauerbraten's MD5 support allows for two methods of attaching models to another: via tags (by assigning a tag name to a bone with "md5tag"), or by animating multiple models against a common, named skeleton that will be shared among all of them (useful for modeling clothing attachments and similar items). To use a shared skeleton, you simply export all the models with the same skeleton. Animations only need to be specified for the base model. A name for the skeleton is specified via the "md5load" command, for both the model exporting the skeleton and the models using it. When one of the models is attached to the one supplying the skeleton internally, the tag setup is instead ignored and the skeleton/animations of the base model are used to animate the attachment as if it were a sub-mesh of the base model itself.
+The included MD5 support allows for two methods of attaching models to another: via tags (by assigning a tag name to a bone with "md5tag"), or by animating multiple models against a common, named skeleton that will be shared among all of them (useful for modeling clothing attachments and similar items). To use a shared skeleton, you simply export all the models with the same skeleton. Animations only need to be specified for the base model. A name for the skeleton is specified via the "md5load" command, for both the model exporting the skeleton and the models using it. When one of the models is attached to the one supplying the skeleton internally, the tag setup is instead ignored and the skeleton/animations of the base model are used to animate the attachment as if it were a sub-mesh of the base model itself.
 </p>
 
 <p>

@@ -6,12 +6,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-<title>Sauerbraten Command Reference</title>
+<title>Cube 2: Sauerbraten - Command Reference</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="shortcut icon" href="favicon.ico" />
 </head>
-<body>
 
-<h1>Sauerbraten Command Reference</h1>
+<body>
+<h1>Cube 2: Sauerbraten - Command Reference</h1>
 
 <div class="contents">
 <ul class="contents">
@@ -494,17 +495,17 @@ given are for 1-2, 3-4, and 5+ player games respectively.
 
 <h2 id="multiplayer">Multiplayer</h2>
 <p>
-Quick start to multiplayer gaming with sauerbraten:
+Quick start to multiplayer gaming:
 </p>
 
 <ul>
 <li>Open up autoexec.cfg with an editor and make sure you have your name set to something unique.</li>
-<li>Start sauerbraten</li>
+<li>Start the game</li>
 <li>go to the multiplayer menu and select "update from master server", this will get you the lastest server list (you only need to do this once every day of multiplayer gaming or so).</li>
 <li>select the server browser in the multiplayer menu. see how all servers get pinged automatically and information on player/map/game mode are displayed.</li>
 <li>select a server with a good ping (near the top of the list, below 200 is very playable, above may give noticable delays on gameplay events but is still playable).</li>
 <li>run, shoot and enjoy!</li>
-<li>you may want to get familiar with the various game modes sauerbraten has, and how to vote for other maps and modes (again, easily done using the multiplayer menu) Be cooperative with the other players on the server, and vote. Remember, press T to talk to others.</li>
+<li>you may want to get familiar with the various game modes the game has, and how to vote for other maps and modes (again, easily done using the multiplayer menu) Be cooperative with the other players on the server, and vote. Remember, press T to talk to others.</li>
 </ul>
 
 <p>
@@ -513,7 +514,7 @@ Setting up a LAN game:
 
 <ul>
 <li>One of the computers on the LAN has to run server.bat. It really doesn't matter which.</li>
-<li>The simplest way for all players to connect is for them to type "lanconnect" (if there is only one server on the LAN) or "connect servername" (if there are multiple servers) in the sauerbraten console (press ` to get in the console), where servername is the network name or ip address of the machine running server.bat. if all went well you should now be in the game together, as above.</li>
+<li>The simplest way for all players to connect is for them to type "lanconnect" (if there is only one server on the LAN) or "connect servername" (if there are multiple servers) in the console (press ` to get in the console), where servername is the network name or ip address of the machine running server.bat. if all went well you should now be in the game together, as above.</li>
 <li>If your LAN is connected to the internet, by default your server will register with the masterserver, and players could thus follow the procedure above to join the game: your server will show up in the list, and may thus be joined by people over the internet! If you want to avoid your server to contact the master server, you can start it with -mblah or something.</li>
 </ul>
 
@@ -747,7 +748,7 @@ The damage given is for a single shot, where damage is simply a quarter of the e
 </p>
 
 <p>
-Stamina is the amount of damage taken before dying, speed is their movement speed in sauerbratens/sec (player = 24), and freq is their relative frequency of spawning in DMSP mode.
+Stamina is the amount of damage taken before dying, speed is their movement speed in units/sec (player = 24), and freq is their relative frequency of spawning in DMSP mode.
 </p>
 
 <p>
@@ -759,11 +760,11 @@ Stamina is the amount of damage taken before dying, speed is their movement spee
 </p>
 
 <p>
-Other important parameters: monsters will at most jump down 4 sauerbratens in height, unless their health is 100 or less, in which case they allways jump down.
+Other important parameters: monsters will at most jump down 4 units in height, unless their health is 100 or less, in which case they allways jump down.
 </p>
 
 <p>
-As you can summise from the above, the keys to surviving in sauerbraten SP are: keep moving, preferably perpendicular to the monster line of sight, frequently move behind walls and back (this makes monsters search for you again, which delays them), and use monster infighting to your advantage.
+As you can summise from the above, the keys to surviving in SP are: keep moving, preferably perpendicular to the monster line of sight, frequently move behind walls and back (this makes monsters search for you again, which delays them), and use monster infighting to your advantage.
 </p>
 
 <h3 id="sp_respawning">SP Respawning</h3>
@@ -771,12 +772,12 @@ As you can summise from the above, the keys to surviving in sauerbraten SP are: 
 <p>
 Classic SP works differently from most FPS games that employ a savegame based system. The developers believe that the problem with savegames is that they
 take away any tension in gameplay; since you play without fear because you can make frequent saves, and when you do have to reload, its just an annoyance
-(or frustration, if you forgot to save for a while because it was going so well). Because of this, savegames will not be added to Sauerbraten.
+(or frustration, if you forgot to save for a while because it was going so well). Because of this, savegames will not be added to the game.
 </p>
 
 <p>
-Instead of savegames, Sauerbraten employs a novel system based on respawnpoints (not to be confused with checkpoints, which are just an annoying version of savegames).
-The major annoyance in other games comes from having to repeat the same thing, in Sauerbraten, you can die, and still never have to repeat the same gameplay again, yet
+Instead of savegames, Cube 2: Sauerbraten employs a novel system based on respawnpoints (not to be confused with checkpoints, which are just an annoying version of savegames).
+The major annoyance in other games comes from having to repeat the same thing, here, you can die, and still never have to repeat the same gameplay again, yet
 you still have strong motivation not to die. This brings back the tension in gameplay, without the frustration.
 </p>
 
@@ -826,11 +827,11 @@ The final formula has been tweaked such that:
 <h2 id="network_code">Network Code</h2>
 
 <p>
-You will notice that Sauerbraten plays better on a high ping connection than most games out there. The reason for this is that just about everything in sauerbraten is done clientside, not just movement (as is common in games today) but also aim (the fat client / thin server model).
+You will notice that the engine plays and responds better on a high ping connection than most games out there; the reason for this is that just about everything is done clientside, not just movement (as is common in games today) but also aim (the fat client / thin server model).
 </p>
 
 <p>
-The benefits of this are that the effects of lag are minimised, and someone on a 200 ping can compete on an almost even playing field with someone with a 20 ping, the disadvantages are mainly in that its harder to combat cheating. Further advantages for server admins are that sauerbraten servers use virtually no cpu, and very little bandwidth for a lot of clients (you can host a 4 player game on a modem!).
+The benefits of this are that the effects of lag are minimised, and someone on a 200 ping can compete on an almost even playing field with someone with a 20 ping, the disadvantages are mainly in that its harder to combat cheating. Further advantages for server admins are that servers use virtually no cpu, and very little bandwidth for a lot of clients (you can host a 4 player game on a modem!).
 </p>
 
 <p>
@@ -839,7 +840,7 @@ It is impossible to completely hide lag however, and these are some of the effec
 
 <ul>
 <li>if the connection has packetloss. There is no direct indicator of packetloss, instead the "packet jump" figure is provided on the hud (use "showscores"). Packet jump says as much as the amount of milliseconds that pass between updates from the indicated player. If it is extremely variable, or is high(&gt;80) then your gameplay may be hampered (players jumping from place to place). Ideally it is a steady 40 or lower. A consistent packet jump is more vital to gameplay than ping.
-Sauerbraten uses player prediction based on extrapolation using the physics model, in an attempt to be both as up to date as possible w.r.t. to the game state, and as realistic w.r.t. to physics. However, under packet loss this model breaks down and player movement becomes choppy.</li>
+There is also player prediction based on extrapolation using the physics model, in an attempt to be both as up to date as possible in relation to the game state, and as realistic with regards to physics. However, under packet loss this model breaks down and player movement becomes choppy.</li>
 <li>if ping is high (either yours or someone you play with), some actions may appear lagged. The effect of ping is generally that the players in a game are effectively playing more and more seperate games, as someone with a high ping is "playing in the past". The local effects of this are masked out by client side movement &amp; aim, but may become noticable across players:
 <ul>
 <li>you may get hit by someone even though you are already out of his view. This is because he is aiming at your movements of a while ago, and his hits take a while to arrive back at you. You may therefore be hit by gunfire up to his lag + your lag milliseconds after you leave his FOV.</li>
@@ -855,22 +856,20 @@ Sauerbraten uses player prediction based on extrapolation using the physics mode
 <h2 id="multiplayer_online">Multiplayer Online</h2>
 
 <p>
-Besides the abovementioned client-side gameplay, Sauerbraten is also open source, which makes it too easy to cheat with. Anyone can modify the source
-to add cheats, recompile, and join multiplayer games.
+Besides the abovementioned client-side gameplay, the code is also open source, which makes it too easy to cheat with. Anyone can modify the source to add cheats, recompile, and join multiplayer games.
 </p>
 
 <p>
 There is no real trivial way to combat this:
 </p>
-
 <ul>
 <li>Moving the gameplay entirely serverside makes things a lot more complicated, hurts smoothness of gameplay, and still doesn't really solve the cheating problem</li>
-<li>Sauerbraten's predecessor Cube had "official binaries" which differed from the Open Source version in a different network protocol. This helped combat cheating somewhat, but still not entirely.</li>
+<li>Cube 2's predecessor, Cube, had "official binaries" which differed from the Open Source version in a different network protocol. This helped combat cheating somewhat, but still not entirely.</li>
 <li>A social solution, "Trusted Communities" was proposed, that would give players an identity, and only allow you to play on trusted servers if you were trusted by other players. This system could work well but requires a lot of infrastructure and organization</li>
 </ul>
 
 <p>
-Cube and Sauerbraten are small communities sofar, and the main issue is not necessarily to combat cheating (a lost battle to start with), but more to allow non-cheaters to have undisturbed games together.
+Cube and Cube 2 have rather small communities, and the main issue is not necessarily to combat cheating (a lost battle to start with), but more to allow non-cheaters to have undisturbed games together.
 Hence Sauerbraten multiplayer has a very simple solution:
 </p>
 
