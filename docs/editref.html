@@ -325,10 +325,16 @@
 <a href="#setshader"><tt>setshader</tt></a>
 </li>
 <li>
+<a href="#setshaderparam"><tt>setshaderparam</tt></a>
+</li>
+<li>
 <a href="#setpixelparam"><tt>setpixelparam</tt></a>
 </li>
 <li>
 <a href="#setvertexparam"><tt>setvertexparam</tt></a>
+</li>
+<li>
+<a href="#setuniformparam"><tt>setuniformparam</tt></a>
 </li>
 <li>
 <a href="#music"><tt>music</tt></a>
@@ -1389,6 +1395,12 @@ Sets a previously defined shader as the current shader. Any following texture sl
 attached to them. Any pixel or vertex parameters are reset to the shader's defaults when this command is used.
 </p>
 
+<pre id="setshaderparam">setshaderparam NAME X Y Z W</pre>
+<p>
+Overrides a uniform parameter for the current shader. Any following texture slots will use this pixel parameter until its value is set/reset by subsequent commands.
+NAME is the name of a defined parameter of the current shader. It's value is set to the vector (X, Y, Z, W). Coordinates that are not specified default to 0.
+</p>
+
 <pre id="setpixelparam">setpixelparam INDEX X Y Z W</pre>
 <p>
 Overrides a pixel parameter for the current shader. Any following texture slots will use this pixel parameter until its value is set/reset by subsequent commands.
@@ -1400,18 +1412,23 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 Overrides a vertex parameter for the current shader. Any following texture slots will use this vertex parameter until its value is set/reset by subsequent commands.
 INDEX is the index of a program environment parameter (program.env[10+INDEX]) to the vertex program of the current shader. It's value is set to the vector (X, Y, Z, W). Coordinates that are not specified default to 0.
 </p>
+
+<pre id="setuniformparam">setuniformparam NAME X Y Z W</pre>
+<p>
+Overrides a uniform parameter for the current shader. Any following texture slots will use this pixel parameter until its value is set/reset by subsequent commands.
+NAME is the name of a uniform variable in the current GLSL shader. It's value is set to the vector (X, Y, Z, W). Coordinates that are not specified default to 0.
+</p>
+
 <table>
 <tr>
 <td>Shader</td>
-<td>Pixel params</td>
-<td>Vertex params</td>
+<td>Shader params</td>
 <td>Texture slots</td>
 <td></td>
 </tr>
 
 <tr>
 <td>stdworld</td>
-<td></td>
 <td></td>
 <td>c</td>
 <td>The default lightmapped world shader. 
@@ -1421,7 +1438,6 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <tr>
 <td>decalworld</td>
 <td></td>
-<td></td>
 <td>c, d
 </td>
 <td>Like stdworld, except alpha blends decal texture on diffuse texture.
@@ -1430,9 +1446,8 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 
 <tr>
 <td>glowworld</td>
-<td>  <ul><li>0: Rk, Gk, Bk - multiplies the glow map color by the factors Rk, Gk, Bk</li></ul>
+<td>  <ul><li>glowcolor: Rk, Gk, Bk - multiplies the glow map color by the factors Rk, Gk, Bk</li></ul>
 </td>
-<td></td>
 <td>c, g</td>
 <td>Like stdworld, except adds light from glow map.
 </td>
@@ -1441,7 +1456,6 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <tr>
 <td>bumpworld</td>
 <td></td>
-<td></td>
 <td>c, n</td>
 <td>Normal-mapped shader without specularity (diffuse lighting only).  
 </td>
@@ -1449,9 +1463,8 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 
 <tr>
 <td>bumpglowworld</td>
-<td>  <ul><li>0: Rk, Gk, Bk - multiplies the glow map color by the factors Rk, Gk, Bk</li></ul>
+<td>  <ul><li>glowcolor: Rk, Gk, Bk - multiplies the glow map color by the factors Rk, Gk, Bk</li></ul>
 </td>
-<td></td>
 <td>c, n, g</td>
 <td>Normal-mapped shader with glow map and without specularity.
 </td>
@@ -1459,9 +1472,8 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 
 <tr>
 <td>bumpspecworld</td>
-<td>  <ul><li>1: Rk, Gk, Bk - multiplies the specular light color by the factors Rk, Gk, Bk</li></ul>
+<td>  <ul><li>specscale: Rk, Gk, Bk - multiplies the specular light color by the factors Rk, Gk, Bk</li></ul>
 </td>
-<td></td>
 <td>c, n</td>
 <td>Normal-mapped shader with constant specularity factor.
 </td>
@@ -1471,7 +1483,6 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <td>bumpspecmapworld</td>
 <td>same as above
 </td>
-<td></td>
 <td>c, n, s</td>
 <td>Normal-mapped shader with specularity map.
 </td>
@@ -1480,11 +1491,10 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <tr>
 <td>bumpspecglowworld</td>
 <td>  <ul>
-        <li>0: Rk, Gk, Bk - multiplies the glow map color by the factors Rk, Gk, Bk</li>
-        <li>1: Rk, Gk, Bk - multiplies the specular light color by the factors Rk, Gk, Bk</li>
+        <li>glowcolor: Rk, Gk, Bk - multiplies the glow map color by the factors Rk, Gk, Bk</li>
+        <li>specscale: Rk, Gk, Bk - multiplies the specular light color by the factors Rk, Gk, Bk</li>
   </ul>
 </td>
-<td></td>
 <td>c, n, g</td>
 <td>Normal-mapped shader with constant specularity factor and glow map.
 </td>
@@ -1494,7 +1504,6 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <td>bumpspecmapglowworld</td>
 <td>same as above
 </td>
-<td></td>
 <td>c, n, s, g</td>
 <td>Normal-mapped shader with specularity map and glow map.
 </td>
@@ -1503,10 +1512,9 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <tr>
 <td>bumpparallaxworld</td>
 <td>    <ul>
-        <li>2: Scale, Bias - Scales the heightmap offset</li>
+        <li>parallaxscale: Scale, Bias - Scales the heightmap offset</li>
     </ul>
 </td>
-<td></td>
 <td>c, n, z</td>
 <td>Normal-mapped shader with height map and without specularity.
 </td>
@@ -1515,11 +1523,10 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <tr>
 <td>bumpspecparallaxworld</td>
 <td>  <ul>
-        <li>1: Rk, Gk, Bk - multiplies the specular light color by the factors Rk, Gk, Bk</li>
-            <li>2: Scale, Bias - Scales the heightmap offset</li>
+        <li>specscale: Rk, Gk, Bk - multiplies the specular light color by the factors Rk, Gk, Bk</li>
+            <li>parallaxscale: Scale, Bias - Scales the heightmap offset</li>
         </ul> 
 </td>
-<td></td>
 <td>c, n, z</td>
 <td>Normal-mapped shader with constant specularity factor and height map.
 </td>
@@ -1529,7 +1536,6 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <td>bumpspecmapparallaxworld</td>
 <td>same as above
 </td>
-<td></td>
 <td>c, n, s, z</td>
 <td>Normal-mapped shader with specularity map and height map.
 </td>
@@ -1538,11 +1544,10 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <tr>
 <td>bumpparallaxglowworld</td>
 <td>  <ul>
-        <li>0: Rk, Gk, Bk - multiplies the glow map color by the factors Rk, Gk, Bk</li>
-            <li>2: Scale, Bias - Scales the heightmap offset</li>
+        <li>glowcolor: Rk, Gk, Bk - multiplies the glow map color by the factors Rk, Gk, Bk</li>
+            <li>parallaxscale: Scale, Bias - Scales the heightmap offset</li>
         </ul>
 </td>
-<td></td>
 <td>c, n, z, g</td>
 <td>Normal-mapped shader with height and glow maps, and without specularity.
 </td>
@@ -1551,12 +1556,11 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <tr>
 <td>bumpspecparallaxglowworld</td>
 <td>  <ul>
-        <li>0: Rk, Gk, Bk - multiplies the glow map color by the factors Rk, Gk, Bk</li>
-        <li>1: Rk, Gk, Bk - multiplies the specular light color by the factors Rk, Gk, Bk</li>
-            <li>2: Scale, Bias - Scales the heightmap offset</li>
+        <li>glowcolor: Rk, Gk, Bk - multiplies the glow map color by the factors Rk, Gk, Bk</li>
+        <li>specscale: Rk, Gk, Bk - multiplies the specular light color by the factors Rk, Gk, Bk</li>
+            <li>parallaxscale: Scale, Bias - Scales the heightmap offset</li>
         </ul>
 </td>
-<td></td>
 <td>c, n, z, g</td>
 <td>Normal-mapped shader with constant specularity factor, and height and glow maps.
 </td>
@@ -1566,7 +1570,6 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <td>bumpspecmapparallaxglowworld</td>
 <td>same as above
 </td>
-<td></td>
 <td>c, n, s, z, g</td>
 <td>Normal-mapped shader with specularity, height, and glow maps.
 </td>
@@ -1575,10 +1578,9 @@ INDEX is the index of a program environment parameter (program.env[10+INDEX]) to
 <tr>
 <td>bumpenv*</td>
 <td>  <ul>
-        <li>3: Rk, Gk, Bk - multiplies the environment map color by the factors Rk, Gk, Bk</li>
+        <li>envscale: Rk, Gk, Bk - multiplies the environment map color by the factors Rk, Gk, Bk</li>
         </ul>
 </td>
-<td></td> 
 <td></td>
 <td>Any of the above bump* shader permutations may replace "bump" with "bumpenv"
 (i.e. bumpenvspecmapworld), and will then reflect the closest <a href="#_envmap_">envmap</a>
