@@ -497,6 +497,9 @@
 <a href="#setblendbrush"><tt>setblendbrush</tt></a>
 </li>
 <li>
+<a href="#nextblendbrush"><tt>nextblendbrush</tt></a>
+</li>
+<li>
 <a href="#painting">Painting</a>
 </li>
 <li>
@@ -2058,12 +2061,12 @@ To set up textures to blend, in your map cfg, under the texture that you want to
 <pre id="texlayer">texlayer N</pre>
 
 <p>
-Where N is the slot taken by the second texture you want to add. So, if you have defined 50 new textures, and the 51st texture is something that you want to paint with, then under any texture you want to blend it with, you would enter: <tt>texlayer 58</tt>
+N is the index of the texture slot you want to use as the bottom texture layer to blend with. Texture slots start at 0, which is the first slot, 1 is the second slot, 2 is the third slot, etc. If N is a negative number, it will reference N slots back from the current slot, i.e. -1 references the previous texture slot.
 </p>
 
 <h3 id="blend_brushes">Blend Brushes</h3>
 <p>
-There will be a number of brushes already included and set up in the default Blood Frontier package.cfg. If you want to set up your own brush, simple create a gray scale PNG file to use as a pattern. Keep in mind that the size of the brushes are relatively large, and not meant for super detailed work. So a 16 x 16 size image will make a brush that covers a very large patch of architecture.
+There will be a number of brushes already included and set up in the default "data/brush.cfg". If you want to set up your own brush, create a grayscale PNG file to use as a pattern. Keep in mind that the size of the brushes are relatively large, and not meant for super detailed work. So a 16 x 16 size image will make a brush that covers a very large patch of architecture.
 </p>
 
 <h4>Adding a New Brush</h4>
@@ -2071,34 +2074,32 @@ There will be a number of brushes already included and set up in the default Blo
 <pre id="addblendbrush">addblendbrush N F</pre>
 
 <p>
-Where N is the name of your brush, that you will use later to load the brush, and F is the file name, relative to the data directory. So if you have a directory in data called "mydir", you have put yuor brushes into a sub-directory called "brushes", and the brush you want to add is called "crack.png", then you would add the following line to your map.cfg file: <tt>addblendbrush crack "mydir/brushes/crack.png"</tt>
+Where N is the name of your brush, that you will use later to load the brush, and F is the file name, relative to the data directory. So if the brush you want to add is called "mybrush.png", then you would add the following line to your map.cfg file: <tt>addblendbrush mybrush "mybrush.png""</tt>. Note that the filename of the brush image is relative to the root directory.
 </p>
 
 <h4>Loading a Brush</h4>
 
-<p>
-Enter editing mode by pressing f1. If you see hands in front of you, press f1 again. Open the console with the tilde key and type:
-</p>
-
 <pre id="setblendbrush">setblendbrush N</pre>
 
 <p>
-Where N is the name of your brush that you defined in the cfg, or the name of an existing brush. So to set the brush to the one that was defined above, you would open the console with the tilde key and type: <tt>/setblendbrush crack</tt>
+Where N is the name of your brush that you defined in the cfg, or the name of an existing brush. So to set the brush to the one that was defined above, you would open the console with the tilde key and type: <tt>/setblendbrush mybrush</tt>
+</p>
+
+<pre id="nextblendbrush">nextblendbrush N</pre>
+
+<p>
+Selects the next brush after the current one if N is not specified, or is 1. Otherwise, it will advance the current brush selected by N over the list of brushes. N may be negative, in which case it will go backwards in the list of brushes.
 </p>
 
 <h3 id="painting">Painting</h3>
 <p>
-First, select a texture that you have defined a secondary texture for. Second, you will need to be in editing mode, on a NEW map. Keep in mind that the texture blending is not set up in older map.cfg files, because the capability did not exist yet.
-</p>
-
-<p>
-Third, texture the surfaces that you will want to paint with the textures that have had an extra texture layer defined for them in your map.cfg. You can only paint on textures that have had a second layer defined in the cfg. Now, you need to turn on painting mode. Press tilde to enter the console and type
+First, texture the surfaces that you will want to paint with the textures that have had an extra texture layer defined for them in your map.cfg. You can only paint on textures that have had a second layer defined in the cfg. Now, you need to turn on a painting mode with the following command:
 </p>
 
 <pre id="blendpaintmode">blendpaintmode N</pre>
 
 <p>
-Where N is a number from 0 to 5, which defines how the painting will be done. Setting it to 0 turns paint mode off.
+Where N is a number from 0 to 5, which defines how the painting will be done. Setting it to 0 turns paint mode off. Usually you should paint with mode 2.
 </p>
 
 <ul>
@@ -2117,7 +2118,7 @@ Experiment with the numbers to understand what they do. Finally, in order to pai
 <pre id="paintblendmap">paintblendmap</pre>
 
 <p>
-If you've done everything right, you should see your first blended textures. If not, check out the IRC forum. Most of the community members there are willing to offer help.
+If you've done everything right, you should see your first blended textures.
 </p>
 
 <h3 id="reverting_paints">Reverting Paints</h3>
@@ -2140,8 +2141,6 @@ This will clear the texture blending on the selected geometry.
 <h3 id="blending_hints_and_tips">Blending Hints and Tips</h3>
 <ul>
 <li>The amount of rendering passes the engine is required to make doubles on areas where the textures have been blended.</li>
-<li>DON'T start working with blended textures until you are happy with the architecture in the level. They are still new and may cause unforeseen Issues.</li>
-<li>SAVE OFTEN. You are working with a new feature, after all.</li>
 </p>
 
 <h2 id="entity_types">Entity Types</h2>
