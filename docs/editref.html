@@ -2428,17 +2428,17 @@ A particle emitter. Particles includes many of the effects as seen for weapons, 
 </tr>
 <tr>
 <td>0</td>
-<td>&nbsp;</td>
-<td>fire with smoke</td>
+<td>radius, height, rgb (0x000..0xFFF) - 0 values are compat with older maps, otherwise radius&amp;height=100 is a 'classic' size</td>
+<td>colored flames with smoke</td>
 </tr>
 <tr>
 <td>1</td>
 <td>direction (0..5)</td>
-<td>smoke vent</td>
+<td>steam vent</td>
 </tr>
 <tr>
 <td>2</td>
-<td>direction (0..5)</td>
+<td>direction (0..5) - color comes from water color</td>
 <td>water fountain</td>
 </tr>
 <tr>
@@ -2449,13 +2449,13 @@ A particle emitter. Particles includes many of the effects as seen for weapons, 
 <tr>
 <td>4</td>
 <td>direction (0..5), length(0..100), rgb (0x000..0xFFF)</td>
-<td>tape/flare</td>
+<td>streak/flare</td>
 </tr>
 <tr>
 <td>4</td>
 <td>direction (256+effect), length(0..100), rgb (0x000..0xFFF)</td>
 <td>
-multiple tape/flare effect [*consider experimental]
+multiple streak/flare effect
 <table>
 <tr>
 <td>Effect</td>
@@ -2486,7 +2486,7 @@ multiple tape/flare effect [*consider experimental]
 <td>sphere</td>
 </tr>
 </table>
-note: +32 to reverse direction of tapes
+note: +32 to reverse direction of streaks
 </td>
 </tr>
 <tr>
@@ -2512,12 +2512,22 @@ note: +32 to reverse direction of tapes
 <tr>
 <td>9</td>
 <td>direction, length, rgb - see type 4</td>
-<td>smoke</td>
+<td>steam</td>
 </tr>
 <tr>
 <td>10</td>
 <td>direction, length, rgb - see type 4</td>
 <td>water</td>
+</tr>
+<tr>
+<td>11</td>
+<td>radius, height, rgb - radius&amp;height=100 is a 'classic' size</td>
+<td>flames</td>
+</tr>
+<tr>
+<td>12</td>
+<td>radius, height, rgb - radius&amp;height=100 is a 'classic' size</td>
+<td>smoke plume</td>
 </tr>
 <tr>
 <td>32</td>
