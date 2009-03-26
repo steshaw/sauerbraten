@@ -83,18 +83,6 @@ joints {
 }
 
 mesh {
-	// meshes: Sphere
-
-	shader ""
-
-	numverts 0
-
-	numtris 0
-
-	numweights 0
-}
-
-mesh {
 	// meshes: wings
 
 	shader "/home/geartrooper/Desktop/wings.png"
