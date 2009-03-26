@@ -1253,9 +1253,6 @@ directions, respectively. If a .jpg file is not found, it will attempt to
 search for the files with a .png extension. SPIN, if specified, is floating point value that
 specifies, in degrees per second, the rate at which to spin/yaw the skybox.
 
-NOTE: For the skybox to save with your map, much like the "texture" command,
-you must use this command directly in your map's .cfg file!
-
 NOTE: This is an alias for the "skybox" and "spinsky" commands.
 </p>
 
@@ -1672,30 +1669,22 @@ specifies a colour to use for the ambient light value of shadows created by shad
 is a hexadecimal colour value of the form "0xRRGGBB". Note that any value of 255 or less are treated
 as gray-scale. If N is 0 or unset, this value is determined by the "ambient" variable and the "skylight"
 command. (Default: 0)
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="shadowmapangle">shadowmapangle N</pre>
 <p>
 specifies the angle in degrees at which shadows created by shadowmapping point. If N is 0 or unset,
 this value is guessed based on any radius 0 lights in the map.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="causticscale">causticscale N</pre>
 <p>
 specifies the scale, as a percent, to multiply the size of water caustics by.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="causticmillis">causticmillis N</pre>
 <p>
 specifies the speed at which water caustics play, in milliseconds per frame.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="skybox">skybox NAME</pre>
@@ -1706,57 +1695,42 @@ NAME_up.jpg, NAME_dn.jpg, NAME_lf.jpg, NAME_rt.jpg, NAME_ft.jpg, NAME_bk.jpg.
 These represent the skybox in the up, down, left, right, front, and back
 directions, respectively. If a .jpg file is not found, it will attempt to
 search for the files with a .png extension.
-
-NOTE: For the skybox to save with your map, much like the "texture" command,
-you must use this command directly in your map's .cfg file!
 </p>
 
 <pre id="spinsky">spinsky SPIN</pre>
 <p>
 a floating point value that specifies, in degrees per second, the rate at which to 
 spin/yaw the skybox.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="yawsky">yawsky YAW</pre>
 <p>
 specifies in degrees a constant yaw rotation to apply
 to the skybox.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="cloudbox">cloudbox NAME</pre>
 <p>
 loads the cloudbox described by NAME, similar to the "skybox" command. The cloudbox
 should have an alpha channel which is used to blend it over the normal skybox.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="spinclouds">spinclouds SPIN</pre>
 <p>
 a floating point value that specifies, in degrees per second, the rate at which to 
 spin/yaw the cloudbox.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="yawclouds">yawclouds YAW</pre>
 <p>
 specifies in degrees a constant yaw rotation to apply
 to the cloudbox.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="cloudclip">cloudclip CLIP</pre>
 <p>
 specifies a vertical offset at which to clip the cloudbox, a floating point value between 0 and 1.
 This defaults to 0.5, meaning the bottom half of the cloudbox is clipped away.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="cloudlayer">cloudlayer NAME</pre>
@@ -1766,30 +1740,22 @@ to the "packages/" directory. The engine will look for either "packages/NAME.png
 or "packages/NAME.jpg".  The cloud layer should have an alpha channel which is used
 to blend it onto the skybox. The cloud layer is mapped onto a horizontal circle 
 that fades into the edges of the skybox.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="cloudscrollx">cloudscrollx N</pre>
 <p>
 specifies the rate, a floating-point value in Hz, at which the cloud layer scrolls in the X direction.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="cloudscrolly">cloudscrolly N</pre>
 <p>
 specifies the rate, a floating-point value in Hz, at which the cloud layer scrolls in the Y direction.
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="cloudscale">cloudscale N</pre>
 <p>
 specifies the scale as a floating-point value telling how much to multiply the size of the cloud layer.
 (Default: 1)
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="cloudheight">cloudheight N</pre>
@@ -1797,8 +1763,6 @@ NOTE: You must place this in your map's .cfg file for it to save!
 specifies the height of the cloud layer as a floating-point value, where -1 corresponds to the bottom of
 the skybox, 0 corresponds to the middle of the skybox, and 1 corresponds to the top of the skybox. Intermediate
 values place the cloud layer at intermediate heights of those. (Default: 0.2)
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="cloudfade">cloudfade N</pre>
@@ -1806,16 +1770,12 @@ NOTE: You must place this in your map's .cfg file for it to save!
 specifies the offset towards the center of the cloud layer at which the cloud layer will start fading into the skybox.
 This is a floating-point value between 0 and 1, where 0 corresponds to the edge of the cloud layer, and 1 corresponds
 to the center. (Default: 0.2)
- 
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="cloudcolor">cloudcolor N</pre>
 <p>
 specifies a colour multiplier for the cloud layer, where N is a hexadecimal colour value in the form of "0xRRGGBB".
 (Default: 0xFFFFFF, white)
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="skytexture">skytexture B</pre>
@@ -1824,8 +1784,6 @@ specifies whether or not to enable rendering of sky-textured surfaces. If set to
 allowing sky texture to be used as a "don't render this" surface. Disabling this also allows the skybox to be rendered last
 after the scene, which yields speedups on some video cards, so disable this if possible in your map, even though it defaults
 to on. (Default: 1)
-
-NOTE: You must place this in your map's .cfg file for it to save!
 </p>
 
 <pre id="importcube">importcube N</pre>
