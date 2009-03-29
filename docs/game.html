@@ -149,6 +149,9 @@
 <li>
 <a href="#goto"><tt>goto</tt></a>
 </li>
+<li>
+<a href="#pausegame"><tt>pausegame</tt></a>
+</li>
 </ul>
 </li>
 <li>
@@ -919,6 +922,11 @@ Sets whether a player is a spectator (B=1 to enable, 0 to disable). N is specifi
 <pre id="goto">goto N</pre>
 <p>
 If you are a spectator, then this takes you to the location of player N (where N is a client number or the player's name).
+</p>
+
+<pre id="pausegame">pausegame N</pre>
+<p>
+Pauses a multiplayer game if N=1, or unpauses it if N=0. Requires admin privileges.
 </p>
 
 <p>
