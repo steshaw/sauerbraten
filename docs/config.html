@@ -287,6 +287,15 @@
 <a href="#soundbufferlen"><tt>soundbufferlen</tt></a>
 </li>
 <li>
+<a href="#scr_w"><tt>scr_w</tt></a>
+</li>
+<li>
+<a href="#scr_h"><tt>scr_h</tt></a>
+</li>
+<li>
+<a href="#screenres"><tt>screenres</tt></a>
+</li>
+<li>
 <a href="#gamma"><tt>gamma</tt></a>
 </li>
 <li>
@@ -922,6 +931,21 @@ Sets the music/sound volume from 0..255.
 <pre id="soundbufferlen">soundbufferlen N</pre>
 <p>
 Sets the sound buffer length in bytes, tweak this if you experience stuttering or lagging sound (default: 512).
+</p>
+
+<pre id="scr_w">scr_w N</pre>
+<p>
+Sets the screen resolution's width to N. This variable can also be used to check the current screen resolution width.
+</p>
+
+<pre id="scr_h">scr_h N</pre>
+<p>
+Sets the screen resolution's height to N. This variable can also be used to check the current screen resolution height.
+</p>
+
+<pre id="screenres">screenres W H</pre>
+<p>
+Sets the screen resolution's width to W and height to H. On supported platforms, this can change the screen resolution immediately without requiring OpenGL to reset.
 </p>
 
 <pre id="gamma">gamma N</pre>
