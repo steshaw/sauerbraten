@@ -93,10 +93,10 @@
 <a href="#_minus_is"><tt>-iS</tt></a>
 </li>
 <li>
-<a href="#_minus_ms"><tt>-mS</tt></a>
+<a href="#_minus_jn"><tt>-jN</tt></a>
 </li>
 <li>
-<a href="#_minus_gs"><tt>-gS</tt></a>
+<a href="#_minus_ms"><tt>-mS</tt></a>
 </li>
 <li>
 <a href="#_minus_ps"><tt>-pS</tt></a>
@@ -106,6 +106,9 @@
 </li>
 <li>
 <a href="#_minus_on"><tt>-oN</tt></a>
+</li>
+<li>
+<a href="#_minus_gn"><tt>-gN</tt></a>
 </li>
 </ul>
 </li>
@@ -619,6 +622,11 @@ doubles with each extra client, so only do this if the server runs on a serious 
 Sets the server ip to S. This option is only useful for people running on machines with multiple network interfaces.
 </p>
 
+<pre id="_minus_jn">-jN</pre>
+<p>
+Sets the server port to N. This option is only useful for people running on machines with multiple network interfaces. Note that both UDP ports N (game traffic) and N+1 (pings) must be available for this to work. If not specified, the default ports used are 28785 and 28786. Regardless of what ports are set, port 28784 must be available for pinging servers over a LAN to work.
+</p>
+
 <pre id="_minus_ms">-mS</pre>
 <p>
 Sets the master server to use for either server (registering) and client (updating) to S. Be aware, this is the base url
@@ -638,6 +646,11 @@ Locks the server so that password S must be provided to connect to it.
 <pre id="_minus_on">-oN</pre>
 <p>
 Sets the openness of the server to N. N=1 disables mastermodes 2 (locked) and 3 (private), while N=0 (default) enables all mastermodes.  
+</p>
+
+<pre id="_minus_gn">-gN</pre>
+<p>
+Sets the maximum amount of bots a master can add to the server. Set to 0 to disable bots. The default is 8.
 </p>
 
 <h2 id="console_commands">Console Commands</h2>
