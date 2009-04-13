@@ -86,6 +86,15 @@
 <a href="#updatefrommaster"><tt>updatefrommaster</tt></a>
 </li>
 <li>
+<a href="#clearservers"><tt>clearservers</tt></a>
+</li>
+<li>
+<a href="#keepserver"><tt>keepserver</tt></a>
+</li>
+<li>
+<a href="#addserver"><tt>addserver</tt></a>
+</li>
+<li>
 <a href="#paused"><tt>paused</tt></a>
 </li>
 <li>
@@ -332,6 +341,23 @@ Displays the server menu. The server menu contains the last N servers you connec
 <pre id="updatefrommaster">updatefrommaster</pre>
 <p>
 Contacts the masterserver and adds any new servers to the server list (written to servers.cfg on exit). (see also multiplayer menu).
+</p>
+
+<pre id="clearservers">clearservers [N]</pre>
+<p>
+Clears all servers from the server browser's list. If N is 0 or not specified, only servers added by the masterserver are cleared. If N is 1, all servers are cleared, including kept servers.
+</p>
+
+<pre id="keepserver">keepserver NAME PORT [PASSWORD]</pre>
+<p>
+Adds a server to the server browser's list with ip address NAME and port PORT. If PASSWORD is specified, this password is used when clicking on the server in the server browser.
+This command causes the server to remain in the server browser's list even if the server list is updated from the master server or servers are cleared.
+</p>
+
+<pre id="addserver">addserver NAME PORT [PASSWORD]</pre>
+<p>
+Adds a server to the server browser's list with ip address NAME and port PORT. If PASSWORD is specified, this password is used when clicking on the server in the server browser.
+Note that servers added to the list with this command will be removed when the list is updated from the masterserver!
 </p>
 
 <pre id="paused">paused B</pre>
