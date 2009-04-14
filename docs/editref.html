@@ -817,39 +817,42 @@ textures matching the one that was last edited will be
 replaced.        
 </p>
 
-<pre id="editmat">editmat</pre>
+<pre id="editmat">editmat MAT [FILTER]</pre>
 <p>
-Changes the type of material left behind when a cube is deleted. Currently the
-following types of materials are supported:
+Changes the type of material left behind when a cube is deleted to MAT. If FILTER is specified, then only cubes with that material named by FILTER are changed to MAT. MAT may also be "", indicating that only those parts of the material mask matching FILTER will be cleared, as opposed to setting MAT to "air", which would clear the entire material mask.
+</p>
+
+<p>
+Currently the following types of materials are supported:
 </p>
 
 <ul>
 <li>
-air: the default material, has no effect.
+air: the default material, has no effect. Overwrites other volume materials.
 </li>
 <li>
 water: acts as you would expect. Renders the top as a reflection/refraction and the
 sides as a waterfall if it isn't contained. Should be placed with a floor at the bottom
-to contain it. Shows blue volume in edit mode.
-</li>
-<li>
-lava: renders the top as a glowing lava flow and the sides as lavafalls if it isn't contained. Shows orange volume in edit mode.
-</li>
-<li>
-clip: an invisible wall that blocks players movement but not bullets. Is
-ideally used to keep players "in bounds" in a map. Can be used sparingly to
-smooth out the flow around decoration. Shows red volume in edit mode.
-</li>
-<li>
-noclip: cubes are always treated as empty in physics. Shows green volume in edit mode.
+to contain it. Shows blue volume in edit mode. Overwrites other volume materials.
 </li>
 <li>
 glass: a clip-like material with a blended/reflective surface. Glass also stops bullets.
 Will reflect the closest envmap entity, or if none is in range, the skybox.
-Shows cyan volume in edit mode.
+Shows cyan volume in edit mode. Overwrites other volume materials.
 </li>
 <li>
-gameclip: a game mode specific clip material. Currently it can block monsters in SP modes, it can stop flags from being picked up in areas in CTF/protect modes, and it can stop capturing of bases in areas in capture modes.
+lava: renders the top as a glowing lava flow and the sides as lavafalls if it isn't contained. It kills any players who enter it. Shows orange volume in edit mode. Overwrite other volume materials.
+</li>
+<li>
+clip: an invisible wall that blocks players movement but not bullets. Is
+ideally used to keep players "in bounds" in a map. Can be used sparingly to
+smooth out the flow around decoration. Shows red volume in edit mode. Overwrites other clip materials.
+</li>
+<li>
+noclip: cubes are always treated as empty in physics. Shows green volume in edit mode. Overwrites other clip materials.
+</li>
+<li>
+gameclip: a game mode specific clip material. Currently it can block monsters in SP modes, it can stop flags from being picked up in areas in CTF/protect modes, and it can stop capturing of bases in areas in capture modes. Overwrites other clip materials.
 </li>
 <li>
 death: causes the player to suicide if he is inside the material. Shows black volume in edit mode.
