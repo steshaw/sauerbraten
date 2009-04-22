@@ -321,7 +321,6 @@ Set gameplay mode to N for the next game played (next map load). N can be:
 <li>14: insta protect mode. Like protect mode above, but with weapons, health, and items as in instagib mode.</li>
 <li>-1: demo playback mode, see demo recording section below.</li>
 <li>-2, -3: single player, see single player mode section below.</li>
-<li>-4, -5: slow-motion singleplayer, like single player modes but gamespeed slows down depending on how much health you have.</li>
 </ul>
 
 <p>
@@ -619,7 +618,7 @@ blips on it, with blips on the border for faraway bases).
 <h2 id="singleplayer_modes">Singleplayer Modes</h2>
 
 <p>
-There are four single player modes:
+There are two single player modes:
 </p>
 
 <ul>
@@ -629,18 +628,21 @@ There are four single player modes:
 <li>
 (mode -2, command "/dmsp &lt;map&gt;"): an arena style SP mode (akin to my "DMSP" mod for quake) which you play on DM maps: 10 seconds after the game starts monsters start spawning in (currently about 1 per second), which will immediately be angry at you. The map ends when they all have spawned and they are all killed (either by you or by their buddies ;). The number of monsters depends on the "skill" variable. Items respawn as in DM.
 </li>
-    <li>(mode -4 and -5, commands /slowdmsp and /slowsp respectively): Two experimental
-        modes that work the same as regular SP, except that the gamespeed is directly derived
-        from your health, so the more damage you take, the more in slow motion the game
-        plays. Slow motion, while in one way a punishment for your failures, also makes
-        it easy to escape enemy fire and land perfect hits, therefore allowing you to recover.
-        Besided that, it just looks/feels plain cool. These modes do not support the concept of
-        death, you are simply going "infinitely" slow at health = 1. To compensate, there
-        is health regeneration, which is faster the less health you have. Your score (see
-        SP respawning below) will be measured in real time, so any slow motion time negatively
-        affects your score ("simulation time" shown is the time you would have taken with
-        no slowdown at all).</li>
 </ul>
+
+<p>
+Either mode can be turned into "slow motion SP" by toggling the "slowmosp" var.
+These modes that work the same as regular SP, except that the gamespeed is directly derived
+from your health, so the more damage you take, the more in slow motion the game
+plays. Slow motion, while in one way a punishment for your failures, also makes
+it easy to escape enemy fire and land perfect hits, therefore allowing you to recover.
+Besided that, it just looks/feels plain cool. These modes do not support the concept of
+death, you are simply going "infinitely" slow at health = 1. To compensate, there
+is health regeneration, which is faster the less health you have. Your score (see
+SP respawning below) will be measured in real time, so any slow motion time negatively
+affects your score ("simulation time" shown is the time you would have taken with
+no slowdown at all).
+</p>
 
 <p>
 The mode numbers can most conveniently be set over the singleplayer menu. In both cases, the map ends when all monsters are killed, or an end of level trigger is hit if one is available. Coop play is not supported yet.
