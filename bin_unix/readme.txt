@@ -25,14 +25,12 @@ If native binaries for your platform are not included, then try the following:
 3) Re-run the "sauerbraten_unix" script from the root Sauerbraten directory if it succeeded.
 
 The servers (bin_unix/linux_server or bin_unix/native_server) should need no libs 
-other than libstdc++ and zlib, no external files, no sound or video - just run it. 
-Note that for the server to see the "server-init.cfg", it must be run from whichever
-directory "server-init.cfg" is in. If you run a server with the "sauerbraten_unix -d"
-command, this should not be a problem. However, using the standalone servers may
-require you to write an appropriate wrapper shell script to change to the correct 
-directory before running them, similiar to what is describes for the client run
-script in the packaging guide below.
-
+other than libstdc++ and zlib. Note that for the server to see the "server-init.cfg", 
+it must be run from whichever directory "server-init.cfg" is in. If you run a server
+with the "sauerbraten_unix -d" command, this happens automatically. However, if you
+wish to run the standalone servers instead, then you may need to write an appropriate
+wrapper script to change to the appropriate data directory before running the standalone
+server binary, as described below in the packaging guide.
 
 
 
@@ -78,7 +76,7 @@ supplied to the Sauerbraten run script should be passed to the Sauerbraten clien
 these "-q${HOME}/.sauerbraten -r" switches.
 
 A simple script such as the following (with directory/file names set as appropriate) would 
-ultimately suffice:
+ultimately suffice for the client:
 
 #!/bin/sh
 SAUER_DATA=/usr/share/games/sauerbraten
@@ -87,4 +85,19 @@ SAUER_OPTIONS="-q${HOME}/.sauerbraten -r"
 
 cd ${SAUER_DATA}
 exec ${SAUER_BIN} ${SAUER_OPTIONS} "$@"
+
+A simple script for the server, which assumes a global default "server-init.cfg" in SAUER_DATA,
+but allows per-user overriding via the home directory, might be:
+
+#!/bin/sh
+SAUER_DATA=/usr/share/games/sauerbraten
+SAUER_SERV_BIN=/usr/bin/sauerbraten_server
+SAUER_SERV_OPTIONS="-q${HOME}/.sauerbraten"
+
+cd ${SAUER_DATA}
+exec ${SAUER_SERV_BIN} ${SAUER_SERV_OPTIONS} "$@"
+
+With respect to libraries, make sure that you do not link Sauerbraten against any other ENet package
+than the one that comes included with the Sauerbraten, as it may be different from the official ENet
+releases and might fail to compile or communicate properly.
 
