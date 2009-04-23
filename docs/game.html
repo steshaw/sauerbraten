@@ -186,6 +186,28 @@
 </li>
 </ul>
 </li>
+
+<li>
+<a href="#movie_recording"><b>Movie Recording</b></a>
+<ul class="contents2">
+<li>
+<a href="movie"><tt>movie</tt></a>
+</li>
+<li>
+<a href="moview"><tt>moview</tt></a>
+</li>
+<li>
+<a href="movieh"><tt>movieh</tt></a>
+</li>
+<li>
+<a href="moviefps"><tt>moviefps</tt></a>
+</li>
+<li>
+<a href="moviesound"><tt>moviesound</tt></a>
+</li>
+</ul>
+</li>
+
 </ul>
 </div>
 
@@ -1014,6 +1036,39 @@ a file with the extension ".dmo". Any client may use this command.
 This alias sets the mode to -1 (the special demo playback game mode) and map to F, where F is the name of a demo file, but without 
 the ".dmo" file extension. The "stopdemo" command may be used to terminate playback early when in this game mode.
 </p>
+
+
+<h2 id="movie_recording">Movie Recording</h2>
+<p>
+Cube 2 can record movies as uncompressed video and sound to AVI files. These files will grow very large very rapidly and so it is strongly recommended that they are compressed before sharing.
+</p>
+
+<pre id="movie">movie [filename]</pre>
+<p>
+Providing a filename begins the movie recording, without a filename stops the recording.
+Small movies are stored as  "&lt;filename&gt;.avi", but when a movie file exceeds 1Gb then the movies are stored as multiple files "&lt;filename&gt;XXX.avi", where XXX is numbered in sequence 000 to 999.
+</p>
+
+<pre id="moview">moview W</pre>
+<p>
+The width (default is 320) of the movie (0 will use the current window width). The movie will be downsized appropriately.
+</p>
+
+<pre id="movieh">movieh H</pre>
+<p>
+The height (default is 240) of the movie (0 will use the current window height). The movie will be downsized appropriately.
+</p>
+
+<pre id="moviefps">moviefps F</pre>
+<p>
+The framerate (default is 24fps) at which to record the movie. Movie recording may prematurely stop if unable to record reliably at this framerate.
+</p>
+
+<pre id="moviesound">moviesound 0/1</pre>
+<p>
+Enable recording of sound with 1, disable with 0.
+</p>
+
 
 </body>
 </html>
