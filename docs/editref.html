@@ -2611,27 +2611,27 @@ Prints out some useful info about the PVS data stored with the map, such as the 
 <p>Waypoints should be dropped at ground level in an even grid across the map, i.e. only jump where it is necesssary to jump.  Care should be taken to ensure good waypoint coverage around playstart, item, and flag positions.
 </p>
 
-<p>Note: waypoints are not loaded until required, i.e. until a "loadwaypoints" or "addbot" command is issued.
+<p>Note waypoints are not loaded until required, i.e. until a "loadwaypoints" or "addbot" command is issued.
 </p>
 
-<pre id="showwaypoints">showwaypoints N</pre>
+<pre id="showwaypoints">showwaypoints 0/1</pre>
 <p>
-Toggles showing of waypoints, where N=1 enables it, and N=0 disables it. This is mostly useful when laying waypoints so as to see the possible paths and ensure good coverage. 
+Toggles showing of waypoints, where 1 enables it, and 0 disables it. This is mostly useful when laying waypoints so as to see the possible paths and ensure good coverage. 
 </p>
 
-<pre id="dropwaypoints">dropwaypoints N</pre>
+<pre id="dropwaypoints">dropwaypoints 0/1</pre>
 <p>
-Toggles dropping of waypoints, where N=1 enables it, and N=0 disables it.  By default the player is dropping waypoints whilst playing against bots, this enables bots to "learn" from the player. Note that if N=1, waypoints will be saved automatically once the map is changed, and the variable will be reset back to N=0.
+Toggles dropping of waypoints, where 1 enables it, and 0 disables it.  By default the player is dropping waypoints whilst playing against bots, this enables bots to "learn" from the player. Note that if enabled, waypoints will be saved automatically once the map is changed, and the variable will then be reset back to 0.
 </p>
 
-<pre id="loadwaypoints">loadwaypoints</pre>
+<pre id="loadwaypoints">loadwaypoints [filename]</pre>
 <p>
-Loads the waypoints for the current map.
+Loads the waypoints for the current map (or specified file).
 </p>
 
-<pre id="savewaypoints">savewaypoints</pre>
+<pre id="savewaypoints">savewaypoints [filename]</pre>
 <p>
-Saves the waypoints for the current map, e.g. as "&lt;mapname&gt;.wpt".
+Saves the waypoints for the current map (or specified file), e.g. as "&lt;mapname&gt;.wpt".
 </p>
 
 <pre id="clearwaypoints">clearwaypoints</pre>
