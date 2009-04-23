@@ -26,7 +26,13 @@ If native binaries for your platform are not included, then try the following:
 
 The servers (bin_unix/linux_server or bin_unix/native_server) should need no libs 
 other than libstdc++ and zlib, no external files, no sound or video - just run it. 
-Server ports are fixed at UDP 28785 and UDP 28786, currently.
+Note that for the server to see the "server-init.cfg", it must be run from whichever
+directory "server-init.cfg" is in. If you run a server with the "sauerbraten_unix -d"
+command, this should not be a problem. However, using the standalone servers may
+require you to write an appropriate wrapper shell script to change to the correct 
+directory before running them, similiar to what is describes for the client run
+script in the packaging guide below.
+
 
 
 
