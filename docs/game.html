@@ -167,22 +167,22 @@
 <a href="#demo_recording"><b>Demo Recording</b></a>
 <ul class="contents2">
 <li>
-<a href="recorddemo"><tt>recorddemo</tt></a>
+<a href="#recorddemo"><tt>recorddemo</tt></a>
 </li>
 <li>
-<a href="stopdemo"><tt>stopdemo</tt></a>
+<a href="#stopdemo"><tt>stopdemo</tt></a>
 </li>
 <li>
-<a href="cleardemos"><tt>cleardemos</tt></a>
+<a href="#cleardemos"><tt>cleardemos</tt></a>
 </li>
 <li>
-<a href="listdemos"><tt>listdemos</tt></a>
+<a href="#listdemos"><tt>listdemos</tt></a>
 </li>
 <li>
-<a href="getdemo"><tt>getdemo</tt></a>
+<a href="#getdemo"><tt>getdemo</tt></a>
 </li>
 <li>
-<a href="demo"><tt>demo</tt></a>
+<a href="#demo"><tt>demo</tt></a>
 </li>
 </ul>
 </li>
@@ -191,22 +191,64 @@
 <a href="#movie_recording"><b>Movie Recording</b></a>
 <ul class="contents2">
 <li>
-<a href="movie"><tt>movie</tt></a>
+<a href="#movie"><tt>movie</tt></a>
 </li>
 <li>
-<a href="moview"><tt>moview</tt></a>
+<a href="#moview"><tt>moview</tt></a>
 </li>
 <li>
-<a href="movieh"><tt>movieh</tt></a>
+<a href="#movieh"><tt>movieh</tt></a>
 </li>
 <li>
-<a href="moviefps"><tt>moviefps</tt></a>
+<a href="#moviefps"><tt>moviefps</tt></a>
 </li>
 <li>
-<a href="moviesound"><tt>moviesound</tt></a>
+<a href="#moviesound"><tt>moviesound</tt></a>
 </li>
 <li>
-<a href="movieaccel"><tt>movieaccel</tt></a>
+<a href="#movieaccel"><tt>movieaccel</tt></a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="#bots"><b>Bots</b></a>
+<ul class="contents2">
+<li>
+<a href="#addbot"><tt>addbot</tt></a>
+</li>
+<li>
+<a href="#delbot"><tt>delbot</tt></a>
+</li>
+<li>
+<a href="#botlimit"><tt>botlimit</tt></a>
+</li>
+<li>
+<a href="#botbalance"><tt>botbalance</tt></a>
+</li>
+</ul>
+</li>
+
+<li>
+<a href="#waypoints"><b>Waypoints</b></a> 
+<ul class="contents2">
+<li>
+<a href="#loadwaypoints"><tt>loadwaypoints</tt></a>
+</li>
+<li>
+<a href="#savewaypoints"><tt>savewaypoints</tt></a>
+</li>
+<li>
+<a href="#clearwaypoints"><tt>clearwaypoints</tt></a>
+</li>
+<li>
+<a href="#dropwaypoints"><tt>dropwaypoints</tt></a>
+</li>
+<li>
+<a href="#showwaypoints"><tt>showwaypoints</tt></a>
+</li>
+<li>
+<a href="#delselwaypoints"><tt>delselwaypoints</tt></a>
 </li>
 </ul>
 </li>
@@ -1075,6 +1117,66 @@ Enable recording of sound with 1, disable with 0.
 <pre id="movieaccel">movieaccel 0/1</pre>
 <p>
 Enable GPU-accelerated video encoding with 1, disable with 0. This is enabled by default, but may cause problems on some video cards. If you notice movie recording displaying strange results, try disabling this and see if it helps.
+</p>
+
+<h2 id="bots">Bots</h2>
+<p>
+Bots are supported in all multiplayer modes, so long as they have waypoints available to guide them. Bots range in skill from 0 to 100, with an extra skill level 101 making the bots as skilled as possible. You must either be master or playing locally to add or remove bots. At the end of a match, all bots are removed. 
+</p>
+
+<pre id="addbot">addbot [SKILL]</pre>
+<p>
+Adds a bot at skill level SKILL if provided, or defaults to a random skill level between 50 and 100 if not provided. You must be master or playing locally to use this command. Bots may only be added up to the server specified bot limit unless you are an admin or local player. This also causes waypoints to load if any are available for the current map.
+</p>
+
+<pre id="delbot">delbot</pre>
+<p>
+Removes a bot. You must be master or playing locally to use this command.
+</p>
+
+<pre id="botlimit">botlimit N</pre>
+<p>
+Sets the bot limit for masters to N. This limit does not effect admins or local players. Only admins or local players can use this command.
+</p>
+
+<pre id="botbalance">botbalance B</pre>
+<p>
+Enables automatic team balancing for bots if B=1 and disables it if B=0. Only masters or local players can use this command.
+</p>
+
+<h2 id="waypoints">Waypoints</h2>
+<p>
+Waypoints are entities in a map that tell where it is safe for bots to move to. Each waypoint can link to other waypoints, telling a bot how to get from one waypoint to another. To set up waypoints, first either add a bot (which causes you to drop waypoints as a side-effect) or set the "dropwaypoints" variable to 1. Run around the level through all valid paths, making sure to run through teleporters and touch all items and playerstarts. Avoid any movement tricks like weapon jumping that might confuse the AI. Set the "showwaypoints" variable to 1 so you can see the waypoints you are dropping, and you will see blue lines representing the links between these waypoints. When you are done, use the "savewaypoints" command to save the waypoints for your map; they will be saved to a file named "yourmap.wpt" for a map named "yourmap" in the same directory as your map. It also helps to add some bots before you save and make sure there are no bots stuck at playerstarts without waypoints to guide them.
+</p>
+
+<pre id="loadwaypoints">loadwaypoints</pre>
+<p>
+Explicitly loads waypoints for the current map from the file "somemap.wpt" where "somemap" is the name of the current map.
+</p>
+
+<pre id="savewaypoints">savewaypoints</pre>
+<p>
+Explicitly saves waypoints for the current map to the file "yourmap.wpt" where "yourmap" is the name of the current map.
+</p>
+
+<pre id="clearwaypoints">clearwaypoints</pre>
+<p>
+Clears any currently loaded waypoints.
+</p>
+
+<pre id="dropwaypoints B">dropwaypoints B</pre>
+<p>
+Variable that toggles whether you will drop waypoints. B=1 enables waypoint dropping and also causes any waypoints you dropped to automatically save if the map ends or is changed. B=0 disables dropping. This variables automatically resets to 0 on a map change.
+</p>
+
+<pre id="showwaypoints B">showwaypoints B</pre>
+<p>
+Variable that toggles whether you can see waypoints. B=1 shows nearby waypoints as blue lines representing the links between waypoints, and B=0 disables this.
+</p>
+
+<pre id="delselwaypoints">delselwaypoints</pre>
+<p>
+In edit mode, this deletes any waypoints within the current geometry selection box.
 </p>
 
 </body>
