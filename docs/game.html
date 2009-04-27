@@ -229,30 +229,6 @@
 </ul>
 </li>
 
-<li>
-<a href="#waypoints"><b>Waypoints</b></a> 
-<ul class="contents2">
-<li>
-<a href="#loadwaypoints"><tt>loadwaypoints</tt></a>
-</li>
-<li>
-<a href="#savewaypoints"><tt>savewaypoints</tt></a>
-</li>
-<li>
-<a href="#clearwaypoints"><tt>clearwaypoints</tt></a>
-</li>
-<li>
-<a href="#dropwaypoints"><tt>dropwaypoints</tt></a>
-</li>
-<li>
-<a href="#showwaypoints"><tt>showwaypoints</tt></a>
-</li>
-<li>
-<a href="#delselwaypoints"><tt>delselwaypoints</tt></a>
-</li>
-</ul>
-</li>
-
 </ul>
 </div>
 
@@ -1142,41 +1118,6 @@ Sets the bot limit for masters to N. This limit does not effect admins or local 
 <pre id="botbalance">botbalance B</pre>
 <p>
 Enables automatic team balancing for bots if B=1 and disables it if B=0. Only masters or local players can use this command.
-</p>
-
-<h2 id="waypoints">Waypoints</h2>
-<p>
-Waypoints are entities in a map that tell where it is safe for bots to move to. Each waypoint can link to other waypoints, telling a bot how to get from one waypoint to another. To set up waypoints, first either add a bot (which causes you to drop waypoints as a side-effect) or set the "dropwaypoints" variable to 1. Run around the level through all valid paths, making sure to run through teleporters and touch all items and playerstarts. Avoid any movement tricks like weapon jumping that might confuse the AI. Set the "showwaypoints" variable to 1 so you can see the waypoints you are dropping, and you will see blue lines representing the links between these waypoints. When you are done, use the "savewaypoints" command to save the waypoints for your map; they will be saved to a file named "yourmap.wpt" for a map named "yourmap" in the same directory as your map. It also helps to add some bots before you save and make sure there are no bots stuck at playerstarts without waypoints to guide them.
-</p>
-
-<pre id="loadwaypoints">loadwaypoints</pre>
-<p>
-Explicitly loads waypoints for the current map from the file "somemap.wpt" where "somemap" is the name of the current map.
-</p>
-
-<pre id="savewaypoints">savewaypoints</pre>
-<p>
-Explicitly saves waypoints for the current map to the file "yourmap.wpt" where "yourmap" is the name of the current map.
-</p>
-
-<pre id="clearwaypoints">clearwaypoints</pre>
-<p>
-Clears any currently loaded waypoints.
-</p>
-
-<pre id="dropwaypoints B">dropwaypoints B</pre>
-<p>
-Variable that toggles whether you will drop waypoints. B=1 enables waypoint dropping and also causes any waypoints you dropped to automatically save if the map ends or is changed. B=0 disables dropping. This variables automatically resets to 0 on a map change.
-</p>
-
-<pre id="showwaypoints B">showwaypoints B</pre>
-<p>
-Variable that toggles whether you can see waypoints. B=1 shows nearby waypoints as blue lines representing the links between waypoints, and B=0 disables this.
-</p>
-
-<pre id="delselwaypoints">delselwaypoints</pre>
-<p>
-In edit mode, this deletes any waypoints within the current geometry selection box.
 </p>
 
 </body>

@@ -509,6 +509,9 @@
 <a href="#nextblendbrush"><tt>nextblendbrush</tt></a>
 </li>
 <li>
+<a href="#rotateblendbrush"><tt>rotateblendbrush</tt></a>
+</li>
+<li>
 <a href="#painting">Painting</a>
 </li>
 <li>
@@ -2102,6 +2105,11 @@ Where N is the name of your brush that you defined in the cfg, or the name of an
 Selects the next brush after the current one if N is not specified, or is 1. Otherwise, it will advance the current brush selected by N over the list of brushes. N may be negative, in which case it will go backwards in the list of brushes.
 </p>
 
+<pre id="rotateblendbrush">rotateblendbrush</pre>
+<p>
+Rotates the current blend brush.
+</p>
+
 <h3 id="painting">Painting</h3>
 <p>
 First, texture the surfaces that you will want to paint with the textures that have had an extra texture layer defined for them in your map.cfg. You can only paint on textures that have had a second layer defined in the cfg. Now, you need to turn on a painting mode with the following command:
@@ -2115,11 +2123,11 @@ Where N is a number from 0 to 5, which defines how the painting will be done. Se
 
 <ul>
 <li>0 - off</li>
-<li>1 - set</li>
-<li>2 - min(destination, source)</li>
-<li>3 - max(destination, source)</li>
-<li>4 - destination - source</li>
-<li>5 - destination + source </li>
+<li>1 - set - use for replacing/clearing</li>
+<li>2 - min(destination, source) - use for digging where black is the dig pattern</li>
+<li>3 - max(destination, source) - use for filling where white is the fill pattern</li>
+<li>4 - min(destination, invert(source)) - use for digging where white is the dig pattern</li>
+<li>5 - max(destination, invert(source)) - use for filling where black is the fill pattern</li>
 </ul>
 
 <p>
@@ -2608,7 +2616,11 @@ Prints out some useful info about the PVS data stored with the map, such as the 
 <p>Cube 2 provides waypoints to aid bot navigation, and without these bots are not able to calculate safe paths from place to place on the map.
 </p>
 
-<p>Waypoints should be dropped at ground level in an even grid across the map, i.e. only jump where it is necesssary to jump.  Care should be taken to ensure good waypoint coverage around playstart, item, and flag positions.
+<p>
+Waypoints are entities in a map that tell where it is safe for bots to move to. Each waypoint can link to other waypoints, telling a bot how to get from one waypoint to another. To set up waypoints, first either add a bot (which causes you to drop waypoints as a side-effect) or set the "dropwaypoints" variable to 1. Run around the level through all valid paths, making sure to run through teleporters and touch all items and playerstarts. Waypoints should be dropped at ground level in an even grid across the map, i.e. only jump where it is necesssary to jump. Avoid any movement tricks like weapon jumping that might confuse the AI. 
+</p>
+
+<p>Set the "showwaypoints" variable to 1 so you can see the waypoints you are dropping, and you will see blue lines representing the links between these waypoints. When you are done, use the "savewaypoints" command to save the waypoints for your map; they will be saved to a file named "yourmap.wpt" for a map named "yourmap" in the same directory as your map. It also helps to add some bots before you save and make sure there are no bots stuck at playerstarts without waypoints to guide them.
 </p>
 
 <p>Note waypoints are not loaded until required, i.e. until a "loadwaypoints" or "addbot" command is issued.
