@@ -386,6 +386,46 @@
 </li>
 </ul>
 </li>
+
+<li>
+<a href="#server_commands"><b>Server Configuration Commands</b></a>
+<ul class="contents2">
+<li>
+<a href="#serverip"><tt>serverip</tt></a>
+</li>
+<li>
+<a href="#serverport"><tt>serverport</tt></a>
+</li>
+<li>
+<a href="#maxclients"><tt>maxclients</tt></a>
+</li>
+<li>
+<a href="#serverbotlimit"><tt>serverbotlimit</tt></a>
+</li>
+<li>
+<a href="#publicserver"><tt>publicserver</tt></a>
+</li>
+<li>
+<a href="#serverdesc"><tt>serverdesc</tt></a>
+</li>
+<li>
+<a href="#serverpass"><tt>serverpass</tt></a>
+</li>
+<li>
+<a href="#adminpass"><tt>adminpass</tt></a>
+</li>
+<li>
+<a href="#servermotd"><tt>servermotd</tt></a>
+</li>
+<li>
+<a href="#updatemaster"><tt>updatemaster</tt></a>
+</li>
+<li>
+<a href="#mastername"><tt>mastername</tt></a>
+</li>
+</ul>
+</li>
+
 <li>
 <a href="#cubescript"><b>CubeScript</b></a>
 <ul class="contents2">
@@ -1113,6 +1153,43 @@ when the user presses enter. If U is also specified, it will execute it every ev
 share the same A alias, also share the same edit info, if the user moves outside the field the
 changes are not committed, if they select another field, changes will be lost.
 </p>
+
+<h2 id="server_commands">Server Configuration Commands</h2>
+<p>The following commands may be placed in the file "server-init.cfg" in the root Sauerbraten directory to configure a dedicated server, or they may be used inside a running client to config
+ure a listen server:</p>
+
+<pre id="serverip">serverip S</pre>
+<p>Sets the IP the server should bind/listen to S. This is only useful if your server is running on a host with multiple interfaces.</p>
+
+<pre id="serverport">serverport N</pre>
+<p>Sets the port the server should bind/listen to N. By default, server's listen on port 8785.</p>
+
+<pre id="maxclients">maxclients N</pre>
+<p>Sets the maximum number of clients that can connect to the server to N.</p>
+
+<pre id="serverbotlimit">serverbotlimit N</pre>
+<p>Sets the maximum number of bots a master can add to N. Admins are unaffected by this limit.</p>
+
+<pre id="publicserver">publicserver B</pre>
+<p>Toggles whether a server is considered a "public" server when B=1: can only gain master by "auth" or admin and doesn't allow locked/private mastermodes. B=0 allows "setmaster 1" and locked/private mastermodes (for coop-editing and such).</p>
+
+<pre id="serverdesc">serverdesc S</pre>
+<p>Sets the description shown for the server in the server browser to S.</p>
+
+<pre id="serverpass">serverpass S</pre>
+<p>Sets the password required to connect to the server to S. This option is only useful if you don't want anyone connecting to your server.</p>
+
+<pre id="adminpass">adminpass S</pre>
+<p>Sets the password to gain admin access to a server to S, as well as the password that may be used to override the private mastermode when connecting.</p>
+
+<pre id="servermotd">servermotd S</pre>
+<p>Sets the "message of the day", a message shown to users when they connect to the server, to S.</p>
+
+<pre id="updatemaster">updatemaster B</pre>
+<p>Toggles whether or not the server should report to the masterserver. B=1 enables (default) and B=0 disables.</p>
+
+<pre id="mastername">mastername S</pre>
+<p>Sets the IP of the master server the server reports to. This defaults to "sauerbraten.org" and generally should not be changed.</p>
 
 <h2 id="cubescript">CubeScript</h2>
 
