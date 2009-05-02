@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Scripting Menus</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Scripting Menus</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -23,21 +23,31 @@ The respective commands for menu construction are:<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">newgui S</pre>
+</style><pre class="text" style="font-family:monospace;">newgui S</pre>
 
 Creates a new menu with name N. All following menuitem/gui* commands will apply to this menu<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">// for 3D style check documentation - multiple types available : radio, button, slider, image, text, ...
+</style><pre class="text" style="font-family:monospace;">// for 3D style check documentation - multiple types available : radio, button, slider, image, text, ...
 // as an example of a simple menu :
 newgui about [
     guitext &quot;Sauerbraten engine&quot;
@@ -51,11 +61,16 @@ See data/menus.cfg for further examples. If the block starts with the special ch
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">// 3D style
+</style><pre class="text" style="font-family:monospace;">// 3D style
 showgui N
 // error in documentation :
 showgui servers

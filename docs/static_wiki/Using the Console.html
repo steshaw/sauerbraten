@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Using the Console</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Using the Console</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -14,11 +14,16 @@ Open your console with the <tt>saycommand</tt> (default key <tt>T</tt>) and then
 Or use a short script that is bound to the BACKQUOTE key :<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">bind BACKQUOTE [saycommand /]
+</style><pre class="text" style="font-family:monospace;">bind BACKQUOTE [saycommand /]
 // for some language layouts, this is unusable in Sauerbraten though - so ... bind your own :) ... like:
 bind CARET [saycommand /]</pre>
 
@@ -56,11 +61,16 @@ Right!<br />
 So you want to have that yellow light entity with properties 64 256 256 192 be about half as bright?<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">loop i 3 [entproperty (+ $i 1) -128]</pre>
+</style><pre class="text" style="font-family:monospace;">loop i 3 [entproperty (+ $i 1) -128]</pre>
 
 and you're done.<br />
 <br />
@@ -69,11 +79,16 @@ each iteration runs with an incremented value of <tt>$i</tt>. In the first loop 
 So the above line is the same as typing<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">entproperty 1 -128
+</style><pre class="text" style="font-family:monospace;">entproperty 1 -128
 entproperty 2 -128
 entproperty 3 -128</pre>
 

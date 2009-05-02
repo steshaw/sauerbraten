@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Scripting Commands</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Scripting Commands</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -19,31 +19,46 @@ you can only set them manually. It counts as a manual setting if used via the me
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">exec C</pre>
+</style><pre class="text" style="font-family:monospace;">exec C</pre>
 
 Executes all commands in config file C.<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">history N</pre>
+</style><pre class="text" style="font-family:monospace;">history N</pre>
 
 Executes the Nth command in the command line history. For example, binding &quot;history 0&quot; to a key allows you to quickly repeat the last command typed in (useful for placing many identical entities etc.)<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">saycommand P...</pre>
+</style><pre class="text" style="font-family:monospace;">saycommand P...</pre>
 
 This puts a prompt on screen where you can type stuff into, which will capture all keystrokes until you press return (or esc to cancel). You may press tab to autocomplete commands/aliases/variables, and up/down keys to browse the command history. If what you typed started with a &quot;/&quot;, the rest of it will be executed as a command, otherwise its something you &quot;say&quot; to all players. default key = T for talk, ` for commands. If P is prefix to insert to the buffer, (default key ` inserts a /).<br />
 <br />
@@ -53,11 +68,16 @@ You will only see a beautified display - for example : <em>GREET #2</em><br />
 But if you confirm the command, it will execute the prepared <strong>saycommand</strong>.<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">// ----------------
+</style><pre class="text" style="font-family:monospace;">// ----------------
 // greetings :
 // ----------------
 &nbsp;
@@ -103,21 +123,31 @@ bind K [greeting]</pre>
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">weapon a b c</pre>
+</style><pre class="text" style="font-family:monospace;">weapon a b c</pre>
 
 Tries to select weapons a, b &amp; c, in that order, if they have ammo ( 0 = fist, 1 = sg, 2 = cg, 3 = rl, 4 = rifle, 5 = gl ). If none of the 3 indicated have any ammo, it will try the remaining weapons for one with ammo (in order 3/2/1/4/0) (the fist needs no ammo). You can use the weapon command with 0 to 3 arguments. examples:<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">// close up selection :
+</style><pre class="text" style="font-family:monospace;">// close up selection :
 weapon 2 1 0
 &nbsp;
 // far away selection :
@@ -137,22 +167,32 @@ In any selection, it will skip whichever weapon you have currently selected, so 
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">alias N A
+</style><pre class="text" style="font-family:monospace;">alias N A
 N = A</pre>
 
 Binds name N to commands A, after which you can use N as a shortcut for A. You may re-bind N as often as you like, call it recursively etc. You may use N = A as a shortcut for alias.<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">forward
+</style><pre class="text" style="font-family:monospace;">forward
 backward
 left
 right</pre>
@@ -161,62 +201,92 @@ Move you in said direction (defaults to cursor keys).<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">attack</pre>
+</style><pre class="text" style="font-family:monospace;">attack</pre>
 
 Fires the current weapon. default = left mouse<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">jump</pre>
+</style><pre class="text" style="font-family:monospace;">jump</pre>
 
 Triggers a jump. default key space &amp; right mouse.<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">fov N</pre>
+</style><pre class="text" style="font-family:monospace;">fov N</pre>
 
 Sets your FOV to 10..150.<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">setfullscreenshader Name</pre>
+</style><pre class="text" style="font-family:monospace;">setfullscreenshader Name</pre>
 
 Sets your favourite fullscreen shader. Active permanently once set. Use without name argument to turn it off. Current example shaders: invert, gbr, sobel, bloom<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">screenshot</pre>
+</style><pre class="text" style="font-family:monospace;">screenshot</pre>
 
 Writes out &quot;screenshotN.bmp&quot;, where N is the number of milliseconds since cube was launched (default key = F12).<br />
 A little modified example :<br />
 <a name="prettyscreenshot"></a><br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">// do a pretty screenshot (hiding HUD and all)
+</style><pre class="text" style="font-family:monospace;">// do a pretty screenshot (hiding HUD and all)
 MPscreenshot = [
     phh = $hidehud
     phs = $hidestats
@@ -232,31 +302,46 @@ MPscreenshot = [
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">hidehud b</pre>
+</style><pre class="text" style="font-family:monospace;">hidehud b</pre>
 
 Turns on/off the entire hud display, which includes rendering stats, ammo, and echoed text. (default = 0)<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">crosshairsize n</pre>
+</style><pre class="text" style="font-family:monospace;">crosshairsize n</pre>
 
 Sets the size of your crosshair, 0 being off (default = 3)<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">keymap K N A
+</style><pre class="text" style="font-family:monospace;">keymap K N A
 &nbsp;
 // for players using a german keyboard the following keymappings can be added to data/keymap.cfg
 keymap 223 SZ
@@ -265,15 +350,20 @@ keymap 246 OE
 keymap 228 AE</pre>
 
 <br />
-Sets up the keymap for key code K with name N and default action A. You should never have to use this command manually, use &quot;bind&quot; instead.<br />
+Sets up the keymap for key code K with name N and default action A. You should never have to use this command manually, use &quot;bind&quot; instead. But in case you do need it (to make use of previously un-bind-able keys (like above)) take a look at <a class="wiki_link" href="Configuration%20Hints.html#toc4">Internationalization</a><br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">// for people uncomfortable with using &quot;BACKQUOTE&quot;:
+</style><pre class="text" style="font-family:monospace;">// for people uncomfortable with using &quot;BACKQUOTE&quot;:
 bind CARET [saycommand /]</pre>
 
 

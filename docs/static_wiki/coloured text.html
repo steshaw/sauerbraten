@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>cube - coloured text</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<h2 id="toc0">coloured text</h2>
+<br />
+You'll need to use the control-character &quot;\f&quot; (line-feed),<br />
+If you need to use it interactively (in-game), you'll want to know it has the ASCII-code of 12;<br />
+    * on linux you should be able to create it with Ctrl + L (ingame or in an editor) or Ctrl + V and then L (on the shell)<br />
+    * on windows you should be able to create it via Alt-Gr + 1 + 2 (NumKeyPad). The key combination Ctrl-Alt can be used instead of AltGr if you don't have that key.<br />
+    * you can also use <a href="files/Control_char_formfeed.txt">Control_char_formfeed.txt</a> (use &quot;Save Link as...&quot; from your browser!)<br />
+<br />
+Colourization (this also applies for CubeScript/ingame colours) works via the control-char followed by a indication character. Apart from the special cases of &quot;\fs&quot; and &quot;\fr&quot; for saving/restoring previously set colours in the current line of text you can use the following numbers to set to the respective colour:<br />
+<br />
+    * 0 : green<br />
+    * 1 : blue<br />
+    * 2 : yellow<br />
+    * 3 : red<br />
+    * 4 : gray<br />
+    * 5 : magenta<br />
+    * 6 : orange<br />
+<br />
+Everything else is drawn in white.
+    </div>
+  </body>
+</html>

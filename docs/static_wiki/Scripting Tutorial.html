@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Scripting Tutorial</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Scripting Tutorial</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -29,11 +29,16 @@
 Your already writing CubeScript when you edit your <tt>autoexec.cfg</tt>.<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">name &quot;my name&quot;</pre>
+</style><pre class="text" style="font-family:monospace;">name &quot;my name&quot;</pre>
 
 <br />
 ..this is a basic CubeScript block.<br />
@@ -53,11 +58,16 @@ Try out combining calls on-the-fly.<br />
 One of the first CubeScript structures useful for this can be<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">loop I N BODY
+</style><pre class="text" style="font-family:monospace;">loop I N BODY
 &nbsp;
 // for example as in
 loop a 3 [ entproperty (+ $a 1) +42 ]</pre>
@@ -87,11 +97,16 @@ Check data/defaults.cfg for this.<br />
 You define blocks of actions by defining an alias for them.<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">//old style:
+</style><pre class="text" style="font-family:monospace;">//old style:
 alias aNAME $aVALUE
 //new style:
 aNAME = $aVALUE</pre>
@@ -106,11 +121,16 @@ this is trivial to reconstruct.<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">bind MOUSE4 [ universaldelta +1 ]
+</style><pre class="text" style="font-family:monospace;">bind MOUSE4 [ universaldelta +1 ]
 bind MOUSE5 [ universaldelta -1 ]</pre>
 
 with an exquisitely atomized definition of <tt>universaldelta</tt><br />
@@ -121,11 +141,16 @@ you change this modifier by binding keys to certain settings,<br />
 these in turn need to be defined as special aliases to be parsed.<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">// echo 5 or 1, depending on _RCTRL - our flag
+</style><pre class="text" style="font-family:monospace;">// echo 5 or 1, depending on _RCTRL - our flag
 bind &quot;O&quot; [ if (= $_RCTRL 1) [echo 5 ] [echo 1] ]
 &nbsp;
 // set the _RCTRL flag while key &quot;right control&quot; is being pressed, off when released.
@@ -141,11 +166,16 @@ for the 'O'-key just a simple echo,<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">bind &quot;M&quot;  [ domodifier 128 ]
+</style><pre class="text" style="font-family:monospace;">bind &quot;M&quot;  [ domodifier 128 ]
 &nbsp;
 delta_game_128 = [
   echo (concat &quot;DG_128:&quot; (if (= $_RCTRL 1) [echo (* 5 @arg1) ] [echo (* 1 @arg1)]))
@@ -164,11 +194,16 @@ Examples:<br />
 want to handle a script with a simple parameter toggle?<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">my_value = 1
+</style><pre class="text" style="font-family:monospace;">my_value = 1
 bind N [my_value = 5; onrelease [my_value = 1]]
 my_script = [if (= $my_value 1) [echo regular] [echo modified]]
 bind M [my_script]</pre>
@@ -179,11 +214,16 @@ bind M [my_script]</pre>
 want to handle a script with +X/-X input via mousewheel?<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">delta_game_42 = [echo we got $arg1 as param &quot;(game)&quot;]
+</style><pre class="text" style="font-family:monospace;">delta_game_42 = [echo we got $arg1 as param &quot;(game)&quot;]
 delta_edit_42 = [echo we got $arg1 as param &quot;(edit)&quot;]
 bind KP_5 = [domodifier 42]
 editbind KP_5 = [domodifier 42]</pre>
@@ -195,11 +235,16 @@ To clarify parameter passing -<br />
 usage of a zero value or no value at all shouldn't confuse your scripts!<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">param_script = [
+</style><pre class="text" style="font-family:monospace;">param_script = [
         info = &quot;&quot;
         loop p 4 [
             cax = (+ $p 1)
@@ -230,11 +275,16 @@ For SP maps you can have <em>trigger entities</em> do scripting commands wheneve
 The basic concept is to create aliases like<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">level_trigger_123 = [echo you triggered #123]</pre>
+</style><pre class="text" style="font-family:monospace;">level_trigger_123 = [echo you triggered #123]</pre>
 
 This would be executed when the player crosses the space of any trigger-entity with first param 123.<br />
 <br />

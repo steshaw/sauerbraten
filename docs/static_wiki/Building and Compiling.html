@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Building and Compiling</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Building and Compiling</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -30,15 +30,20 @@ An alternative method for compiling under Windows is by using Microsoft's Visual
 <hr />
 <br />
 <h2 id="toc1">Linux</h2>
- Provided they have GCC installed (package 'build-essential' on a lot of distributions) the users of linux need only perform the <em>usual</em> make-dance.<br />
+ Provided they have GCC installed (package 'build-essential' on a lot of distributions) and the required SDL development libraries, the users of linux need only perform the <em>usual</em> make-dance.<br />
 Change into the directory &quot;sauerbraten/src&quot; (in a terminal) and then run<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">make clean
+</style><pre class="text" style="font-family:monospace;">make clean
 make
 make install</pre>
 

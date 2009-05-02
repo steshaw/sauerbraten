@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Script Demo - Persona Menu</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Script Demo - Persona Menu</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -9,11 +9,16 @@
 open menus.cfg and look for a line reading<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">newgui main</pre>
+</style><pre class="text" style="font-family:monospace;">newgui main</pre>
 
 <br />
 this is where it all begins!<br />
@@ -21,30 +26,45 @@ this is where it all begins!<br />
 Then locate the line defining the quit menuitem<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">guibutton &quot;quit&quot;</pre>
+</style><pre class="text" style="font-family:monospace;">guibutton &quot;quit&quot;</pre>
 
 and place a new line above it :<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">guibutton &quot;Persona&quot; &quot;showmgui mypersona&quot;</pre>
+</style><pre class="text" style="font-family:monospace;">guibutton &quot;Persona&quot; &quot;showmgui mypersona&quot;</pre>
 
 <br />
 then move to the end of the file and enter some lines to define this menu to be shown :<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">bteam = &quot;GWAR&quot;
+</style><pre class="text" style="font-family:monospace;">bteam = &quot;GWAR&quot;
 pnlist = &quot;Mutilator _ Anihalator _ InH4L3 BRTH ExH4L3 BRTH Frodo RING Mithrandir RING Batou PP#9 Ichikawa PP#9 Morgoth _ Spawn634 _&quot;
 &nbsp;
 genpersonas = [

@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Scripting Flow Control</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Scripting Flow Control</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -13,11 +13,16 @@ Any more complex scripting than simply binding static commands to keys or defini
 <h2 id="toc1">mathematical operations</h2>
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">+ A B
+</style><pre class="text" style="font-family:monospace;">+ A B
 - A B
 * A B
 div A B
@@ -26,21 +31,31 @@ mod A B</pre>
 (add, substract, multiply, divide, modulo): these all work like the integer operators from other languages. Example:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">echo x squared is (* $x $x)</pre>
+</style><pre class="text" style="font-family:monospace;">echo x squared is (* $x $x)</pre>
 
 <br />
 <h2 id="toc2">value comparison</h2>
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">= A B
+</style><pre class="text" style="font-family:monospace;">= A B
 &lt; A B
 &gt; A B
 strcmp A B</pre>
@@ -50,156 +65,236 @@ strcmp A B</pre>
 <h2 id="toc3">value passing</h2>
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">result V</pre>
+</style><pre class="text" style="font-family:monospace;">result V</pre>
 
 Normally the result of a [] block is the result of the last command in the block. If you want the result to be a particular variable or value, you can use e.g. &quot;result $i&quot; etc.<br />
 <br />
 <h2 id="toc4">forks in execution</h2>
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">if cond true false</pre>
+</style><pre class="text" style="font-family:monospace;">if cond true false</pre>
 
 executes the true or false part depending on wether cond is &quot;0&quot; or something else. Example:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">if (&lt; $x 10) [ echo &quot;x is&quot; $x ] [ echo &quot;x is too big&quot; ]</pre>
+</style><pre class="text" style="font-family:monospace;">if (&lt; $x 10) [ echo &quot;x is&quot; $x ] [ echo &quot;x is too big&quot; ]</pre>
 
 <h2 id="toc5">repetition</h2>
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">loop I N body</pre>
+</style><pre class="text" style="font-family:monospace;">loop I N body</pre>
 
 evaluates body N times, and sets the alias I from 0 to N-1 for every iteration. Example:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">loop i 10 [ echo $i ]</pre>
+</style><pre class="text" style="font-family:monospace;">loop i 10 [ echo $i ]</pre>
 
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">while cond body</pre>
+</style><pre class="text" style="font-family:monospace;">while cond body</pre>
 
 evaluates body while cond evaluates to true. Note that cond here has to have [], otherwise it would only be evaluated once.<br />
 Example (same result as the &quot;loop&quot; example):<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">i = 0; while [ (&lt; $i 10) ] [ echo $i; i = (+ $i 1) ]</pre>
+</style><pre class="text" style="font-family:monospace;">i = 0; while [ (&lt; $i 10) ] [ echo $i; i = (+ $i 1) ]</pre>
 
 <h2 id="toc6">string manipulation</h2>
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">concat S...</pre>
+</style><pre class="text" style="font-family:monospace;">concat S...</pre>
 
 concatenates all the arguments and returns the result<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">concatword S...</pre>
+</style><pre class="text" style="font-family:monospace;">concatword S...</pre>
 
 same as concat but without spaces between the elements.<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">format F V1..Vn</pre>
+</style><pre class="text" style="font-family:monospace;">format F V1..Vn</pre>
 
 substitutes the V values into the format string F and returns the result. The format strings %1 through %9 are substituted with V1 through V9, respectively, and may be used multiple times. %% will generate a single % character. Example:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">format &quot;%1 bottles of %2 on the %3, %1 bottles of %2!&quot; 99 beer wall</pre>
+</style><pre class="text" style="font-family:monospace;">format &quot;%1 bottles of %2 on the %3, %1 bottles of %2!&quot; 99 beer wall</pre>
 
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">at S N</pre>
+</style><pre class="text" style="font-family:monospace;">at S N</pre>
 
 grabs the Nth word out of string S and returns the result<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">listlen L</pre>
+</style><pre class="text" style="font-family:monospace;">listlen L</pre>
 
 returns the number of items in the list L<br />
 <br />
 <h2 id="toc7">game state specifics</h2>
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">onrelease A</pre>
+</style><pre class="text" style="font-family:monospace;">onrelease A</pre>
 
 only executes A if the command is executed on the release of a key/button (must be in an action in a bind or an alias in a bind).<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">paused B</pre>
+</style><pre class="text" style="font-family:monospace;">paused B</pre>
 
 wether the game is paused or not (default 0, default key F1 toggles).<br />
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">$editing</pre>
+</style><pre class="text" style="font-family:monospace;">$editing</pre>
 
 true when in edit mode
     </div>

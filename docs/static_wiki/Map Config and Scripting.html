@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Map Config and Scripting</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Map Config and Scripting</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -28,11 +28,16 @@ Once you've created a *.cfg file for your map:<br />
 
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">newmap</pre>
+</style><pre class="text" style="font-family:monospace;">newmap</pre>
 
 
 <ul>
@@ -41,11 +46,16 @@ Once you've created a *.cfg file for your map:<br />
 
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">savemap mapnamehere</pre>
+</style><pre class="text" style="font-family:monospace;">savemap mapnamehere</pre>
 
 
 <ul>
@@ -55,11 +65,16 @@ Once you've created a *.cfg file for your map:<br />
 
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">map mapnamehere</pre>
+</style><pre class="text" style="font-family:monospace;">map mapnamehere</pre>
 
 
 <ul>
@@ -83,11 +98,16 @@ So a map called metl4.ogz will call metl4.cfg.<br />
 The first need for such a specific map configuration file will most likely arise when you want to have a special skybox background. For this enter<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">loadsky &quot;skyname&quot;
+</style><pre class="text" style="font-family:monospace;">loadsky &quot;skyname&quot;
 //loadsky &quot;ik2k/env/iklake&quot;
 //loadsky &quot;socksy/mars&quot;</pre>
 
@@ -96,21 +116,31 @@ where skyname is the path to the 6 required images for a skybox. Check exisiting
 Second, the fog cut-off distance, and fog colour can be applied. For this enter<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">fog 2500 // can be set from 1 to 100000 as needed
+</style><pre class="text" style="font-family:monospace;">fog 2500 // can be set from 1 to 100000 as needed
 fogcolour 16777215 // this is the max setting. This is also a hex parameter, 0XRRGGBB.</pre>
 
 Third, you might want some ambient lighting. For this enter<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">ambient 15 // can be set from 1 to 255</pre>
+</style><pre class="text" style="font-family:monospace;">ambient 15 // can be set from 1 to 255</pre>
 
 Be carefull with the ambient option, as it reduces the texture contrast.<br />
 To help converting RGB to HEX values this <a class="wiki_link_ext" href="http://www.kenjikojima.com/java/RGBHexConverter2.html" rel="nofollow">RGB &amp; Hex Converter</a> popped up on the forum.<br />
@@ -139,32 +169,47 @@ Start your map after creating this part of the maps .cfg file. You do not want t
 The first thing to add to the texture list section of a map.cfg file, is :<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">texturereset</pre>
+</style><pre class="text" style="font-family:monospace;">texturereset</pre>
 
 This tells the engine to reset from the default configuration, and use the map.cfg for the texture list.<br />
 After you reset the texture list, you need to add your own. The first 2 slots are &quot;reserved&quot; for the engine, and must be in every map.cfg file you use new textures with :<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">texture 0 &quot;ik2k/ik_sky_day_back.jpg&quot;
+</style><pre class="text" style="font-family:monospace;">texture 0 &quot;ik2k/ik_sky_day_back.jpg&quot;
 texture 0 &quot;golgotha/water2d.jpg&quot;</pre>
 
 From this point on, you can add as many textures as you want ( up to 2^16 or 65,536 )<br />
 You could also list the same texture more than once, to have rotated versions, by adding a number AFTER the texture name:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">texture 0 &quot;dg/trail_in.jpg&quot; 0 // 0 = none, 1 = 90 CW, 2 = 180, 3 = 270 CW, 4 = X-axis flip, 5 = Y-axis flip</pre>
+</style><pre class="text" style="font-family:monospace;">texture 0 &quot;dg/trail_in.jpg&quot; 0 // 0 = none, 1 = 90 CW, 2 = 180, 3 = 270 CW, 4 = X-axis flip, 5 = Y-axis flip</pre>
 
 <br />
 <a name="shaders"></a><br />
@@ -175,11 +220,16 @@ Shaders are post processing effects applied to textures. They are used to provid
 You define a shader with:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">setshader x
+</style><pre class="text" style="font-family:monospace;">setshader x
 set*param index x y z w</pre>
 
 <br />
@@ -187,11 +237,16 @@ You define textures to use as &quot;maps&quot; for the shaders using the followi
 <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">texture 0 &quot;texturename&quot; // default texture
+</style><pre class="text" style="font-family:monospace;">texture 0 &quot;texturename&quot; // default texture
 texture d &quot;texturename&quot; // decal texture
 texture n &quot;texturename&quot; // normal map
 texture s &quot;texturename&quot; // specular map
@@ -295,11 +350,16 @@ Then the supported texture shaders were, check your local documentation and CFG 
 preliminary copy from IRC log:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">[19:40] &lt;KaiserTodretter&gt; bumpmaps are greyscale images that basically say what the heights of the different parts
+</style><pre class="text" style="font-family:monospace;">[19:40] &lt;KaiserTodretter&gt; bumpmaps are greyscale images that basically say what the heights of the different parts
                           of a texture are
 [19:40] &lt;KaiserTodretter&gt; white being high spots and black being low spots
 [19:41] &lt;KaiserTodretter&gt; bumpmaps make a texture appear not flat and distorts the texture in a way that it actually looks 3D
@@ -330,11 +390,16 @@ preliminary copy from IRC log:<br />
 use the commands<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">music package_path/file.ogg
+</style><pre class="text" style="font-family:monospace;">music package_path/file.ogg
 music package_path/file.mp3
 &nbsp;
  // and/or
@@ -360,11 +425,16 @@ to add individual sound fx to your map.<br />
 The <strong>mapsound</strong> fills indexed slots for usage with <strong>sound</strong>-entities.<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">  //         X  R   F
+</style><pre class="text" style="font-family:monospace;">  //         X  R   F
 newent sound 1 128 64</pre>
 
 This would load the second slot (1st = 0) &quot;X&quot; onto that entity.<br />
@@ -390,11 +460,16 @@ Finally select an index for this action, say 42,<br />
 then you'll simply need to place this scripting inside a<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">level_trigger_42 = [
+</style><pre class="text" style="font-family:monospace;">level_trigger_42 = [
   // your code here
 ]</pre>
 
@@ -402,11 +477,16 @@ alias and place triggers with tag 42 into the right places.<br />
 To modify a placed triggers (default menu only has 0-8) tag :<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">entproperty 3 +30
+</style><pre class="text" style="font-family:monospace;">entproperty 3 +30
 entproperty 3 +2
 entproperty 3 -1</pre>
 

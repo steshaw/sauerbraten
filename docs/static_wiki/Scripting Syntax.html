@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Scripting Syntax</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Scripting Syntax</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -14,11 +14,16 @@ and whereever a command is required you can also use <tt>;</tt> to sequence mult
 You can evaluate aliases and expressions. You can substitute the value of an alias as an argument by prefixing it with a &quot;<tt>$</tt>&quot; sign, i.e.:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">echo The current value of x is $x</pre>
+</style><pre class="text" style="font-family:monospace;">echo The current value of x is $x</pre>
 
 You can even substitute the values of console variables this way, i.e <tt>$fov</tt> gives the current fov.<br />
 Some values though will not be returned in this way, noteably <tt>name</tt> and <tt>team</tt>. A solution for this is to work with buffer aliases to later access the value when needed.<br />
@@ -32,11 +37,16 @@ An alternative to <tt>$x</tt> is <tt>@x</tt>, which uses an alias as a macro.<br
 The difference is that <tt>@x</tt> can be subtituted inside <tt>[]</tt> or <tt>()</tt> forms before they have ever been evaluated (at parse time), which makes them useful for composing strings or creating code on the fly. The <tt>@x</tt> form will be substituted using the value of <tt>x</tt> at the time the enclosing <tt>[]</tt> is evaluated. You can add more <tt>@</tt> prefixes to move up more levels of <tt>[]s</tt>, so <tt>@@x</tt> will move up two levels of <tt>[]s</tt> and so on. Example:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">x = 0; if $cond [x = 1; [x = 2; echo @@x]]</pre>
+</style><pre class="text" style="font-family:monospace;">x = 0; if $cond [x = 1; [x = 2; echo @@x]]</pre>
 
 will echo 0, since it uses the value of <tt>x</tt> at two levels up.<br />
 <br />
@@ -45,11 +55,16 @@ The result value after body executes is substituted in for <tt>@(body)</tt>. You
 Example:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">@(result &quot;Hello, World!&quot;)</pre>
+</style><pre class="text" style="font-family:monospace;">@(result &quot;Hello, World!&quot;)</pre>
 
 will substitute itself with <em>Hello, World!</em><br />
 <br />

@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; CubeScript in 21 days</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - CubeScript in 21 days</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -83,11 +83,16 @@ Often players coming from other fps-games find the way weapon selection works un
 The closest sauebraten's engine can come would be by putting this code at the end of your autoexec.cfg<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">bind 0 &quot;weapon 0 0 0&quot;
+</style><pre class="text" style="font-family:monospace;">bind 0 &quot;weapon 0 0 0&quot;
 bind 1 &quot;weapon 1 0 0&quot;
 bind 2 &quot;weapon 2 0 0&quot;
 bind 3 &quot;weapon 3 0 0&quot;
@@ -106,11 +111,16 @@ this is the function that get's passed +1 or -1 depending on wether the user scr
 Last - but not least - we need a keybinding, that will make the function accesible in-game.<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">my_scroll_multiplier = 1
+</style><pre class="text" style="font-family:monospace;">my_scroll_multiplier = 1
 my_scroll_multlistof = &quot;1 2 5 10 100&quot;
 game_modifier_440 = [
   // TODO: clean CubeScript

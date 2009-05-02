@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Cubescript Tutorial Chapter 1</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Cubescript Tutorial Chapter 1</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -47,11 +47,16 @@ So make your cfg.<br />
  <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">bind “W” [forward]
+</style><pre class="text" style="font-family:monospace;">bind “W” [forward]
 &nbsp;
 bind “W” [ forward ]
 &nbsp;
@@ -66,11 +71,16 @@ These four lines show the two ways you can assign (bind) a key to a certain comm
 You can assign any command to any available key (see section 1.4 for all key names). If I named a script “hello” and I wanted to assign it to the left shift key, I’d add<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">bind “LSHIFT” [hello]</pre>
+</style><pre class="text" style="font-family:monospace;">bind “LSHIFT” [hello]</pre>
 
 to autoexec.cfg in my sauerbraten folder; if autoexec.cfg doesn’t already exist, you can simply make one like you did in 1.1.<br />
 <br />
@@ -81,11 +91,16 @@ So what do you do? Well, the key name (SPACE) and the command (jump) are fairly 
 You should end up with something like<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">bind “SPACE” [jump]</pre>
+</style><pre class="text" style="font-family:monospace;">bind “SPACE” [jump]</pre>
 
 Now left click is free to bind a “zoom script” to. You’ll make your first script, a zoom, in 2.1.<br />
 <br />
@@ -93,11 +108,16 @@ NOTE:<br />
 In defaults.cfg, you will see some lines that look like this:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">editbind “SPACE” [ cancelsel; passthroughsel 0 ]</pre>
+</style><pre class="text" style="font-family:monospace;">editbind “SPACE” [ cancelsel; passthroughsel 0 ]</pre>
 
 As you can see, it’s some sort of bind. But editbinds only apply while you’re in edit mode. This is delicate territory, so we’ll learn about editbinds much later on. For now, don’t touch any of them.<br />
 <br />

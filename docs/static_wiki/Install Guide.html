@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Install Guide</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Install Guide</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -36,11 +36,16 @@ Getting the game running on a Linux or BSD based system requires a little knowle
 
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">tar -jxvf sauerbraten_YYYY_MM_DD_CODENAME_PLATFORM.tar.bz
+</style><pre class="text" style="font-family:monospace;">tar -jxvf sauerbraten_YYYY_MM_DD_CODENAME_PLATFORM.tar.bz
 cd sauerbraten
 chmod +x sauerbraten_unix bin_unix/linux_client bin_unix/linux_server</pre>
 
@@ -60,11 +65,16 @@ If the previous step(s) fail, take note of the error:<br />
 
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">cd src
+</style><pre class="text" style="font-family:monospace;">cd src
 make clean all install
 cd ..</pre>
 

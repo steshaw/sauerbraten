@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Linux Server Scripts</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Linux Server Scripts</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -15,21 +15,31 @@ The following 2 scripts should be placed in your sauerbraten installation direct
 Then run <em><a class="wiki_link" href="Linux%20Server%20Scripts.html#update_maplines">update_maplines</a></em> and modify <em><a class="wiki_link" href="Linux%20Server%20Scripts.html#run_sb">run_sb</a></em> in the section for <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">case $2 in</pre>
+</style><pre class="text" style="font-family:monospace;">case $2 in</pre>
 
 <br />
 The values for your configurations <strong>1</strong>-<strong>6</strong> and <strong></strong>* (for default) should correspond to :<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">SW ..... screen width ......... (-w)
+</style><pre class="text" style="font-family:monospace;">SW ..... screen width ......... (-w)
 SH ..... screen height ........ (-h)
 PD ..... pixel depth .......... (-b)
 ZB ..... Z-buffer ............. (-z)
@@ -45,11 +55,16 @@ You'll need to have <strong>bogosort</strong> installed for the map randomizatio
 <h2 id="toc1"> update_maplines </h2>
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">#!/bin/sh
+</style><pre class="text" style="font-family:monospace;">#!/bin/sh
 # if you require backups unremark the following line
 #mv maplines old_maplines_$(date +%Y%m%d%H%M%S)
 ls -1 packages/base/*.ogz | cut -d '/' -f 3 | cut -d '.' -f 1 &gt; maplines</pre>
@@ -59,11 +74,16 @@ ls -1 packages/base/*.ogz | cut -d '/' -f 3 | cut -d '.' -f 1 &gt; maplines</pre
 <h2 id="toc2"> run_sb </h2>
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">#!/bin/sh
+</style><pre class="text" style="font-family:monospace;">#!/bin/sh
 version=0.1
 RMN=$(bogosort -n --seed=$(timestamp $(date +%Y%m%d%H%M%S)) ./maplines | tail -n 1)
 CMD=&quot;&quot;

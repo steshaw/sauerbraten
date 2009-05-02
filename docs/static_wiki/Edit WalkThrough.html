@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <title>cube - Edit WalkThrough</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+<div id="toc"><h1 class="nopad">Table of Contents</h1><div style="margin-left: 2em;"><a href="#toc0">Text Only - The basic stuff</a></div>
+<div style="margin-left: 3em;"><a href="#toc1">Part I</a></div>
+<div style="margin-left: 3em;"><a href="#toc2">Part II</a></div>
+<div style="margin-left: 3em;"><a href="#toc3">Part III</a></div>
+<div style="margin-left: 2em;"><a href="#toc4">Illustrated example - building with the grid</a></div>
+<div style="margin-left: 3em;"><a href="#toc5">Motivation</a></div>
+<div style="margin-left: 3em;"><a href="#toc6">Realisation</a></div>
+</div>
+<h2 id="toc0">Text Only - The basic stuff</h2>
+<a name="Part1"></a><br />
+<h3 id="toc1">Part I</h3>
+Assuming you start with a <tt>newmap</tt> ...<br />
+
+<ol>
+    <li><tt>e</tt> to <tt>edittoggle</tt>,</li>
+    <li><tt>/gamespeed 300</tt></li>
+    <li>move up above the plane, viewing down</li>
+    <li><tt>MW + G</tt> until your grid shows the plane as 4x4</li>
+</ol>
+
+<br />
+remove the outer layer of cubes completely.<br />
+<tt>MW</tt> scrolling on the active cube will push/pull geometry.<br />
+The active cube is either the off-white <em>pointed at</em> cube<br />
+or it's the one you left-clicked to select.<br />
+Selection can be enlarged/reduced by dragging - even while moving;<br />
+but the easiest way to select structures is to:<br />
+
+<ol>
+    <li>select two corners opposite on all 3D planes</li>
+    <li>select the first by left-click, the second by right-click</li>
+</ol>
+
+<br />
+continue the process of removing the outer layer,<br />
+take note of the depth of the map.<br />
+
+<ol>
+    <li>move down along the borders of the central pillar</li>
+    <li>remove the lower row of cubes to make it a free floating cube</li>
+    <li><tt>/savemap my_first_map</tt></li>
+</ol>
+
+<br />
+You just excavated only on the lower half of an octree.<br />
+The initial map was a completely half-filled octree.<br />
+Manage your space wisely! :)<br />
+<br />
+The grid is your friend!<br />
+Since textures align to the grid it is vital when geometry is deformed,<br />
+great care needs to go into texture/geometry combinations when detailed areas are created.<br />
+<br />
+<h3 id="toc2">Part II</h3>
+If you followed <a class="wiki_link" href="Edit%20WalkThrough.html#toc1">Part I</a> : <tt>/map my_first_map</tt><br />
+If you don't load the map, you might still want to <tt>/gamespeed 100</tt> - maybe use <a class="wiki_link" href="Using%20the%20Console.html">history</a>.<br />
+Drag a single cube-border on your map by following these steps:<br />
+Assuming you just have a central block inside your map ...<br />
+<br />
+
+<ol>
+    <li>select any cube on the border of your map</li>
+    <li><tt>MW + G</tt> until your grid won't go any smaller</li>
+    <li><tt>MW</tt> it as far as it will go, that's border #1</li>
+    <li><tt>/gamespeed 300</tt></li>
+    <li>continue a row of cubes at the border .. 4 rows actually</li>
+    <li>use the 1st/2nd selection to quickly select <em>known</em> fields as soon as you've done the first couple of faces completely :)</li>
+    <li><tt>/savemap</tt></li>
+</ol>
+
+<br />
+<h3 id="toc3">Part III</h3>
+If you followed <a class="wiki_link" href="Edit%20WalkThrough.html#toc2">Part II</a> : <tt>/map my_first_map</tt><br />
+Remember <tt>/gamespeed 100</tt> .... or less - for delicate movements.<br />
+<br />
+Go to the center of your map, you will be placed there if upon mapload,<br />
+since no spawn is yet placed.<br />
+We will change this.<br />
+<tt>/newent playerstart</tt><br />
+then move a bit up from the sparkle of the playerstart entity.<br />
+<tt>/newent light 128 64 64 64</tt><br />
+place yourself somewhere looking nicely onto your platform<br />
+<tt>/calclight 2;savemap</tt><br />
+on linux you could even do<br />
+<tt>/fullscreen 0;fullbright 1;calclight 2;savemap;fullscreen 1</tt><br />
+<br />
+Now your map has an entity to spawn and a light to see.<br />
+Everything else is more of the same with your knowledge of the <a class="wiki_link_ext" href="http://sauerbraten.org/README.html" rel="nofollow">documentation</a>.<br />
+<br />
+<h2 id="toc4">Illustrated example - building <em>with</em> the grid</h2>
+<h3 id="toc5">Motivation</h3>
+Say you want to make a map that contains some curved walls ..<br />
+.. but we only have a rectilinear grid on which to place corners of our cubes -<br />
+what to do?<br />
+<br />
+We will try to create the closest fit to a curved line by interpolating -<br />
+using the different gridsize and edges of the octree.<br />
+<br />
+When preparing for the layout of your map, you should try having your required rotation variants already too. So when you've done one curvature: copy/paste/flip that building block once across every plane of the world (XY, YZ, XZ) - imagine you need to make one crossroads of hallways with every corner a curved one.<br />
+This is also good to take a close look at your cubes orientation - meaning: which edge goes in how far, could maybe the face to the side be better suited .. because of texture-mapping seamlessness/beauty/verisimilitude - also note exactly how you've postitioned your geometry on the grid in relation to the size of your texture(s) - meaning: when you paste it somewhere, on what gridcount of which gridsize will you have to snap your target-area(s).<br />
+<br />
+<h3 id="toc6">Realisation</h3>
+Pics to shoot .. Text to write ..
+    </div>
+  </body>
+</html>

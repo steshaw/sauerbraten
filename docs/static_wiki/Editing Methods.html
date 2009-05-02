@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Editing Methods</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Editing Methods</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -13,15 +13,12 @@
 <div style="margin-left: 2em;"><a href="#toc4">geometry</a></div>
 <div style="margin-left: 3em;"><a href="#toc5">mousewheel bindings</a></div>
 <div style="margin-left: 3em;"><a href="#toc6">single keypress bindings</a></div>
-<div style="margin-left: 3em;"><a href="#toc7">Edit-Walkthrough I</a></div>
-<div style="margin-left: 3em;"><a href="#toc8">Edit-Walkthrough II</a></div>
-<div style="margin-left: 3em;"><a href="#toc9">Edit-Walkthrough III</a></div>
-<div style="margin-left: 2em;"><a href="#toc10">entities</a></div>
-<div style="margin-left: 3em;"><a href="#toc11">interesting entities</a></div>
-<div style="margin-left: 1em;"><a href="#toc12">Before you map</a></div>
-<div style="margin-left: 1em;"><a href="#toc13">Editing Features Explained</a></div>
-<div style="margin-left: 1em;"><a href="#toc14">Expert Editing Methods</a></div>
-<div style="margin-left: 2em;"><a href="#toc15">heightfield</a></div>
+<div style="margin-left: 2em;"><a href="#toc7">entities</a></div>
+<div style="margin-left: 3em;"><a href="#toc8">interesting entities</a></div>
+<div style="margin-left: 1em;"><a href="#toc9">Before you map</a></div>
+<div style="margin-left: 1em;"><a href="#toc10">Editing Features Explained</a></div>
+<div style="margin-left: 1em;"><a href="#toc11">Expert Editing Methods</a></div>
+<div style="margin-left: 2em;"><a href="#toc12">heightfield</a></div>
 </div>
 <br />
 <a name="conventions"></a><br />
@@ -34,6 +31,8 @@ value ranges always start at 0, so the 1st <tt>entproperty</tt> is <tt>entproper
 <br />
 <a name="intro"></a><br />
 <h1 id="toc1">Introduction</h1>
+Your installation folder holds some offline documentation in &quot;docs/&quot; - always keep it handy!<br />
+You might also want to read the <a class="wiki_link" href="Edit%20WalkThrough.html">Edit WalkThrough</a> to get you going and/or verify you've got the basics down.<br />
 <br />
 <a name="i-basics"></a><br />
 <h2 id="toc2">basics</h2>
@@ -83,99 +82,23 @@ Copy-Paste is now as easy as orientating from the face you chose as &quot;handle
 </ul>
 
 <br />
-<a name="walkthru1"></a><br />
-<h3 id="toc7">Edit-Walkthrough I</h3>
-Assuming you start with a <tt>newmap</tt> ...<br />
-
-<ol>
-    <li><tt>e</tt> to <tt>edittoggle</tt>,</li>
-    <li><tt>/gamespeed 300</tt></li>
-    <li>move up above the plane, viewing down</li>
-    <li><tt>MW + G</tt> until your grid shows the plane as 4x4</li>
-</ol>
-
-<br />
-remove the outer layer of cubes completely.<br />
-<tt>MW</tt> scrolling on the active cube will push/pull geometry.<br />
-The active cube is either the off-white <em>pointed at</em> cube<br />
-or it's the one you left-clicked to select.<br />
-Selection can be enlarged/reduced by dragging - even while moving;<br />
-but the easiest way to select structures is to:<br />
-
-<ol>
-    <li>select two corners opposite on all 3D planes</li>
-    <li>select the first by left-click, the second by right-click</li>
-</ol>
-
-<br />
-continue the process of removing the outer layer,<br />
-take note of the depth of the map.<br />
-
-<ol>
-    <li>move down along the borders of the central pillar</li>
-    <li>remove the lower row of cubes to make it a free floating cube</li>
-    <li><tt>/savemap my_first_map</tt></li>
-</ol>
-
-<br />
-You just excavated only on the lower half of an octree.<br />
-The initial map was a completely half-filled octree.<br />
-Manage your space wisely! :)<br />
-<br />
-The grid is your friend!<br />
-Since textures align to the grid it is vital when geometry is deformed,<br />
-great care needs to go into texture/geometry combinations when detailed areas are created.<br />
-<br />
-<a name="walkthru2"></a><br />
-<h3 id="toc8">Edit-Walkthrough II</h3>
-If you followed <a class="wiki_link" href="Editing%20Methods.html#walkthru1">Walkthrough I</a> : <tt>/map my_first_map</tt><br />
-If you don't load the map, you might still want to <tt>/gamespeed 100</tt> - maybe use <a class="wiki_link" href="Using%20the%20Console.html">history</a>.<br />
-Drag a single cube-border on your map by following these steps:<br />
-Assuming you just have a central block inside your map ...<br />
-<br />
-
-<ol>
-    <li>select any cube on the border of your map</li>
-    <li><tt>MW + G</tt> until your grid won't go any smaller</li>
-    <li><tt>MW</tt> it as far as it will go, that's border #1</li>
-    <li><tt>/gamespeed 300</tt></li>
-    <li>continue a row of cubes at the border .. 4 rows actually</li>
-    <li>use the 1st/2nd selection to quickly select <em>known</em> fields as soon as you've done the first couple of faces completely :)</li>
-    <li><tt>/savemap</tt></li>
-</ol>
-
-<br />
-<a name="walkthru3"></a><br />
-<h3 id="toc9">Edit-Walkthrough III</h3>
-If you followed <a class="wiki_link" href="Editing%20Methods.html#walkthru2">Walkthrough II</a> : <tt>/map my_first_map</tt><br />
-Remember <tt>/gamespeed 100</tt> .... or less - for delicate movements.<br />
-<br />
-Go to the center of your map, you will be placed there if upon mapload,<br />
-since no spawn is yet placed.<br />
-We will change this.<br />
-<tt>/newent playerstart</tt><br />
-then move a bit up from the sparkle of the playerstart entity.<br />
-<tt>/newent light 128 64 64 64</tt><br />
-place yourself somewhere looking nicely onto your platform<br />
-<tt>/calclight 2;savemap</tt><br />
-on linux you could even do<br />
-<tt>/fullscreen 0;fullbright 1;calclight 2;savemap;fullscreen 1</tt><br />
-<br />
-Now your map has an entity to spawn and a light to see.<br />
-Everything else is more of the same with your knowledge of the <a class="wiki_link_ext" href="http://sauerbraten.org/README.html" rel="nofollow">documentation</a>.<br />
-<br />
 <a name="i-ents"></a><br />
-<h2 id="toc10">entities</h2>
+<h2 id="toc7">entities</h2>
 create entities via menu or by manually calling <tt>newent NAME [arg1 [arg2 [arg3 [arg4]]]]</tt><br />
 drag entities by their sparkly along plane closest to current FOV.<br />
 modify a certain property of your selected (or closest) entity by<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">entproperty 0 +10
+</style><pre class="text" style="font-family:monospace;">entproperty 0 +10
 entproperty 1 -180
 entproperty 3 -1
 loop p 3 [entproperty (+ 1 $p) -32]</pre>
@@ -185,7 +108,7 @@ Some entities constantly rotate, others can be orientated - for example mapmodel
 These ents will take their original orientation from your viewing angle at time of placement,<br />
 this angle will be saved in entproperty 0 (usually - check on your console to be sure!)<br />
 <br />
-<h3 id="toc11">interesting entities</h3>
+<h3 id="toc8">interesting entities</h3>
 
 
 <table class="wiki_table">
@@ -233,7 +156,7 @@ this angle will be saved in entproperty 0 (usually - check on your console to be
 
 <br />
 <a name="beforeumap"></a><br />
-<h1 id="toc12">Before you map</h1>
+<h1 id="toc9">Before you map</h1>
 <br />
 Be warned :<br />
 
@@ -262,17 +185,22 @@ If the <a class="wiki_link_ext" href="http://sauerbraten.org/docs/editing.html" 
 try this <a class="wiki_link" href="Editing%20WalkThrough.html">DIY-walkthrough</a>.<br />
 <br />
 <a name="wt_features"></a><br />
-<h1 id="toc13">Editing Features Explained</h1>
+<h1 id="toc10">Editing Features Explained</h1>
 You should really have some features at your fingertips - this will call for some personalized key-bindings sooner or later.<br />
 Since your view's angles have influence on the way you select e.g. faces of cubes you should think about being able to finetune your movement sensitivity by quickly switching from one gamespeed to another.<br />
 The simplest form would be have two key-bindings to toggle between &quot;default&quot; and a high as well as a low setting<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">[gamespeed 500; onrelease [gamespeed 100]]
+</style><pre class="text" style="font-family:monospace;">[gamespeed 500; onrelease [gamespeed 100]]
 [gamespeed 30; onrelease [gamespeed 100]]</pre>
 
 Finer grained modifiers can be used if this is your style - either get some basic scripting from the interwebs or write it yourself,<br />
@@ -285,7 +213,7 @@ Of course this requires you to set the first light via a console command - not v
 While we're on the topic of the console you should look at the way <a class="wiki_link" href="Using%20the%20Console.html">basic on-the-fly scripting</a> can help you speed up your editing!<br />
 <br />
 <a name="wt_expert"></a><br />
-<h1 id="toc14">Expert Editing Methods</h1>
+<h1 id="toc11">Expert Editing Methods</h1>
 <br />
 <a class="wiki_link" href="Map%20Screenshot.html">Map Screenshot</a> : for use in the GUI menus, or for quadropolis-postings, or ...<br />
 <a class="wiki_link" href="Map%20Config%20and%20Scripting.html#tocMap Config and Scripting4">Shaders</a> : what are they?<br />
@@ -299,7 +227,7 @@ We should probably discuss the following in more detail:<br />
 Already planned update: <em>Lighting</em> - from basic lighting issues to refining your lighting to perfection :)<br />
 <br />
 <a name="heightfield"></a><br />
-<h2 id="toc15">heightfield</h2>
+<h2 id="toc12">heightfield</h2>
 Convert your current selection to a heightfield by pressing <tt>H</tt>,<br />
 then roll your mouse with <tt>J</tt> pressed to select your desired brush.<br />
 Now more over your selection and roll your mouse as usual for geometry manipulation.<br />

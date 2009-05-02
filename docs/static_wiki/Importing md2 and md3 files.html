@@ -1,0 +1,227 @@
+<html>
+  <head>
+    <title>cube - Importing md2 and md3 files</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div class="wiki" id="content_view" style="display: block;">
+There are tons of existing Quake md2 and md3 files, so if you're interested in learning how to get these to import and look good in Sauerbraten read on!<br />
+<br />
+<h1 id="toc0">The Basics</h1>
+ Md2 files are collection of animated vertices. All the animations must start/stop at specific frames, these are hard coded into the model and the game engines. There is one texture map used for the whole mesh, head to toe. It is one solid piece, so it rotates/bends as a whole unit.<br />
+<br />
+Md3 files are three separate collections of animated vertices, the lower, the torso and the head. There should be an animation.cfg file that comes with the model that contains the start/length of each animation, but the animations must come in a fixed order in the models. There can be multiple texture maps, even within one section of the model. The model will rotate as a whole unit, but each piece can be made to bend separately.<br />
+<br />
+<h1 id="toc1">Importing md2 files</h1>
+ The most important thing is creating the md2.cfg file to match the model you want to import. For md2 files this process is really straight forward. Just use any text editor and create the file with the contents below.<br />
+<br />
+<h3 id="toc2">Example md2.cfg</h3>
+ 
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
+.text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
+
+-->
+</style><pre class="text" style="font-family:monospace;">mdlspec -1 // turn off speculars
+mdlscale 100 // keep original scale
+mdltrans 0 0 24 // raise feet up to surface plane
+md2pitch 1 0 -30 30
+&nbsp;</pre>
+
+<br />
+Please refer to the documentation page <a class="wiki_link_ext" href="http://sauerbraten.org/docs/models.html" rel="nofollow">Sauer Models Doc</a> for more details on each of these commands, but here are some of my notes on each.<br />
+mdlspec -1 this will turn off speculars, or make it so the model isn't shiny. Of course you'll want to adjust this to suit each particular model.<br />
+mdlscale 100 typically the default scale of md2s look good in Sauer, but you can tweak how tall your model is here.<br />
+mdltrans 0 0 24 most quake models have 0,0,0 at the waist of the model. Sauer wants this to be at the feet, so we add 24 to the Z axis to raise the model up. You may need to adjust this up or down a little if you toon appears to float or have its feet stuck in the ground.<br />
+md2pitch 1 0 -30 30 the docs don't mention it, but you can clamp the pitch on an md2. This makes it so the toon will only rotate so far when the player adjusts the pitch (up and down) of the toon. If you don't clamp this and the player looks down at the ground, the entire toon will rotate until it's parallel to the ground and looks rather silly. NOTE: If you have a toon that's a robot, like a Dalek or something, that you don't want to have rotate up and down at all, use md2pitch 1 0 0 1. If you try to use 0 0 for the last two arguments it will disable clamping, not clamp to 0 as you might have guessed.<br />
+<br />
+<h3 id="toc3">Adding a skin</h3>
+ The only other thing you need to do to import an md2 is to provide a skin for your toon. Sauer is going to look for either skin.jpg or skin.png, so rename one of the existing skins that came with the model. If it is another file format such as .PCX, .TIF, .TGA, etc. be sure to use a tool to convert it. Some of these may not be exact widths/height of a power of two. So far, I haven't noticed this to be a problem for Sauer, but if it is for you, just use your image tool to resize the image so that the contents are stretched.<br />
+<br />
+<h1 id="toc4">Importing md3 files</h1>
+ You should try your hand at a couple md2 files before trying an md3 as they are a little more complicated to import. Hopefully the model comes with an animation.cfg file, this file contains where to find all the animation offsets you will need. There will also be various *.skin files. If it has ones named lower_default.skin, upper_default.skin, and head_default.skin, I'd use the textures found in those. To start off with you want to create an md3.cfg file.<br />
+<br />
+<h3 id="toc5">Example md3.cfg</h3>
+ <br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
+.text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
+
+-->
+</style><pre class="text" style="font-family:monospace;">md3load lower.md3  // always start with the mesh for the legs, named lower.md3
+md3skin l_lower joker256.png  // refer to lower_default.skin for any textures, there may be multiple ones you need to add
+&nbsp;
+md3pitch 1 0 0 1   // you want the toon to bend at the waist, so totally disable the pitch for the legs
+md3anim dying 0 30 25  // extract from line 0, BOTH_DEATH1 in animation.cfg
+md3anim dead 0 30 25  // extract from line 1, BOTH_DEAD1
+md3anim &quot;lag|edit&quot; 90 1 20 // extract from line 13, LEGS_WALKCR  NOTE: set frames to 1 so the toon doesn't animate
+md3anim &quot;forward|left|right&quot; 98 12 20  // extract from line 14, LEGS_WALK
+md3anim backward 119 10 20  // extract from line 16, LEGS_BACK
+md3anim swim 129 10 15  // extract from line 17, LEGS_SWIM
+md3anim jump 139 8 15 // extract from line 18, LEGS_JUMP
+md3anim idle 173 6 7  // extract from line 22, LEGS_IDLE
+&nbsp;
+md3load upper.md3  // the upper or torso comes next
+md3skin u_upper joker256.png // refer to upper_default.skin and include any textures listed in this file
+&nbsp;
+md3pitch 1 0 -30 30  // let the toon bend up to 30 degrees either way at the waist
+&nbsp;
+md3anim dying 0 30 25 // extract from line 0, BOTH_DEATH1 in animation.cfg
+md3anim dead 29 1 25  // extract from line 1, BOTH_DEAD1
+md3anim &quot;idle|lag|edit&quot; 151 1 15 // extract from line 11, TORSO_STAND
+md3anim shoot 130 6 15 // extract from line 7, TORSO_ATTACK
+md3anim punch 136 6 15 // extract from line 8, TORSO_ATTACK2
+md3anim taunt 90 40 17 // extract from line 6, TORSO_GESTURE
+&nbsp;
+md3load head.md3 // last comes the head
+md3skin h_head head256.png // refer to head_default.skin for any textures listed
+&nbsp;
+// heads cannot be animated, so there are no animations
+&nbsp;
+md3link 0 1 tag_torso  // these lines will link the three chunks together
+md3link 1 2 tag_head // thankfully these are identical for 99% of the models
+&nbsp;
+mdlspec -1 // turn off speculars
+mdlscale 100 // keep original scale
+mdltrans 0 0 24 // raise feet up to surface plane
+&nbsp;</pre>
+
+<br />
+<br />
+<h3 id="toc6">Extracting Animations</h3>
+ By far the trickiest part of this process is learning to extract the animations from the animation.cfg to convert them into your md3.cfg. In my comments above, I included a line offset and the comment to look for. Please note, the line indexes are 0 based not 1. Hopefully your animation.cfg has the comments on each line animation that says what it is. Typically every animation has a line in this file with the starting frame, the number of frames, looping frames (unused by Sauer, so we will ignore) and the speed of the animation, followed by a comment describing the animation.<br />
+<br />
+<h3 id="toc7">Sample Animation.cfg:</h3>
+ 
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
+.text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
+
+-->
+</style><pre class="text" style="font-family:monospace;">// first frame, num frames, looping frames (ignored by Sauer), frames per second
+&nbsp;
+0    30    0    25        // BOTH_DEATH1
+29    1    0    25        // BOTH_DEAD1
+30    27    0    30        // BOTH_DEATH2
+57    1    0    25        // BOTH_DEAD2
+60    30    0    25        // BOTH_DEATH3
+89    1    0    25        // BOTH_DEAD3
+90    40    0    17        // TORSO_GESTURE
+130    6    0    15        // TORSO_ATTACK        (MUST NOT CHANGE -- hand animation is synced to this)
+136    6    0    15        // TORSO_ATTACK2    (MUST NOT CHANGE -- hand animation is synced to this)
+142    5    0    20        // TORSO_DROP        (MUST NOT CHANGE -- hand animation is synced to this)
+147    4    0    20        // TORSO_RAISE        (MUST NOT CHANGE -- hand animation is synced to this)
+151    1    0    15        // TORSO_STAND
+152    1    0    15        // TORSO_STAND2
+153    8    8    20        // LEGS_WALKCR
+161    12    12    20        // LEGS_WALK
+173    8    8    15        // LEGS_RUN
+182    10    10    20        // LEGS_BACK
+192    10    10    15        // LEGS_SWIM
+202    8    0    15        // LEGS_JUMP
+210    1    0    15        // LEGS_LAND
+218    10    0    15        // LEGS_JUMPB
+229    1    0    15        // LEGS_LANDB
+236    6    6    7        // LEGS_IDLE
+250    1    1    15        // LEGS_IDLECR
+240    7    7    15        // LEGS_TURN</pre>
+
+<br />
+<br />
+So for each md3anim you need to look up the corresponding animation I documented in the md3.cfg above and extract the first, second, and fourth columns to get the three numbers to pass into your md3anim. The first number, the start frame, may take some work, I'll explain next. The second and fourth numbers become your second and third numbers to use. We are ignoring the third column of numbers in the animation.cfg.<br />
+<br />
+The first column is the starting frame of the animation. The torso animations you can alway use the number given as the start frame as your start frame. Heads don't have animations, so no worries there. However, not all models save the leg animations stored the same way, so you may have to adjust the starting frames shown in the animation.cfg for all the leg animations.<br />
+<br />
+To see if you need to offset the start frames, subtract the start frame for the LEGS_WALKCR animation from the start frame of the TORSO_GESTURE animation. In this example these are 153 and 90, so subtracting we have an offset of 63. So for every LEG animation you must take the start frame of the animation and subtract 63 before you put it in the md3anim. For example, LEGS_SWIM starts on frame 192, so we subtract 63 and get 129 for the start frame. In our md3.cfg we will have md3anim swim 129 10 15. Now if <em>LEGS_WALKCR and</em> TORSO_GESTURE both started at the same number, then they already lined up and we would subtract zero, in other words, just use the same number.<br />
+<br />
+<h3 id="toc8">Example:</h3>
+ 
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
+.text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
+
+-->
+</style><pre class="text" style="font-family:monospace;">192    10    10    15        // LEGS_SWIM
+                \_ignored
+&nbsp;
+md3anim swim 129 10 15
+              ^   ^  ^
+  192 - 63 = _/   |  \_taken from fourth column
+                  \_taken from second column</pre>
+
+<br />
+<h3 id="toc9">Md3 Textures</h3>
+ No big surprise here, for every texture you referenced in your md3.cfg file you need to make sure you include and it has been converted to a .JPG or .PNG file. Getting which textures to use is just a matter of looking at the xxxxx_default.skin files.<br />
+<br />
+Example lower_default.skin file:<br />
+
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
+.text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
+
+-->
+</style><pre class="text" style="font-family:monospace;">l_lower,models/players/Joker/Joker256.tga
+tag_torso,
+tag_floor,</pre>
+
+So in this example, we want to add md3skin l_lower joker256.png to our md3.cfg and convert the Joker256.tga to a .png file.<br />
+<br />
+<h1 id="toc10">Importing into Sauer</h1>
+ After you get your model ready for importing, you want to make a folder for each model under packages/models/ This is the only place Sauer will look for them. Unfortunately you cannot use new models for yourself without making a change to the code and recompiling Sauer. If you're feeling up to this, open fpsrender.h and look for the following code:<br />
+<br />
+<h3 id="toc11">fpsrender.h code excerpt:</h3>
+ 
+<style type="text/css"><!--
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
+.text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
+
+-->
+</style><pre class="text" style="font-family:monospace;">        static const playermodelinfo playermodels[4] =   // increase the length of the array if you add models!!!
+        {
+             // here i've added a hansolo model, he doesn't have red team/blue team special versions
+            { &quot;hansolo&quot;, &quot;hansolo&quot;, &quot;hansolo&quot;, NULL, NULL, { NULL, NULL, NULL }, &quot;hansolo&quot;, &quot;hansolo&quot;, &quot;hansolo&quot; },
+            { &quot;mrfixit&quot;, &quot;mrfixit/blue&quot;, &quot;mrfixit/red&quot;, NULL, &quot;mrfixit/horns&quot;, { &quot;mrfixit/armor/blue&quot;, &quot;mrfixit/armor/green&quot;,
+              &quot;mrfixit/armor/yellow&quot; }, &quot;mrfixit&quot;, &quot;mrfixit_blue&quot;, &quot;mrfixit_red&quot; },
+            { &quot;ironsnout&quot;, &quot;ironsnout/blue&quot;, &quot;ironsnout/red&quot;, NULL, &quot;quadspheres&quot;, { &quot;shield/blue&quot;, &quot;shield/green&quot;,
+               &quot;shield/yellow&quot; }, &quot;ironsnout&quot;, &quot;ironsnout_blue&quot;, &quot;ironsnout_red&quot; },
+            { &quot;monster/ogro&quot;, &quot;monster/ogro/blue&quot;, &quot;monster/ogro/red&quot;, &quot;monster/ogro/vwep&quot;, NULL, { NULL, NULL, NULL },
+               &quot;ogro&quot;, &quot;ogro&quot;, &quot;ogro&quot; }
+        };
+&nbsp;</pre>
+
+
+    </div>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Scripting Guide</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Scripting Guide</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -51,11 +51,16 @@ Scripting for menus is explained on the <a class="wiki_link" href="Scripting%20M
 Following files get executed:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">if config.cfg doesn't exist:
+</style><pre class="text" style="font-family:monospace;">if config.cfg doesn't exist:
   only then do we execute data/defaults.cfg
   this will - at regular quit of engine -
   be written into config.cfg
@@ -72,11 +77,16 @@ if autoexec.cfg exists:
 <h2 id="toc8">What happens on map load</h2>
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">data/default_map_settings.cfg is executed
+</style><pre class="text" style="font-family:monospace;">data/default_map_settings.cfg is executed
 if they exist
   packages/ ..PATH-to-package.cfg is executed
   packages/ ..PATH-to-Map.cfg is executed</pre>
@@ -96,11 +106,16 @@ Without being a programmer you might find a lot of this stuff too complicated fo
 But if you really want to get the most out of the engine it is suggested that you at least try getting familiar with some basics of the scripting capabilities! Try reading the page on <a class="wiki_link" href="Scripting%20Tutorial.html">Scripting Tutorial</a> to see what fundamental know-how this is and how easy it is. Always referr to your local documentation to find basic CubeScript commands and how to use them, anything you want to be executed in sequence can be put inside a CubeScript block - like so:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">// fullscreen only works on linux AFAIK
+</style><pre class="text" style="font-family:monospace;">// fullscreen only works on linux AFAIK
 do_a_recalc = [fullbright 0;fullscreen 0;calclight 2;savemap;fullscreen 1]</pre>
 
 You can then execute this block simply by calling <tt>do_a_recalc</tt> ... for example via the console, or from other CubeScript blocks. Another example of a minimal CubeScript to handle a repetitive task : <a class="wiki_link" href="Scripting%20Commands.html#prettyscreenshot">Scripting Commands</a> or from Quadropolis : <a class="wiki_link_ext" href="http://www.quadropolis.us/node/276" rel="nofollow">Pretty Screenshot</a>

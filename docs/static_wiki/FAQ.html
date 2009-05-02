@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; FAQ</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - FAQ</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -45,6 +45,10 @@
 <div style="margin-left: 3em;"><a href="#toc36">A: use a CVS client</a></div>
 <div style="margin-left: 2em;"><a href="#toc37">Q: Where can I obtain the music files?</a></div>
 <div style="margin-left: 3em;"><a href="#toc38">A: In Fanatic's folder, or on his website</a></div>
+<div style="margin-left: 2em;"><a href="#toc39">Q: How do I use colours in my text?</a></div>
+<div style="margin-left: 3em;"><a href="#toc40">A: Use the FormFeed Control Character</a></div>
+<div style="margin-left: 2em;"><a href="#toc41">Q: Why is my mouse not working in OpenGL (Ubuntu 8.10 (Intrepid Ibex))?</a></div>
+<div style="margin-left: 3em;"><a href="#toc42">A: It seems to be caused by Compiz.</a></div>
 </div>
 <h1 id="toc0">FAQ</h1>
  When experiencing problems running the game, this is the first place to look as it contains the fastest method of getting an <em>answer</em> to your <em>question/problem</em>. Should your question not be answered here, use the <a class="wiki_link_ext" href="http://www.cubeengine.com/forum.php4" rel="nofollow">Cube Forums</a> to ask a question, and <em>not</em> the discussion page here.<br />
@@ -69,7 +73,7 @@ If you're just starting out, consider going over the <a class="wiki_link" href="
 <h2 id="toc4">Q: Why is the game behaving strangely?</h2>
  The most common cause of this problem is having configured (knowingly or otherwise) some obscure setting or attempting to install over an older version of the game.<br />
 <h3 id="toc5">A: Remove your old config</h3>
- Most of the time, it should be sufficient enough to simply delete the file <em>config.cfg</em> in the game's base directory, this allows the game to load updated bidings and commands from <em>data/defaults.cfg</em>.<br />
+ Most of the time, it should be sufficient enough to simply delete the file <em>config.cfg</em> in the game's base directory, this allows the game to load updated bindings and commands from <em>data/defaults.cfg</em>. Read more about these files on the page <a class="wiki_link" href="Configuration%20Hints.html">Configuration Hints</a>.<br />
 <h3 id="toc6">A: Perform a clean install</h3>
  A sure fire way to ensure the game will run correctly is to completely delete/uninstall and install from scratch.<br />
 <br />
@@ -168,7 +172,15 @@ Now just go and read <a class="wiki_link_ext" href="http://sourceforge.net/cvs/?
 <br />
 <h2 id="toc37">Q: Where can I obtain the music files?</h2>
  <h3 id="toc38">A: In Fanatic's folder, or on his website</h3>
- Check out the (Sauerbraten base folder)\packages\fanatic. There are a bunch of OGG Vorbis files there - numbered 1-31 - and the tracknames (in Track Names.txt). If you want to download the mp3's, go to <a class="wiki_link_ext" href="http://www2.fanaticalproductions.net:8080/" rel="nofollow">Fanatic's website</a> and look for the albums &quot;Two Minute Warning&quot;, &quot;Sauer Anger&quot;, and &quot;Panexypnos Dimiourgia&quot;.
+ Check out the (Sauerbraten base folder)\packages\fanatic. There are a bunch of OGG Vorbis files there - numbered 1-41 - and the tracknames (in Track Names.txt). If you want to download the mp3's, go to <a class="wiki_link_ext" href="http://www2.fanaticalproductions.net:8080/" rel="nofollow">Fanatic's website</a> and look for the albums &quot;Two Minute Warning&quot;, &quot;Sauer Anger&quot;, &quot;Panexypnos Dimiourgia&quot;, and &quot;Spontaneous Failure&quot;.<br />
+<br />
+<h2 id="toc39">Q: How do I use colours in my text?</h2>
+<h3 id="toc40">A: Use the FormFeed Control Character</h3>
+ASCII-12, &quot;\f&quot; - see the <a class="wiki_link" href="coloured%20text.html">coloured text</a> explanation.<br />
+<br />
+<h2 id="toc41">Q: Why is my mouse not working in OpenGL (Ubuntu 8.10 (Intrepid Ibex))?</h2>
+<h3 id="toc42">A: It seems to be caused by Compiz.</h3>
+Try installing the Compiz-Fusion Button and switch to Metacity whenever you're gaming. For some reason, this fixes the mouse problem. See the following message and it's followups on the official forum <a class="wiki_link_ext" href="http://cubeengine.com/forum.php4?action=display_thread&amp;thread_id=1890&amp;start=112" rel="nofollow">Mouse Fix on Ubuntu 8.10</a>
     </div>
   </body>
 </html>

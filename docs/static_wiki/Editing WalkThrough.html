@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Editing WalkThrough</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Editing WalkThrough</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -24,21 +24,31 @@ run sauerbraten<br />
 open console (either press 'BACKQUOTE' or first 'T' and then '/')<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">gamma 150</pre>
+</style><pre class="text" style="font-family:monospace;">gamma 150</pre>
 
 then <tt>edittoggle</tt> (or press 'E')<br />
 now enter<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">newmap</pre>
+</style><pre class="text" style="font-family:monospace;">newmap</pre>
 
 FYI : the resulting &quot;map&quot; is a half-filled octree.<br />
 <br />
@@ -59,11 +69,16 @@ with orientation depending on your position and selection of first cube, etc.<br
 turn it into a square of corridors<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">a top-down view of your square,
+</style><pre class="text" style="font-family:monospace;">a top-down view of your square,
 with x as deleted cubes
  xxxx
  x  x
@@ -84,11 +99,16 @@ turn corner (left or right)<br />
 repeat 3x2x5 inwards<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">savemap wt101
+</style><pre class="text" style="font-family:monospace;">savemap wt101
 map wt101</pre>
 
 orientation will be same as when changing the map,<br />
@@ -102,31 +122,46 @@ What every map should have at least on of.<br />
 A <tt>playerstart</tt><br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">newent playerstart</pre>
+</style><pre class="text" style="font-family:monospace;">newent playerstart</pre>
 
 (or use editing menu)<br />
 orientation taken from your LOS as the editing camera position at creation time<br />
 [LOS:line-of-sight]<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">entproperty N D</pre>
+</style><pre class="text" style="font-family:monospace;">entproperty N D</pre>
 
 with N the property index (0..3) and D the delta (..-2,-1,0,+1,+2..)<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">savecurrentmap
+</style><pre class="text" style="font-family:monospace;">savecurrentmap
 map wt101
 map wt101
 map wt101</pre>

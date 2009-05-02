@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Cubescript Tutorial Chapter 3</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Cubescript Tutorial Chapter 3</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -13,11 +13,16 @@
 Your current zoom script should look like this:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">zoom = [
+</style><pre class="text" style="font-family:monospace;">zoom = [
     if (= $zoomvar 1) [
         fov 50
         zoomvar = 0 //sets zoomvar to 0
@@ -31,11 +36,16 @@ Your current zoom script should look like this:<br />
 Right now, all it does is zoom in, then out. I mentioned that rootnis’ script slowly(er) zooms in; how would you do that? Maybe<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">zoom = [
+</style><pre class="text" style="font-family:monospace;">zoom = [
     if (= $zoomvar 1) [
         fov 90
         fov 80
@@ -53,11 +63,16 @@ Right now, all it does is zoom in, then out. I mentioned that rootnis’ script 
 right? Wrong: Cube wants to execute the scipt as fast as possible. To you, it will seem as if the script zooms in just as fast as before. So what can possibly be done to slow it down? Sleep.<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">sleeper = [
+</style><pre class="text" style="font-family:monospace;">sleeper = [
     echo Hello
     sleep 1000 [
         echo World
@@ -76,11 +91,16 @@ Note two things:<br />
 So how can you apply this to “zoom”? Sleeping for a fraction of a second before each fov change will zoom in (rather) smoothly. Try<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">zoom = [
+</style><pre class="text" style="font-family:monospace;">zoom = [
     if (= $zoomvar 1) [
         fov 90
         sleep 200 [
@@ -108,11 +128,16 @@ It’s a bit thrown-together, but also rather advanced for your third script. (W
  <br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">newgui
+</style><pre class="text" style="font-family:monospace;">newgui
 guitext
 guibutton
 guitab
@@ -129,11 +154,16 @@ guiradio</pre>
 Those terms let you script Cube’s in-game menus. A simple menu that uses the first three (and “cleargui”) is<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">newgui hello [
+</style><pre class="text" style="font-family:monospace;">newgui hello [
     guitext “Hello World!”
     guibutton “close” “cleargui”
 ]</pre>
@@ -145,11 +175,16 @@ and that closes when you click the text “close”.<br />
 To sum up, “newgui” is like “alias”. It creats a new menu with the title that comes after. “guitext” creats a new line of text, while “guibutton” creats a line of text that does “x” when you click it. Another basic element is a “guitab”. This allows you to put more information in your menu by using more than one “page”:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">newgui hello [
+</style><pre class="text" style="font-family:monospace;">newgui hello [
     guitext “Hello World!”
     guibutton “close” “cleargui”
     guitab “next page”
@@ -160,11 +195,16 @@ To sum up, “newgui” is like “alias”. It creats a new menu with the title
 (As you should be able to guess, “showgui” shows the specified menu, while “cleargui” hides the menu.) Now we want to give our menu (gui from now on) a title. “guititle” shows the specified name centered at the specified place on the list.<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">newgui “hello 2” [
+</style><pre class="text" style="font-family:monospace;">newgui “hello 2” [
     guititle “The second Hello GUI”
     guitext “Say hello to the world again...”
     guibutton “click here” “say Hello World!; cleargui”
@@ -173,11 +213,16 @@ To sum up, “newgui” is like “alias”. It creats a new menu with the title
 From the examples, you can see that you can script within the guibuttons’ actions. But you can also script in other parts of the gui, too, like the name, or the guitext:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">newgui zoom [
+</style><pre class="text" style="font-family:monospace;">newgui zoom [
     guititle “Status of the script ‘zoom’”
     guitext (format “zoomvar currently is %1” $zoomvar)
     if (= $zoomvar 1) [
@@ -194,11 +239,16 @@ From the examples, you can see that you can script within the guibuttons’ acti
 Note the use of “%” to display the value of “zoomvar” in the guitext. After the text in quotes is a list of values or alias names, which will be displayed in their designated place (%1, %2, %3, etc.)<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">format “%1 bottles of %2 on the %3, %1 bottles of %2!” $bottlenum beer wall</pre>
+</style><pre class="text" style="font-family:monospace;">format “%1 bottles of %2 on the %3, %1 bottles of %2!” $bottlenum beer wall</pre>
 
 You may use up to nine values like this (%1 through %9).
     </div>

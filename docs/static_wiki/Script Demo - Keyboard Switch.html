@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Script Demo - Keyboard Switch</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Script Demo - Keyboard Switch</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -9,21 +9,31 @@
 in autoexec.cfg (create in base game dir if it doesn't exist):<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">bind e []</pre>
+</style><pre class="text" style="font-family:monospace;">bind e []</pre>
 
 to disable edittoggle at game engine start.<br />
 then modify data/menus.cfg:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">newgui keyswitcher [
+</style><pre class="text" style="font-family:monospace;">newgui keyswitcher [
 guibutton &quot;normal&quot; [exec gamekeys.cfg]
 guibutton &quot;editor&quot; [exec editkeys.cfg]
 ]</pre>

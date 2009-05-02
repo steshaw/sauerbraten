@@ -1,7 +1,7 @@
 <html>
   <head>
-    <title>cube &raquo; Cubescript Tutorial Chapter 2</title>
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <title>cube - Cubescript Tutorial Chapter 2</title>
+    <link rel="stylesheet" href="../style.css" type="text/css" /><link rel="shortcut icon" href="../favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
@@ -15,11 +15,16 @@
 Almost everyone’s first script is a zoom script. Sauerbraten already comes with one, but it’s kinda hard to use (hold “G” while scrolling with the mouse, then scroll out to zoom out). Here it is:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">defaultmodifier = 0
+</style><pre class="text" style="font-family:monospace;">defaultmodifier = 0
 modifier = $defaultmodifier
 domodifier = [ modifier = $arg1; onrelease [ modifier = $defaultmodifier ]
 &nbsp;
@@ -39,41 +44,61 @@ Technically, in Cube, you can’t zoom. You only decrease the field of vision (f
 Open myfirstscript.cfg. Now you need a name for your script. How about “zoom”? To name an alias (a name that allows easier script execution), you can use two methods:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">alias zoom [ ]
+</style><pre class="text" style="font-family:monospace;">alias zoom [ ]
 &nbsp;
 zoom = [ ]</pre>
 
 The first one is the original way, so you’ll see it used alot. The second is newer, but alot easier to use: we’ll use this. (Make sure to use spaces between the name, the equals sign, and the brackets that contain the script.) Now that you’ve got a name, let’s find a way to decrease your fov. The simplest way is to zoom all the way in when you click the button:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">zoom = [fov 50]</pre>
+</style><pre class="text" style="font-family:monospace;">zoom = [fov 50]</pre>
 
 Okay, there’s a zoom script. Problem is, you can’t zoom out. Try the command “onrelease [ ]”, which will execute whatever you tell it to when you release the button.<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">zoom = [fov 50; onrelease [fov 100]]</pre>
+</style><pre class="text" style="font-family:monospace;">zoom = [fov 50; onrelease [fov 100]]</pre>
 
 <br />
 Now let’s try one that’s a little more complex. Let’s say you want to click to zoom in, and then click to zoom out. A touchy way to do this is (if you want the zoom bound to mouse2):<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">zoom1 = [fov 50; bind “MOUSE2” [zoom2]]
+</style><pre class="text" style="font-family:monospace;">zoom1 = [fov 50; bind “MOUSE2” [zoom2]]
 zoom2 = [fov 100; bind “MOUSE2” [zoom1]]
 bind “MOUSE2” [zoom1]</pre>
 
@@ -82,11 +107,16 @@ So many problems arise with this one that it’s impossible to use. Plus, you ne
 “if” is a neccessary part of many, many scripts. The sooner you learn to use it, the better. Here’s how it’s used, with an explanation:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">if (= $zoomvar 1) [ ]
+</style><pre class="text" style="font-family:monospace;">if (= $zoomvar 1) [ ]
 &nbsp;
 if ($zoomvar = 1) [ ]</pre>
 
@@ -95,11 +125,16 @@ The first is most commonly used, so we’ll use it. First comes “if” itself,
 Now to add this to your zoom script. (As your scripts get more complex, you’ll want to move away from using single-liners, and start formatting them like the following. If you use this style, you don’t need “;” between individual commands, only start them on a new line):<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">zoom = [
+</style><pre class="text" style="font-family:monospace;">zoom = [
     if (= $zoomvar 1) [
         fov 50
         zoomvar = 0 //sets zoomvar to 0
@@ -117,49 +152,74 @@ Looks complicated, huh? Look closer, and see if you can understand it all. It’
 To execute your script, Cube needs a way to find it. So far, you’ve saved your zoom script to myfirstscript.cfg, but Cube doesn’t know this. Here’s where autoexec.cfg comes into play again. Place the line<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">exec myfirstscript.cfg</pre>
+</style><pre class="text" style="font-family:monospace;">exec myfirstscript.cfg</pre>
 
 into your autoexec. Now add your bind (somewhere after the exec line: Cube always has to know a script’s name before it can use it in another script or bind):<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">bind &quot;MOUSE2&quot; [zoom]</pre>
+</style><pre class="text" style="font-family:monospace;">bind &quot;MOUSE2&quot; [zoom]</pre>
 
 So fire up Sauerbraten, and try it out. If it doesn’t work, make sure you’ve typed it all correctly (no missing “]”s, etc.). If it still doesn’t work, remember the common solution to most problems: delete config.cfg, and open Sauerbraten again.<br />
 <br />
 Now that you’ve executed it with a bind, let’s try the command line. Some commands don’t necessarily need to be bound, such as loading a map. Try out your zoom script; open sauerbraten and press “T”. This make a little arrow (&gt;) near the bottom of your screen, with a “_” after it. The “_” is your cursor; just type<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">/zoom</pre>
+</style><pre class="text" style="font-family:monospace;">/zoom</pre>
 
 so it looks like<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">&gt;/zoom_</pre>
+</style><pre class="text" style="font-family:monospace;">&gt;/zoom_</pre>
 
 and press enter (or return). Your script executes. Now type it again, and enter/return. You zoom out. Simple. (Remember to type “/” in front of all command lines you enter in the text line, otherwise they just appear as a chat message.) It’s also just as easy to load a map:<br />
 
 <style type="text/css"><!--
-/* GeSHi (c) Nigel McNie 2004 (http://qbnz.com/highlighter) */
+/**
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ */
+.text  {font-family:monospace;}
 .text .imp {font-weight: bold; color: red;}
+.text span.xtra { display:block; }
 
 -->
-</style><pre class="text">/map mapnamehere</pre>
+</style><pre class="text" style="font-family:monospace;">/map mapnamehere</pre>
 
 will load the map of your choice. Try &quot;/map corruption&quot;, which loads &quot;Corruption&quot; by Kaiser.
     </div>
