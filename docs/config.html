@@ -394,6 +394,12 @@
 <a href="#server_commands"><b>Server Configuration Commands</b></a>
 <ul class="contents2">
 <li>
+<a href="#startlistenserver"><tt>startlistenserver</tt></a>
+</li>
+<li>
+<a href="#stoplistenserver"><tt>stoplistenserver</tt></a>
+</li>
+<li>
 <a href="#serverip"><tt>serverip</tt></a>
 </li>
 <li>
@@ -1165,6 +1171,12 @@ changes are not committed, if they select another field, changes will be lost.
 <h2 id="server_commands">Server Configuration Commands</h2>
 <p>The following commands may be placed in the file "server-init.cfg" in the root Sauerbraten directory to configure a dedicated server, or they may be used inside a running client to config
 ure a listen server:</p>
+
+<pre id="startlistenserver">startlistenserver [MASTER]</pre>
+<p>Starts a listen server from within a running game client. If MASTER=1, then the server will report to the master server, other if MASTER=0 or not supplied the server will not report to the master server. The various server configuration commands can be used before this command to setup properties of the listen server.</p>
+
+<pre id="stoplistenserver">stoplistenserver</pre>
+<p>Stops a listen server running from within a game client.</p>
 
 <pre id="serverip">serverip S</pre>
 <p>Sets the IP the server should bind/listen to S. This is only useful if your server is running on a host with multiple interfaces.</p>
