@@ -367,6 +367,9 @@
 <a href="#guitext"><tt>guitext</tt></a>
 </li>
 <li>
+<a href="#guitextbox"><tt>guitextbox</tt></a>
+</li>
+<li>
 <a href="#guibar"><tt>guibar</tt></a>
 </li>
 <li>
@@ -1112,7 +1115,12 @@ Creates a menu image tile from the path P, which will execute A when selected. C
 
 <pre id="guitext">guitext S</pre>
 <p>
-Creates a menu consisting of the text line S and an information icon.
+Creates a menu item consisting of the text line S and an information icon.
+</p>
+
+<pre id="guitextbox">guitextbox S W [H] [C]</pre>
+<p>
+Creates a text box showing the text S, with width W, height H, and color C. The default is a single line of white text. Note that the height will increase automatically so as to enclose all the text.
 </p>
 
 <pre id="guibar">guibar</pre>
