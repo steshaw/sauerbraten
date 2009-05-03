@@ -185,47 +185,52 @@
 <li>backported bots from Blood Frontier by Quin</li>
 <li>new announcer voice by Blindabuser</li>
 <li>added "protect" and "insta protect" game modes</li>
-<li>added optional ragdoll physics for skeletally-animated models</li>
-<li>added movie recording in uncompressed AVI YUV format (via "movie" command)</li>
-<li>added support for DDS DXT1/3/5 compressed textures</li>
-<li>screenshots now save as PNG images instead of BMP</li>
-<li>added support for loading files directly out of ZIP archives</li>
+
+<li>added layer blending for world geometry</li>
+<li>added flame particles (particle types 0 and 11) and smoke particles (particle type 12)</li>
+<li>all map vars (skybox, fog, watercolour, etc.) now save inside maps and sync during coop-edit</li>
+<li>ambient light can now be colored (with "ambient R G B")</li>
+<li>"fogcolour" variable can now be set with the form "fogcolour R G B"</li>
+<li>renamed "aiclip" material to "gameclip" and allowed it to be used to prevent flag dropping in areas in CTF/protect modes or base capturing in capture modes</li>
+<li>"editmat" command can now specify an optional filter material which limits the cubes it modifies</li>
+<li>added "gotosel" command to go to the current selection's position in edit mode</li>
+<li>simplified "calclight"/"patchlight" quality levels to 1: high, -1: low, and 0: determined by "lmshadows" and "lmaa" vars</li>
+<li>particles now show in edit mode (controlled by "showparticles" var)</li>
+<li>pickups now show up immediately when added in edit mode</li>
+
+<li>added support for optional hit sound (toggle with "hitsound" var)</li>
+<li>added configurable mini-console for chat (configurable via "minconsize", "minconwidth", "minconfilter", and "minconfade" vars)</li>
+<li>made key-binding menu easier to use</li>
+<li>extended damage compass to 8 directions (from 4)</li>
+<li>added ammo inventory display to HUD</li>
+<li>made "sensitivity" variable floating-point (no more "sensitivityscale" needed)</li>
+<li>added "dropflag" command for CTF modes to drop the flag</li>
+<li>main menu is now shown instead of dumping to local map when game starts up or when disconnected from multiplayer</li>
+
+<li>players can now un-spectator themselves if mastermode is less than 2 (locked)</li>
+<li>can now keep servers in the server browser with the "keepserver" command and also specify passwords for it to use</li>
+<li>demo recording now works for local MP modes</li>
+<li>re-enabled listen server functionality (via "-d1" command-line option or "startlistenserver" command)</li>
 <li>can now setup server parameters with "server-init.cfg" instead of using command-line options</li>
 <li>can now specify different ports for servers to use (via "-j" command-line option)</li>
 <li>included source code for new master/auth server</li>
-<li>demo recording now works for local MP modes</li>
-<li>re-enabled listen server functionality (via "-d1" command-line option or "startlistenserver" command)</li>
-<li>players can now un-spectator themselves if mastermode is less than 2 (locked)</li>
-<li>added support for optional hit sound (toggle with "hitsound" var)</li>
-<li>added configurable mini-console for chat (configurable via "minconsize", "minconwidth", "minconfilter", and "minconfade" vars)</li>
-<li>"editmat" command can now specify an optional filter material which limits the cubes it modifies</li>
-<li>renamed "aiclip" material to "gameclip" and allowed it to be used to prevent flag dropping in areas in CTF/protect modes or base capturing in capture modes</li>
-<li>ambient light can now be colored (with "ambient R G B")</li>
-<li>"fogcolour" variable can now be set with the form "fogcolour R G B"</li>
-<li>all map vars (skybox, fog, watercolour, etc.) now save inside maps and sync during coop-edit</li>
-<li>added flame particles (particle types 0 and 11) and smoke particles (particle type 12)</li>
-<li>added view frustum/PVS culling for particle entities</li>
-<li>replaced "setpixelparam"/"setvertexparam" with easier "setshaderparam" command</li>
-<li>rewrote grass rendering to support blending and better batching</li>
-<li>can now keep servers in the server browser with the "keepserver" command and also specify passwords for it to use</li>
+<li>added optional master authentication system instead of old "approve" command</li>
 <li>added support for locking servers with passwords (via "-y" command-line option)</li>
 <li>server admins can now pause matches with the "pausegame" command</li>
-<li>made key-binding menu easier to use</li>
-<li>extended damage compass to 8 directions (from 4)</li>
+
 <li>collision boxes for mapmodels now support yaw</li>
 <li>smoothed out player collisions against stairways</li>
-<li>added ammo inventory display to HUD</li>
-<li>added "dropflag" command for CTF modes to drop the flag</li>
-<li>added "gotosel" command to go to the current selection's position in edit mode</li>
-<li>simplified "calclight"/"patchlight" quality levels to 1: high, -1: low, and 0: determined by "lmshadows" and "lmaa" vars</li>
-<li>added layer blending for world geometry</li>
-<li>made "sensitivity" variable floating-point (no more "sensitivityscale" needed)</li>
-<li>added optional master authentication system instead of old "approve" command</li>
-<li>particles now show in edit mode (controlled by "showparticles" var)</li>
-<li>pickups now show up immediately when added in edit mode</li>
-<li>deferred loading of world shaders until they are used</li>
-<li>main menu is now shown instead of dumping to local map when game starts up or when disconnected from multiplayer</li>
+
+<li>added optional ragdoll physics for skeletally-animated models</li>
+<li>added movie recording in uncompressed AVI YUV format (via "movie" command)</li>
+<li>screenshots now save as PNG images instead of BMP</li>
+<li>added support for loading files directly out of ZIP archives</li>
+<li>added support for DDS DXT1/3/5 compressed textures</li>
 <li>removed dependency on libGLU</li>
+<li>added view frustum/PVS culling for particle entities</li>
+<li>deferred loading of world shaders until they are used</li>
+<li>replaced "setpixelparam"/"setvertexparam" with easier "setshaderparam" command</li>
+<li>rewrote grass rendering to support blending and better batching</li>
 <li>made "mdltrans"/"mdlscale" use matrix transforms instead of preprocessing vertexes</li>
 <li>added cheap blob shadows fallback for player shadows</li>
 <li>removed old/inefficient stencil shadows fallback</li>
