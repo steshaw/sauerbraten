@@ -487,6 +487,18 @@
 <a href="#strreplace"><tt>strreplace</tt></a>
 </li>
 <li>
+<a href="#strlen"><tt>strlen</tt></a>
+</li>
+<li>
+<a href="#min"><tt>min</tt></a>
+</li>
+<li>
+<a href="#max"><tt>max</tt></a>
+</li>
+<li>
+<a href="#rnd"><tt>rnd</tt></a>
+</li>
+<li>
 <a href="#if"><tt>if</tt></a>
 </li>
 <li>
@@ -511,13 +523,67 @@
 <a href="#listlen"><tt>listlen</tt></a>
 </li>
 <li>
+<a href="#listclients"><tt>listclients</tt></a>
+</li>
+<li>
 <a href="#onrelease"><tt>onrelease</tt></a>
 </li>
 <li>
 <a href="#result"><tt>result</tt></a>
 </li>
+</ul>
+</li>
+
+<li>
+<a href="#variables"><b>Useful Variables</b></a>
+<ul class="contents2">
 <li>
 <a href="#_editing"><tt>$editing</tt></a>
+</li>
+<li>
+<a href="#getalias"><tt>getalias</tt></a>
+</li>
+<li>
+<a href="#getbind"><tt>getbind</tt></a>
+</li>
+<li>
+<a href="#geteditbind"><tt>geteditbind</tt></a>
+</li>
+<li>
+<a href="#getspecbind"><tt>getspecbind</tt></a>
+</li>
+<li>
+<a href="#getclientnum"><tt>getclientnum</tt></a>
+</li>
+<li>
+<a href="#getclientname"><tt>getclientname</tt></a>
+</li>
+<li>
+<a href="#getclientteam"><tt>getclientteam</tt></a>
+</li>
+<li>
+<a href="#getname"><tt>getname</tt></a>
+</li>
+<li>
+<a href="#getteam"><tt>getteam</tt></a>
+</li>
+<li>
+<a href="#getweapon"><tt>getweapon</tt></a>
+</li>
+<li>
+<a href="#getfps"><tt>getfps</tt></a>
+</li>
+<li>
+<a href="#gettex"><tt>gettex</tt></a>
+</li>
+<li>
+<a href="#gettexname"><tt>gettexname</tt></a>
+</li>
+<li>
+<a href="#isconnected"><tt>isconnected</tt></a>
+</li>
+<li>
+<a href="#isspectator"><tt>isspectator</tt></a>
 </li>
 </ul>
 </li>
@@ -1319,6 +1385,26 @@ This searches the string S for substring A and replaces it with another substrin
 (example: echo ( strreplace "this is serious" "serious" "fun" ) - would return "this is fun" ).
 </p>
 
+<pre id ="strlen">strlen S </pre>
+<p>
+Returns the length of the string S
+(example: echo (strlen "long sentence") - would return 13 ).
+</p>
+
+<pre id ="min">min A B </pre>
+<p>
+This results the lower number of the 2 Strings A and B
+</p>
+
+<pre id ="max">max A B </pre>
+<p>
+This results the higher number of the 2 Strings A and B
+</p>
+
+<pre id ="rnd">rnd N </pre>
+<p>
+Grabs a random number from 0 to N, and results it.
+</p>
 <pre id="if">if cond true false</pre>
 <p>
 Executes the true or false&nbsp;part depending on wether cond is "0" or 
@@ -1362,6 +1448,12 @@ Grabs the Nth word out of string S and returns the result
 Returns the number of items in the list L
 </p>
 
+<pre id="listclients">listclients N</pre>
+<p>
+Gives a list of all playernumbers if N is 1
+if N is 0 it lists all players except you.
+</p>
+
 <pre id="onrelease">onrelease A</pre>
 <p>
 Only executes A if the command is executed on the release of a key/button (must be in an action in a bind or an alias in a bind).
@@ -1373,11 +1465,60 @@ Normally the result of a [] block is the result of the last command in the block
 variable or value, you can use e.g. "result $i" etc.
 </p>
 
-<p>Variables that are only really useful when used as value:</p>
+<h2 id="variables">Variables that are only really useful when used as value:</h2>
 
 <pre id="_editing">$editing</pre>
 <p>
 This is true when in edit mode.
 </p>
+
+<pre id="getalias">getalias V</pre>
+<p>
+Returns the alias from the variable V.
+</p>
+
+<pre id="getbind">getbind B</pre>
+<pre id="geteditbind">geteditbind B</pre>
+<pre id="getspecbind">getspecbind B</pre>
+<p>
+Returns the game, edit or spectator bind B
+</p>
+
+<pre id="getclientnum">getclientnum N</pre>
+<pre id="getclientname">getclientname N</pre>
+<pre id="getclientteam">getclientteam N</pre>
+<p>
+This returns the client number, name or team of the player N.
+</p>
+
+<pre id="getname">getname</pre>
+<pre id="getteam">getteam</pre>
+<pre id="getweapon">getweapon</pre>
+<pre id="getfps">getfps</pre>
+<p>
+Tells your own Name Team Weapon or FPS
+</p>
+
+<pre id="gettex">gettex</pre>
+<p>
+Adds the current selected texture to the front of your texture list in Y+scroll
+Needs Allfaces set to 0 so it works.
+</p>
+
+<pre id="gettexname">gettexname</pre>
+<p>
+Results the current Texture name
+</p>
+
+<pre id="isconnected">isconnected N</pre>
+<p>
+If the Player N is online this is 1 (true)
+</p>
+
+<pre id="isspectator">isspectator N</pre>
+<p>
+If the Player N is spectator this is 1 (true)
+</p>
+
 </body>
 </html>
