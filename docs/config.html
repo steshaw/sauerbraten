@@ -478,6 +478,15 @@
 <a href="#_caret_"><tt>^</tt></a>
 </li>
 <li>
+<a href="#strstr"><tt>strstr</tt></a>
+</li>
+<li>
+<a href="#substr"><tt>substr</tt></a>
+</li>
+<li>
+<a href="#strreplace"><tt>strreplace</tt></a>
+</li>
+<li>
 <a href="#if"><tt>if</tt></a>
 </li>
 <li>
@@ -1289,6 +1298,25 @@ operators from other languages (example: echo x squared is (* $x $x)).
 <p>
 (not, and, or, xor): boolean operators. 0 is false, everything else is true.
 The AND and OR operators are implemented to shortcut.
+</p>
+
+<pre id ="strstr">strstr S N</pre>
+<p>
+Searches the part N at the given String S and return its starting position.
+This function is case sensitive, when N was not found it returns -1.
+(example: echo (strstr "for example this sentence" "this" ) - would return 14 ).
+</p>
+
+<pre id ="substr">substr S A B</pre>
+<p>
+Returns a part from the string S starting from A for B chars
+(example: echo (substr "grab this part here" 11 4 ) - would return "here" ).
+</p>
+
+<pre id ="strreplace">strreplace S A B</pre>
+<p>
+This searches the string S for substring A and replaces it with another substring B.
+(example: echo ( strreplace "this is serious" "serious" "fun" ) - would return "this is fun" ).
 </p>
 
 <pre id="if">if cond true false</pre>
