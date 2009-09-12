@@ -83,11 +83,17 @@ grid size is much smaller than this, and the max size much much larger. Try addi
 </p>
 
 <p>
+Now, let's edit those corners. To select corners press and hold Middle Mouse Button, much the same as selecting with the Left Mouse Button.
+Try playing with the mouse wheel. This will push or pull the selected corners. Now make a selction with Left Mouse Button. Hold F and scroll 
+with mouse. This edits all 4 corners at once. These operations may seem simple but they allow for the creation of complex geometry.
+</p>
+
+<!--<p>
 Now, let's edit those corners. Select one of the cubes and while holding Q, and try playing with the mouse wheel.
 This will push or pull the corner on the selected cube closest to your crosshair, or if none is selected then the corner of the
 cube you're pointing at. Now do the same thing but hold F instead of Q. This edits all 4 corners at once. These operations may seem
 simple but they allow for the creation of complex geometry.
-</p>
+</p>-->
 
 <p>
 By now you should have an idea of how most editing operations work. Hold a modifier button and use the scroll wheel to change the
@@ -106,7 +112,7 @@ Entities all have a blue particles sparkling to indicate their position. Some en
 their standard in-game model, but these will only be rendered if the entites have existed since the map was loaded. Monsters will only
 render in single player mode. Make sure you're familiar with the different <a href="editref.html#entitytypes">types on entities</a>.
 To add an entity select it from the editing section of the built in menu or type <i>/newent entname arg1 arg2 arg3 arg4</i> such as
-<i>/newent light 32 120 120 60</i>. The location of the entity will be exactly where you are, except dropped straight down if it's
+<i>/newent light 32 120 120 120</i>. The location of the entity will be exactly where you are, except dropped straight down if it's
 not a light. This behavior can be changed through the entdrop variable, but the default is best in most cases. You can delete an
 entity with the delent command, which is bound to backspace.
 </p>
@@ -150,7 +156,7 @@ destroys the belivability of your map.
 <li>Use the mouse wheel to pull cubes into existence and push them out of existence</li>
 <li>Middle Mouse Button to select corners</li>
 <!--<li>Q+Mouse Wheel to push and pull a corner</li>-->
-<li>F+Mouse Wheel to push and pull all 4 corners at once</li>
+<li>F+Mouse Wheel to push and pull all 4 corners at once (in the case of no corner selection)</li>
 <li>R+Mouse Wheel to rotate</li>
 <li>Y+Mouse Wheel to texture</li>
 <li>G+Mouse Wheel to change grid size</li>
