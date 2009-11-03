@@ -492,12 +492,13 @@ For example, to define a "punch" animation starting at frame 131 with 6 frames a
 15 frames per second: <i>md3anim "punch" 131 6 15</i>
 </p>
 
-<pre id="md3link">md3link P C T</pre>
+<pre id="md3link">md3link P C T [X Y Z]</pre>
 <p>
 This links two models together. Every model you load with md3load has an ID. The first model
 you load has the ID 0, the second has the ID 1, and so on, those ID's are now used to identify
 the models and link them together. P the ID of the parent model. C to ID of the
-child model. T name of the tag that specifies at which vertex the models should be linked.
+child model. T name of the tag that specifies at which vertex the models should be linked. 
+X, Y, and Z are optional translation for this link.
 </p>
 
 <p>
@@ -735,12 +736,13 @@ Starts a new animation part that will include bone B and all its sub-bones. This
 Assigns the tag name T to the bone B, for either use with "md5link" or attachment of other models via tags.
 </p>
 
-<pre id="md5link">md5link P C T</pre>
+<pre id="md5link">md5link P C T [X Y Z]</pre>
 <p>
 This links two models together. Every model you load with md5load has an ID. The first model
 you load has the ID 0, the second has the ID 1, and so on, those ID's are now used to identify
 the models and link them together. P the ID of the parent model. C to ID of the
 child model. T name of the tag that specifies at which vertex the models should be linked.
+X, Y, and Z are an optional translation for this link.
 </p>
 
 <pre id="md5adjust">md5adjust BONE YAW [PITCH] [ROLL]</pre>
