@@ -289,6 +289,12 @@
 <a href="#autograss"><tt>autograss</tt></a>
 </li>
 <li>
+<a href="#grassscale"><tt>grassscale</tt></a>
+</li>
+<li>
+<a href="#grassalpha"><tt>grassalpha</tt></a>
+</li>
+<li>
 <a href="#texscroll"><tt>texscroll</tt></a>
 </li>
 <li>
@@ -416,6 +422,18 @@
 </li>
 <li>
 <a href="#cloudcolour"><tt>cloudcolour</tt></a>
+</li>
+<li>
+<a href="#cloudalpha"><tt>cloudalpha</tt></a>
+</li>
+<li>
+<a href="#fogdomeheight"><tt>fogdomeheight</tt></a>
+</li>
+<li>
+<a href="#fogdomemin"><tt>fogdomemin</tt></a>
+</li>
+<li>
+<a href="#fogdomemax"><tt>fogdomemax</tt></a>
 </li>
 <li>
 <a href="#skytexture"><tt>skytexture</tt></a>
@@ -1369,6 +1387,16 @@ Resets the material texture slots for subsequent "texture" commands.
 Automatically generates grass for the current texture slot on any upward facing surface. The grass texture FILENAME is used to to texture the grass blades. 
 </p>
 
+<pre id="grassscale">grassscale N</pre>
+<p>
+Sets the scaling of all grass textures to N where N=1..64 (default: 2).
+</p>
+
+<pre id="grassalpha">grassalpha A</pre>
+<p>
+Sets the opacity of all grass textures to A where floating point value A=0..1 (default: 1).
+</p>
+
 <pre id="texscroll">texscroll X Y</pre>
 <p>
 Scrolls the current texture slot at X and Y Hz, along the X and Y axes of the texture respectively.
@@ -1816,10 +1844,35 @@ This is a floating-point value between 0 and 1, where 0 corresponds to the edge 
 to the center. (Default: 0.2)
 </p>
 
-<pre id="cloudcolor">cloudcolor N</pre>
+<pre id="cloudcolour">cloudcolour N</pre>
 <p>
 specifies a colour multiplier for the cloud layer, where N is a hexadecimal colour value in the form of "0xRRGGBB".
 (Default: 0xFFFFFF, white)
+</p>
+
+<pre id="cloudalpha">cloudalpha A</pre>
+<p>
+specifies an opacity for the cloud layer, where A is a floating-point value between 0 and 1.
+(Default: 1, solid)
+</p>
+
+<pre id="fogdomeheight">fogdomeheight N</pre>
+<p>
+specifies the height of the fog dome as a floating-point value, where 0 corresponds to the bottom of
+ and 1 corresponds to the top of the skybox. Intermediate
+values place the fog dome at intermediate heights of those. (Default: 0)
+</p>
+
+<pre id="fogdomemin">fogdomemin A</pre>
+<p>
+specifies a minimum opacity for the fog dome, where A is a floating-point value between 0 and 1.
+(Default: 0, invisible)
+</p>
+
+<pre id="fogdomemax">fogdomemax A</pre>
+<p>
+specifies a maximum opacity for the fog dome, where A is a floating-point value between 0 and 1.
+(Default: 0, invisible)
 </p>
 
 <pre id="skytexture">skytexture B</pre>
