@@ -45,6 +45,13 @@ This colony has largely been established, carved right out of the rocks. It stil
 
 The mining material is a blue, shining rock. This rock is useful for a couple of properties: Its luminescence and the energy that can be derived from it. So, it is used as a cheap lightsource around the colony (even underwater, where it is mined). The main power source for the entire colony is within the underwater power core, which is fuelled infinitely by a massive blue stone.
 
+---------------------------------------------------------------------------
+
+UPDATE:
+
+A lot changed from the last version. Architecture, layout, and textures were all changed. Lighting was fixed and even texture blending was applied. I removed a lot of useless things (like the underwater caves) and improved the flow (such as by making the backpath a bit longer). I also balanced the sides a bit better and removed a few rather unfair things, like the fence doors. Enjoy the (hopefully) final product!
+
+----------------------------------------------------------------------------
 
 CREDITS
 
