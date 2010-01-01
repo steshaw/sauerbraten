@@ -1,4 +1,4 @@
-Mapmodels logos by Geartrooper.
+Mapmodels by Geartrooper.
 -cannon_copter
 -cc_screen
 -decals
