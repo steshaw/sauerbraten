@@ -2,6 +2,7 @@ Mapmodels by Geartrooper.
 -cannon_copter
 -cc_screen
 -decals
+-poster
 
 Mapmodels by Nieb.
 -block
@@ -10,7 +11,6 @@ Mapmodels by Nieb.
 -console1
 -exit-sign
 -pad
--poster
 -railings
 -switch
 -vending
