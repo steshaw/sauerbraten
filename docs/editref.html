@@ -442,6 +442,9 @@
 <a href="#fogdomeclip"><tt>fogdomeclip</tt></a>
 </li>
 <li>
+<a href="#fogdomecolour"><tt>fogdomecolour</tt></a>
+</li>
+<li>
 <a href="#skytexture"><tt>skytexture</tt></a>
 </li>
 <li>
@@ -1889,6 +1892,11 @@ specifies whether the bottom of the fog dome should be capped, where B is 0 or 1
 <pre id="fogdomeclip">fogdomeclip Z</pre>
 <p>
 specifies whether the top of the fog dome should be clipped off at a relative size Z, where Z is a floating-point value between 0 and 1 (Default: 1, not clipped).
+</p>
+
+<pre id="fogdomecolour">fogdomecolour R G B</pre>
+<p>
+The colour of the fog dome, specified as R G B values from 0..255 (default: 0 0 0). If the colour is 0, then the value of fogcolour is used instead of fogdomecolour.
 </p>
 
 <pre id="skytexture">skytexture B</pre>
