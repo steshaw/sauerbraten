@@ -301,10 +301,25 @@
 <a href="#texrotate"><tt>texrotate</tt></a>
 </li>
 <li>
+<a href="#vrotate"><tt>vrotate</tt></a>
+</li>
+<li>
 <a href="#texoffset"><tt>texoffset</tt></a>
 </li>
 <li>
+<a href="#voffset"><tt>voffset</tt></a>
+</li>
+<li>
 <a href="#texscale"><tt>texscale</tt></a>
+</li>
+<li>
+<a href="#vscale"><tt>vscale</tt></a>
+</li>
+<li>
+<a href="#vreset"><tt>vreset</tt></a>
+</li>
+<li>
+<a href="#vdelta"><tt>vdelta</tt></a>
 </li>
 <li>
 <a href="#fog"><tt>fog</tt></a>
@@ -341,6 +356,9 @@
 </li>
 <li>
 <a href="#setshaderparam"><tt>setshaderparam</tt></a>
+</li>
+<li>
+<a href="#vshaderparam"><tt>vshaderparam</tt></a>
 </li>
 <li>
 <a href="#setpixelparam"><tt>setpixelparam</tt></a>
@@ -522,6 +540,9 @@
 </li>
 <li>
 <a href="#texlayer"><tt>texlayer</tt></a>
+</li>
+<li>
+<a href="#vlayer"><tt>vlayer</tt></a>
 </li>
 <li>
 <a href="#blend_brushes">Blend Brushes</a>
@@ -1416,14 +1437,39 @@ Scrolls the current texture slot at X and Y Hz, along the X and Y axes of the te
 Rotates the current texture slot by N*90 degrees for N=0..3. N=4 flips along the X axis, and N=5 flips along the Y axis. 
 </p>
 
+<pre id="vrotate">vrotate N</pre>
+<p>
+Rotates all textures in the current selection as if by the "texrotate" command.
+</p>
+
 <pre id="texoffset">texoffset X Y</pre>
 <p>
 Offsets the current texture slot by X and Y texels along the X and Y axes of the texture respectively.
 </p>
 
+<pre id="voffset">voffset X Y</pre>
+<p>
+Offsets all textures in the current selection as if by the "texoffset" command.
+</p>
+
 <pre id="texscale">texscale N</pre>
 <p>
 Scales the current texture slot such that it is N times its normal size.
+</p>
+
+<pre id="vscale">vscale N</pre>
+<p>
+Scales all textures in the current selection as if by the "texscale" command.
+</p>
+
+<pre id="vreset">vreset</pre>
+<p>
+Resets the texture configuration of all textures in the current selection to the defaults defined in the map cfg file.
+</p>
+
+<pre id="vdelta">vdelta BODY</pre>
+<p>
+Excutes all of the "v*" commands in BODY such that they now only add to the current values for the textures in the current selection, rather than simply setting them. For example, vdelta [vrotate 1] would add 1 to the current rotation value for the textures, rather than just setting their rotation value to 1. This affects the "vrotate" (adds), "voffset" (adds), "vscale" (multiplies), and "vshaderparam" (overrides) commands.
 </p>
 
 <pre id="fog">fog N</pre>
@@ -1495,6 +1541,11 @@ attached to them. Any pixel or vertex parameters are reset to the shader's defau
 <p>
 Overrides a uniform parameter for the current shader. Any following texture slots will use this pixel parameter until its value is set/reset by subsequent commands.
 NAME is the name of a defined parameter of the current shader. It's value is set to the vector (X, Y, Z, W). Coordinates that are not specified default to 0.
+</p>
+
+<pre id="vshaderparam">vshaderparam NAME X Y Z W</pre>
+<p>
+Overrides a uniform parameter for the shaders of all textures in the current selection, as if by the "setshaderparam" command.
 </p>
 
 <pre id="setpixelparam">setpixelparam INDEX X Y Z W</pre>
@@ -2156,6 +2207,12 @@ To set up textures to blend, in your map cfg, under the texture that you want to
 
 <p>
 N is the index of the texture slot you want to use as the bottom texture layer to blend with. Texture slots start at 0, which is the first slot, 1 is the second slot, 2 is the third slot, etc. If N is a negative number, it will reference N slots back from the current slot, i.e. -1 references the previous texture slot.
+</p>
+
+<pre id="vlayer">vlayer N</pre>
+
+<p>
+Sets the bottom texture layer for all textures in the current selection, as if by "texlayer" command. However, negative values of N are not supported.
 </p>
 
 <h3 id="blend_brushes">Blend Brushes</h3>
