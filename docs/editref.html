@@ -472,9 +472,6 @@
 <a href="#importcube"><tt>importcube</tt></a>
 </li>
 <li>
-<a href="#lodsize"><tt>lodsize</tt></a>
-</li>
-<li>
 <a href="#writeobj"><tt>writeobj</tt></a>
 </li>
 </ul>
@@ -1986,21 +1983,6 @@ correct these manually. The importcube command does not automatically save the
 map, you still have to do a /savecurrentmap which will create
 packages/cube/N.ogz. Reload the map to be able to pick up stuff. Waterlevel is
 also not supported, you will have to add water using the new material system.
-</p>
-
-<pre id="lodsize">lodsize N</pre>
-<p>
-Turn on world LOD (level of detail) for this map if N=32 (default is N=0, off).
-The state of this command is saved with the map. N is the size of the blocks
-that will be used for LOD, in theory you can use 16 or 64 as well, but this
-usually just either just hurts performance, memory usage or visual quality. Use
-32 unless you know exactly what you are doing. After setting this var, LOD will
-only become apparent after a "recalc" (and "calclight") command. Turning LOD on
-for a map is only useful on really large maps with lots of detail where you can
-see for half a mile, on smaller maps it will have no effect and only wastes
-memory / lightmap space. LOD works on entire vertex array blocks at a time, and
-is dependent on the "loddistance" variable which the player can set to trade
-off speed vs visual quality.
 </p>
 
 <pre id="writeobj">writeobj N</pre>
