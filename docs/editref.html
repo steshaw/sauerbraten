@@ -501,6 +501,9 @@
 <a href="#patchlight"><tt>patchlight</tt></a>
 </li>
 <li>
+<a href="#lightthreads"><tt>lightthreads</tt></a>
+</li>
+<li>
 <a href="#fullbright"><tt>fullbright</tt></a>
 </li>
 <li>
@@ -2074,6 +2077,13 @@ cubes will not properly cast shadows on surfaces that are already lit. It is
 recommended you do a "calclight" on your map before you publish it with
 "savemap". A quality setting Q may be supplied, which behaves the same as for
 "calclight".
+</p>
+
+<pre id="lightthreads">lightthreads N</pre>
+<p>
+This controls the number of threads (N) used by the "calclight" and "patchlight" commands
+You should set this variable to the number of processor cores you have to get a speed-up. 
+By default (N=1), no multi-threading is used. 
 </p>
 
 <pre id="fullbright">fullbright B</pre>
