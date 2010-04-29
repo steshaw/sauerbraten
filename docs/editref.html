@@ -319,6 +319,12 @@
 <a href="#vscale"><tt>vscale</tt></a>
 </li>
 <li>
+<a href="#texalpha"><tt>texalpha</tt></a>
+</li>
+<li>
+<a href="#valpha"><tt>valpha</tt></a>
+</li>
+<li>
 <a href="#vreset"><tt>vreset</tt></a>
 </li>
 <li>
@@ -945,6 +951,9 @@ gameclip: a game mode specific clip material. Currently it can block monsters in
 <li>
 death: causes the player to suicide if he is inside the material. Shows black volume in edit mode.
 </li>
+<li>
+alpha: all faces of cubes with this material are rendered transparently. Use the "valpha" and "texalpha" commands to control the transparency of front and back faces. Shows pink volume in edit mode.
+</li>
 </ul>
 
 <pre id="recalc">recalc</pre>
@@ -1468,6 +1477,16 @@ Scales the current texture slot such that it is N times its normal size.
 </p>
 
 <pre id="vscale">vscale N</pre>
+<p>
+Scales all textures in the current selection as if by the "texscale" command.
+</p>
+
+<pre id="texalpha">texalpha F B</pre>
+<p>
+Sets the alpha transparent of the front faces to F and back faces to B, where F and B are floating point values in the range 0.0 to 1.0. F defaults to 0.5, and B defaults to 0 (invisible).
+</p>
+
+<pre id="valpha">valpha F B</pre>
 <p>
 Scales all textures in the current selection as if by the "texscale" command.
 </p>
