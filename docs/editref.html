@@ -324,6 +324,11 @@
 <li>
 <a href="#valpha"><tt>valpha</tt></a>
 </li>
+<a href="#texcolor"><tt>texcolor</tt></a>
+</li>
+<li>
+<a href="#vcolor"><tt>vcolor</tt></a>
+</li>
 <li>
 <a href="#vreset"><tt>vreset</tt></a>
 </li>
@@ -1491,6 +1496,16 @@ Sets the alpha transparency of the front faces to F and back faces to B, where F
 Sets the alpha transparency of all textures in the current selection as if by the "texalpha" command.
 </p>
 
+<pre id="texcolor">texcolor R G B</pre>
+<p>
+Sets the color multiplier of the current texture slot to the color R G B, where R, G, and B are floating point values in the range 0.0 to 1.0. The default is white, i.e. (1.0 1.0 1.0).
+</p>
+
+<pre id="vcolor">vcolor R G B</pre>
+<p>
+Sets the color multiplier of all textures in the current selection as if by the "texcolor" command.
+</p>
+
 <pre id="vreset">vreset</pre>
 <p>
 Resets the texture configuration of all textures in the current selection to the defaults defined in the map cfg file.
@@ -1498,7 +1513,7 @@ Resets the texture configuration of all textures in the current selection to the
 
 <pre id="vdelta">vdelta BODY</pre>
 <p>
-Excutes all of the "v*" commands in BODY such that they now only add to the current values for the textures in the current selection, rather than simply setting them. For example, vdelta [vrotate 1] would add 1 to the current rotation value for the textures, rather than just setting their rotation value to 1. This affects the "vrotate" (adds), "voffset" (adds), "vscale" (multiplies), and "vshaderparam" (overrides) commands.
+Excutes all of the "v*" commands in BODY such that they now only add to the current values for the textures in the current selection, rather than simply setting them. For example, vdelta [vrotate 1] would add 1 to the current rotation value for the textures, rather than just setting their rotation value to 1. This affects the "vrotate" (adds), "voffset" (adds), "vscale" (multiplies), "vshaderparam" (overrides), and "vcolor" (multiplies) commands.
 </p>
 
 <pre id="fog">fog N</pre>
