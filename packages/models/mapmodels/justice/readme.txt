@@ -16,8 +16,6 @@ Mapmodels by Nieb.
 -vending
 -vent
 
-For use with Cube2:Sauerbraten only.
-
 Textures made with sources from:
 http://www.cgtextures.com/
 http://www.imageafter.com/
