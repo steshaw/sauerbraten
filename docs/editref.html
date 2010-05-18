@@ -17,6 +17,9 @@
 <div class="contents">
 <ul class="contents">
 <li>
+<a href="#preface"><b>Preface</b></a>
+</li>
+<li>
 <a href="#editing"><b>Editing</b></a>
 <ul class="contents2">
 <li>
@@ -756,6 +759,14 @@
 </li>
 </ul>
 </div>
+
+<h2 id="preface">Preface</h2>
+<p>
+<b>IMPORTANT NOTE:</b> When dealing with array attributes (getting a piece of information from a set of values)
+it is important to know that most start at zero (0) and count upwards from there. This means that the first
+value is 0, the second is 1, the third is 2 and so forth. Please keep this in mind, especially when dealing
+with entity attributes, as zero is always considered to be the first/default value, not 1.
+</p>
 
 <h2 id="editing">Editing</h2>
 
@@ -1814,7 +1825,8 @@ register your own. for example, <i>sound 0</i> and <i>sound (registersound
 <p>
 Registers sound "name" as a map-specific sounds. These map-specific sounds may currently only
 be used with "sound" entities within a map. The first map sound registered in a map has index 0, 
-and increases afterwards. V is volume adjustment; if not specified (0), it is the default 100, valid
+and increases afterwards (the second sound in the config is 1 and the third is 2, and so on).
+V is volume adjustment; if not specified (0), it is the default 100, valid
 range is 1-255. N is the maximum number instances of this sound that are allowed to play simultaneously;
 the default is only 1 instance. If N is -1, then an unlimited number of instances may play simultaneously.</p>
 
