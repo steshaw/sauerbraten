@@ -355,6 +355,9 @@
 <a href="#guilist"><tt>guilist</tt></a>
 </li>
 <li>
+<a href="#guialign"><tt>guialign</tt></a>
+</li>
+<li>
 <a href="#guititle"><tt>guititle</tt></a>
 </li>
 <li>
@@ -1178,6 +1181,11 @@ See "data/menus.cfg" for defaults.
 Defines a menu item that is a group of menu items. The layout of each nested group will alternate - the top level (newgui) is laid out vertically, 
 the first guilist will be laid out horizontally, the second guilist vertically, etc. This allows tables and lists to be created. The 
 layout direction also influences the display of items such as sliders, bars, progress bars, and struts.
+</p>
+
+<pre id="guialign">guialign ALIGN '[' ... ']'</pre>
+<p>
+Creates a list of menu items as with the "guilist" command, except that the list is either left justified (ALIGN=-1), centered (ALIGN=0), or right justified (ALIGN=1).
 </p>
 
 <pre id="guititle">guititle S</pre>
