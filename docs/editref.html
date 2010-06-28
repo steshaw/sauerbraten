@@ -2437,14 +2437,15 @@ A variety of pickup-able items, see <a href="./game.html">here</a>.
 </p>
 
 <pre id="_teleport_">"teleport" N [M]</pre>
-<pre id="_teledest_">"teledest" [Y] N</pre>
+<pre id="_teledest_">"teledest" [Y] N [P]</pre>
 <p>
 Creates a teleport connection, teleports are linked to a teledest with the same
 N (of which there should be exactly one). N can be 0..255. Y is the yaw of the destination and is
 initially taken from the current camera yaw, it cannot be specified when creating the entity. If M
 is 0 or not specified, the default teleporter model is used. If M is -1, no model is rendered for
 the teleporter. If M is a value 1 or greater, the corresponding mapmodel slot is used as the teleporter's
-model.
+model. If P is 1, the teledest preserves the velocity of the player, otherwise the player's velocity is
+reset upon teleporting.
 </p>
 
 <pre id="_jumppad_">"jumppad" Z [Y] [X]</pre>
