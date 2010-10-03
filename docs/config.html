@@ -128,9 +128,6 @@
 <a href="#push"><tt>push</tt></a>
 </li>
 <li>
-<a href="#pop"><tt>pop</tt></a>
-</li>
-<li>
 <a href="#quit"><tt>quit</tt></a>
 </li>
 <li>
@@ -797,14 +794,9 @@ Binds name N to commands A, after which you can use N as a shortcut for A. You
 may re-bind N as often as you like, call it recursively etc. You may use N = A as a shortcut for alias.
 </p>
 
-<pre id="push">push N A</pre>
+<pre id="push">push N A B</pre>
 <p>
-Pushes the old value of name N onto its stack, and then aliases N to A.
-</p>
-
-<pre id="pop">pop N</pre>
-<p>
-Pops the old value of name N off its stack, then aliases N to that value.
+Pushes the old value of name N onto its stack, and then aliases N to A, and executes B, after which the old value of N is restored from the stack.
 </p>
 
 <pre id="quit">quit</pre>
