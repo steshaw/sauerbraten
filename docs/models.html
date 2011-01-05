@@ -739,9 +739,9 @@ Secondary animations are:
 Starts a new animation part that will include bone B and all its sub-bones. This effectively splits animations up at the bone B, such that each animation part animates as if it were a separate model. Note that a new animation part has no animations (does not inherit any from the previous animation part). After an "md5load", an implicit animation part is started that involves all bones not used by other animation parts. Each model currently may only have 2 animation parts, including the implicit default part, so this command may only be used once and only once per md5mesh loaded. However, you do not need to specify any animation parts explicitly and can just use the default part for all animations, if you do not wish the animations to be split up/blended together.
 </p>
 
-<pre id="md5tag">md5tag B T</pre>
+<pre id="md5tag">md5tag B T [X Y Z] [RX RY RZ]</pre>
 <p>
-Assigns the tag name T to the bone B, for either use with "md5link" or attachment of other models via tags.
+Assigns the tag name T to the bone B, for either use with "md5link" or attachment of other models via tags. X, Y, and Z are an optional translation, whereas RX, RY, and RZ are optional rotations in degrees.
 </p>
 
 <pre id="md5link">md5link P C T [X Y Z]</pre>
@@ -753,9 +753,9 @@ child model. T name of the tag that specifies at which vertex the models should 
 X, Y, and Z are an optional translation for this link.
 </p>
 
-<pre id="md5adjust">md5adjust BONE YAW [PITCH] [ROLL]</pre>
+<pre id="md5adjust">md5adjust BONE YAW [PITCH] [ROLL] [X Y Z]</pre>
 <p>
-Adjusts bone BONE with the specified rotations, in degrees, on any animations loaded after this command is specified.
+Adjusts bone BONE with the specified rotations, in degrees, on any animations loaded after this command is specified. X, Y, and Z are an optional translation.
 </p>
 
 <h2 id="smd_format">SMD Format</h2>
