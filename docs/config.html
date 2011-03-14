@@ -212,9 +212,6 @@
 <a href="#mintexcompresssize"><tt>mintexcompresssize</tt></a>
 </li>
 <li>
-<a href="#loddistance"><tt>loddistance</tt></a>
-</li>
-<li>
 <a href="#watersubdiv"><tt>watersubdiv</tt></a>
 </li>
 <li>
@@ -929,15 +926,6 @@ This sets the maximum allow size of a texture in texture memory. If any texture'
 <pre id="mintexcompresssize">mintexcompresssize N</pre>
 <p>
 Any texture whose width or height is greater than or equal to N will be compressed using S3 texture compression, if available on your card. The default is set to 1024, so set this lower if your card supports S3TC and you have very little texture memory (i.e. 64 MB or less).
-</p>
-
-<pre id="loddistance">loddistance N</pre>
-<p>
-Sets the distance at which world vertex array blocks are rendered at a higher 
-LOD (level of detail). The lower this value, the more geometry popup you will 
-see, but the faster it may render. Every system has a different&nbsp;optimal 
-value, experiment. This variable only has an effect for large scale maps where 
-the level designer has turned on LOD using the "lodsize" variable.&nbsp;
 </p>
 
 <pre id="watersubdiv">watersubdiv N</pre>
