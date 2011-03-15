@@ -503,6 +503,15 @@
 <a href="#edgetolerance"><tt>edgetolerance</tt></a>
 </li>
 <li>
+<a href="#sunlight"><tt>sunlight</tt></a>
+</li>
+<li>
+<a href="#sunlightyaw"><tt>sunlightyaw</tt></a>
+</li>
+<li>
+<a href="#sunlightpitch"><tt>sunlightpitch</tt></a>
+</li>
+<li>
 <a href="#skylight"><tt>skylight</tt></a>
 </li>
 <li>
@@ -2079,6 +2088,21 @@ This controls how far an intersection with some geometry has to be from the surf
 <p>
 When lighting a map, each lightmap pixel is the result of many samples from a grid-pattern, as a result the sampling pattern may go over the edge of one triangle but behind another. Increasing this variable helps alleviate this, especially in terrain heavy maps.
  </p>
+
+<pre id="sunlight">sunlight R [G B]</pre>
+<p>
+This sets the color of a simple directional sunlight. R G B are values in the range 0..255 (default: 0). If only R, is specified it is interpreted as a grayscale light value. Use "sunlight 0" to disable.
+</p>
+
+<pre id="sunlightyaw">sunlightyaw YAW</pre>
+<p>
+This sets the yaw of the directional sunlight to YAW.
+</p>
+
+<pre id="sunlightpitch">sunlightpitch PITCH</pre>
+<p>
+This sets the pitch of the directional sunlight to PITCH.
+</p>
 
 <pre id="skylight">skylight R [G B]</pre>
 <p>
