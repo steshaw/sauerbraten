@@ -1,5 +1,10 @@
-Author: SkiingPenguins
-Copyright: Creative Commons (BY-NC-ND) [Creative Commons Attribution-Noncommercial-No Derivative]
-Author's Note: This Skybox may be used in all Cube related engines.
-Author's Note2: YOU MAY NOT PASS THIS WORK ON AS YOUR OWN. YOU MUST INCLUDE THIS FILE WITH THE FILES LISTED ABOVE. YOU MUST GIVE ALL CREDIT TO "SkiingPenguins" WHEN USING THIS SKYBOX.
-Author's Note3: you may not edit these files in any other way without written permission from the author.
+Sky/Cloud boxes created by SkiingPenguins (skiing_penguins@yahoo.com)
+Originally created for the first person shooter Cube 2: Sauerbraten
+This readme must always be included with the skybox files.
+
+Released under the Creative Commons BY-SA License
+http://creativecommons.org/licenses/by-sa/3.0/
+
+I would like to know where and in what games my skyboxes are used.
+If you do use them, please send me an email. I'd love to play whatever game you put them in.
+
