@@ -349,7 +349,7 @@
 <a href="#guilist"><tt>guilist</tt></a>
 </li>
 <li>
-<a href="#guialign"><tt>guialign</tt></a>
+<a href="#guispring"><tt>guispring</tt></a>
 </li>
 <li>
 <a href="#guititle"><tt>guititle</tt></a>
@@ -1165,9 +1165,9 @@ the first guilist will be laid out horizontally, the second guilist vertically, 
 layout direction also influences the display of items such as sliders, bars, progress bars, and struts.
 </p>
 
-<pre id="guialign">guialign ALIGN '[' ... ']'</pre>
+<pre id="guispring">guispring [W]</pre>
 <p>
-Creates a list of menu items as with the "guilist" command, except that the list is either left justified (ALIGN=-1), centered (ALIGN=0), or right justified (ALIGN=1).
+A list containing springs will fill its parent list along its layout direction by dividing any needed space among the springs. The spring is weighted by a positive integer W, otherwise defaults to W=1.
 </p>
 
 <pre id="guititle">guititle S</pre>
