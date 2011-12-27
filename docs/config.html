@@ -1306,17 +1306,17 @@ if you supply arguments when you execute an alias, and are popped when the alias
 </p>
 
 <p>
-There are two alternatives to "" for quoting a string: () and []. They work in
+There are three alternatives to "" for quoting a string: (), [], and {}. They work in
 the same way as "", with the difference that they can be nested infinitely, and
 that they may contain linefeeds (useful for larger scripts). () is different
-from [] in that it evaluates the commands contained in it _before_ it evaluates
+from [] and {} in that it evaluates the commands contained in it _before_ it evaluates
 the surrounding command, and substitutes the results. () bracketed strings are
-called expressions, and [] bracketed strings may be thought of as blocks.
+called expressions, while [] and {} bracketed strings may be thought of as blocks and quoted blocks, respectively.
 </p>
 
 <p>
 An alternative to $x is @x, which uses an alias as a macro. The difference is that @x 
-can be substituted inside [] or () forms before they have ever been evaluated (at parse time), 
+can be substituted inside [] forms before they have ever been evaluated (at parse time), 
 which makes them useful for composing strings or creating code on the fly. The @x form will be
 substituted using the value of x at the time the enclosing [] is evaluated. You can add more @ prefixes
 to move up more levels of []s, so @@x will move up two levels of []s and so on.
@@ -1324,10 +1324,19 @@ Example: x = 0; if $cond [x = 1; [x = 2; echo @@x]] will echo 0, since it uses t
 </p>
 
 <p>
+{} works exactly like [] except that it does not interpret @x macros, so are most useful to nest inside []s.
+Example: [{{{@x}}}] has the same effect as [[[[@@@@x]]]].
+</p>
+
+<p>
 The form @(body) is similar to @x, except that body contains commands executed at parse time.
 The result value after body executes is substituted in for @(body). 
 You may use multiple @ prefixes as with the @x form.
 Example: @(result "Hello, World!") will substitute itself with Hello, World!
+</p>
+
+<p>
+@[body] and @{body} are also similar to @(body), except that they do not execute their contents and instead expand macros or quote like otherwise to use as the alias name for the final macro substitution.
 </p>
 
 <p>
