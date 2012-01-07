@@ -1,0 +1,45 @@
+Description
+===========
+Files in this folder:
+
+by "Marvin2k"
+Odón Garcia Primo
+e-mail: odongarcia@gmail.com
+quad.obj
+skin.jpg
+masks.jpg
+normals.jpg
+
+make for Cube Game Engine.
+Don,t modifly without permisior or in another Game Engine.
+be free to share
+
+==========================================================================
+Lan hau Creative Commons-en Aitortu-Partekatu baimen beraren arabera 2.5
+==========================================================================
+
+Espainia baimenaren mende dago. Baimenaren kopia bat ikusi nahi izanez gero,
+jo http://creativecommons.org/licenses/by-sa/2.5/es/ gunera edo bidali gutun bat helbide honetara:
+Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+
+
+
+==========================================================================
+Esta obra está bajo una licencia Reconocimiento-No comercial-Compartir
+==========================================================================
+
+bajo la misma licencia 2.5 España de Creative Commons. Para ver una copia de esta licencia,
+visite http://creativecommons.org/licenses/by-nc-sa/2.5/es/
+o envie una carta a Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+
+
+==========================================================================
+This work is licensed under the Creative Commons Attribution-Share Alike 2.5 License.
+==========================================================================
+
+To view a copy of this license, 
+visit http://creativecommons.org/licenses/by-sa/2.5/ 
+or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+
+
+
