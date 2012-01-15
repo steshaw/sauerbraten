@@ -128,6 +128,9 @@
 <a href="#push"><tt>push</tt></a>
 </li>
 <li>
+<a href="#local"><tt>local</tt></a>
+</li>
+<li>
 <a href="#quit"><tt>quit</tt></a>
 </li>
 <li>
@@ -797,6 +800,11 @@ may re-bind N as often as you like, call it recursively etc. You may use N = A a
 <pre id="push">push N A B</pre>
 <p>
 Pushes the old value of name N onto its stack, and then aliases N to A, and executes B, after which the old value of N is restored from the stack.
+</p>
+
+<pre id="local">local N1 [N2...]</pre>
+<p>
+Makes the supplied variables local variables, such that their old values are saved onto the stack and restored at the end of the current block. They are initialized to null.
 </p>
 
 <pre id="quit">quit</pre>
