@@ -212,7 +212,7 @@
 <a href="#maxtexsize"><tt>maxtexsize</tt></a>
 </li>
 <li>
-<a href="#mintexcompresssize"><tt>mintexcompresssize</tt></a>
+<a href="#texcompress"><tt>texcompress</tt></a>
 </li>
 <li>
 <a href="#watersubdiv"><tt>watersubdiv</tt></a>
@@ -934,7 +934,7 @@ on slower hardware.
 This sets the maximum allow size of a texture in texture memory. If any texture's width or height is greater than N, the texture will be scaled down to be no more than NxN. This variable is not saved, and is reset on each run with the 3D card's texture size limit, so set this in your "autoexec.cfg" if you want to override it. Set this to a small value like 128 if your card has very little texture memory (i.e. 32 MB or less).
 </p>
 
-<pre id="mintexcompresssize">mintexcompresssize N</pre>
+<pre id="texcompress">texcompress N</pre>
 <p>
 Any texture whose width or height is greater than or equal to N will be compressed using S3 texture compression, if available on your card. The default is set to 1024, so set this lower if your card supports S3TC and you have very little texture memory (i.e. 64 MB or less).
 </p>
