@@ -64,16 +64,14 @@ so any script running Sauerbraten should set its current directory to where the 
 files are located before it runs the Sauerbraten client binaries. No silly symlinking tricks should 
 be at all necessary.
 
-When running the Sauerbraten client, two command-line switches should ALWAYS be supplied to
-the client binary. The first is "-q${HOME}/.sauerbraten", which will instruct Sauerbraten to
+When running the Sauerbraten client, one command-line switch should ALWAYS be supplied to
+the client binary. This is "-q${HOME}/.sauerbraten", which will instruct Sauerbraten to
 write any user private files such as saved maps and configurations to a private ".sauerbraten" 
 directory within each user's home directory. Sauerbraten will automatically create this
 directory and any subdirectories for each user running it, so do not pre-create this directory 
-or install any symlinks within it - as some Linux distribution packages currently erroneously do. 
-The second command-line switch that should always be supplied to the client binary is "-r", which 
-instructs the Sauerbraten client to restore any saved settings on restart. All command-line switches 
-supplied to the Sauerbraten run script should be passed to the Sauerbraten client after 
-these "-q${HOME}/.sauerbraten -r" switches.
+or install any symlinks within it - as some Linux distribution packages have erroneously done. 
+All command-line switches supplied to the Sauerbraten run script should be passed to the 
+Sauerbraten client after the "-q${HOME}/.sauerbraten" switch.
 
 A simple script such as the following (with directory/file names set as appropriate) would 
 ultimately suffice for the client:
@@ -81,7 +79,7 @@ ultimately suffice for the client:
 #!/bin/sh
 SAUER_DATA=/usr/share/games/sauerbraten
 SAUER_BIN=/usr/bin/sauerbraten_client
-SAUER_OPTIONS="-q${HOME}/.sauerbraten -r"
+SAUER_OPTIONS="-q${HOME}/.sauerbraten"
 
 cd ${SAUER_DATA}
 exec ${SAUER_BIN} ${SAUER_OPTIONS} "$@"
