@@ -5,3 +5,6 @@ blood.png
 bullet.png
     leileilol, GPL
 
+snow.png
+    Kevin "Hirato Kirata" Meyer (CC-BY-SA)
+
