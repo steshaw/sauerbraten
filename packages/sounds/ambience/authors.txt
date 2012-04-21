@@ -27,3 +27,8 @@ http://creativecommons.org/licenses/sampling+/1.0/
 Downloaded from 
 
 freesound.iua.upf.edu
+
+Files: lava2.ogg, lavarumble1.ogg, lavarumble2.ogg
+Copyright: Copyright Quinton "quin" Reeves, Alex "blackshoe" Anguix
+License: CC-BY-SA
+
