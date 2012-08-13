@@ -1,4 +1,6 @@
+Rigged and re-animated for skeletal animation by Geartrooper a.k.a. John Siar.
 
+Original license follows:
 
 10/11/98
 ================================================================
