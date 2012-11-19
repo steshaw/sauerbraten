@@ -950,7 +950,7 @@ replaced.
 
 <pre id="editmat">editmat MAT [FILTER]</pre>
 <p>
-Changes the type of material left behind when a cube is deleted to MAT. If FILTER is specified, then only cubes with that material named by FILTER are changed to MAT. MAT may also be "", indicating that only those parts of the material mask matching FILTER will be cleared, as opposed to setting MAT to "air", which would clear the entire material mask.
+Changes the type of material left behind when a cube is deleted to MAT. If FILTER is specified, then only cubes with that material named by FILTER are changed to MAT. MAT may also be "", indicating that only those parts of the material mask matching FILTER will be cleared, as opposed to setting MAT to "air", which would clear the entire material mask. FILTER may alternatively be one of "empty", "notempty", "solid", and "notsolid" which will then only affect cubes containing such geometry.
 </p>
 
 <p>
