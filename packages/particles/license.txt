@@ -8,3 +8,6 @@ bullet.png
 snow.png
     Kevin "Hirato Kirata" Meyer (CC-BY-SA)
 
+plasma.png
+    Slawomir 'Q009' Blauciak (CC-BY-SA)
+
