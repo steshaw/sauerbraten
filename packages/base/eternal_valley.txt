@@ -1,0 +1,19 @@
+Made for: Cube 2: Sauerbraten
+
+Map Title: eternal_valley
+Author(s): Zeronic, Cooper, Hewho, Eihrul
+
+Version: Final Release
+
+Current Release Date: 01/01/2013 | January.2013
+
+Suggested Game Modes: Capture The Flag, RegenCapture, FFA
+
+About the Map: It's a valley in between of a beautiful landscape.
+
+License: 
+
+This work is licensed under a Creative Commons 
+Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+
+http://creativecommons.org/licenses/by-nc-sa/3.0/
