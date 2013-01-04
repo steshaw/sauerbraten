@@ -1,16 +1,24 @@
+////////////////////////////////////////////////////////////////
 Made for: Cube 2: Sauerbraten
-
-Map Title: eternal_valley
-Author(s): Zeronic, Cooper, Hewho, Eihrul
-
+Map Title: Eternal Valley
+Author(s): Zeronic, HeWho, and Eihrul
+Build Time: ?
 Version: Final Release
+Current Release Date: January 2013
+Custom Texture/Skybox Authors: Penguins, for Yonder
+Suggested Game Modes: FFA, Capture, and CTF
+////////////////////////////////////////////////////////////////
+About the Map: A valley that will always prosper.
+////////////////////////////////////////////////////////////////
+Special Thanks: 
+- To eihrul for having faith in us to complete this map
+- To Majikal for helping fix playing issues
+- To Chris_0076, Suicizer, and Hirato for finding bugs
+////////////////////////////////////////////////////////////////
+Version: 
+	Didn't really keep track of versions!
 
-Current Release Date: 01/01/2013 | January.2013
-
-Suggested Game Modes: Capture The Flag, RegenCapture, FFA
-
-About the Map: It's a valley in between of a beautiful landscape.
-
+////////////////////////////////////////////////////////////////
 License: 
 
 This work is licensed under a Creative Commons 
