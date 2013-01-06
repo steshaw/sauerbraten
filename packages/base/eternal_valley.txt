@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////
 Made for: Cube 2: Sauerbraten
 Map Title: Eternal Valley
-Author(s): Zeronic, HeWho, and Eihrul
+Author(s): Zeronic, HeWho, Cooper, and Eihrul
 Build Time: ?
 Version: Final Release
 Current Release Date: January 2013
