@@ -65,7 +65,7 @@ pre           { margin: 15pt 0pt 3pt 20pt; font-family: monospace; }
 		<p>For heighfield editing functions such as applying a raise/lower circular "brush" to terrain, you can have a function to compute heighfield data from the current cube nodes, apply the operation, then apply the above algorithm again. </p>
 		<p>This will do some damage to the heighfields form, but hopefully not that much, and will give the heighfield its own style. </p>
 		<div>New Weapons </div>
-        <h3>Discussion can be followed <a href="http://cubeengine.com/forum.php4?action=display_thread&thread_id=237">here </a></h3>
+        <h3>Discussion can be followed <a href="http://cubeengine.com/forum.php?action=display_thread&thread_id=237">here </a></h3>
         <p>...coding new weapons. </p>
         <p>So it's my duty to detail step 2. ;) </p>
         <p>I sure hope that you've guessed you'll need to edit weapons.cpp. Add required stuff in cube.h Modify the weapon selection commands to be able to select it. Then you need to make ammo for it, use the .md2 of any weapon ammo, and edit the skin.jpg with a nice logo for your new shiny weapon. make a items_yourmodname.png with original Cube items, but this one is 256*256 instead of 192 so you can add new nice stuff, and modify renderextras to display your weapon logo on the HUD Then modify something like -don't remember- world.cpp or editing.cpp so that you can do /newent ammoforthisweapon eventually model a hudgun or use an existing one. I think i didn't forgot something. </p>
@@ -99,10 +99,10 @@ Keep in mind that the batch file for this guide is also available <a href="http:
     <p>Learn to light levels properly. Start with the biggest, most prominent lights first and continue on down as required. For many levels that means the correct placement of a sunlight (newent light 0 255 200 100) somewhere high up. </p>
     <p>see also </p>
     <ul>
-      <li><a href="http://cubeengine.com/forum.php4?action=display_thread&thread_id=286&start=986">post 986 </a></li>
-      <li><a href="http://cubeengine.com/forum.php4?action=display_thread&thread_id=286&start=987">post 987 </a></li>
+      <li><a href="http://cubeengine.com/forum.php?action=display_thread&thread_id=286&start=986">post 986 </a></li>
+      <li><a href="http://cubeengine.com/forum.php?action=display_thread&thread_id=286&start=987">post 987 </a></li>
     </ul>
-    This post is pretty much straight from the sauer dev thread <a href="http://cubeengine.com/forum.php4?action=display_thread&thread_id=286&start=960">here </a>
+    This post is pretty much straight from the sauer dev thread <a href="http://cubeengine.com/forum.php?action=display_thread&thread_id=286&start=960">here </a>
     <p>I added some punctuation, fixed capitalization, and added a few words so it would make more sense. </p>
     <p>edited by mreynolds </p>
     <div> Sauerbraten future development timeline </div>
@@ -137,7 +137,7 @@ Keep in mind that the batch file for this guide is also available <a href="http:
       </tr>
     </table>
     <div>Wiki usage </div>
-    <p>The Cube forum ( <a href="http://www.cubeengine.com/forum.php4">http://www.cubeengine.com/forum.php4 </a> ) contains many large posts containing valuable information, which all too often is very hard to find. </p>
+    <p>The Cube forum ( <a href="http://www.cubeengine.com/forum.php">http://www.cubeengine.com/forum.php </a> ) contains many large posts containing valuable information, which all too often is very hard to find. </p>
     <p>From now on, whenever I am explaining something that is a larger text, I will put it on the wiki and link to it on the forum instead. That way it will be easier to build up a knowledge base. </p>
     <p>The first example is my post about portals. </p>
     <p>I strongly encourage you to do the same. Let's build this wiki up together and make it a dual to this forum. Knowledge goes in the wiki, temporal stuff and discussion goes in the forum. Things can move from the forum to the wiki once discussion has reached a conclusion. </p>
